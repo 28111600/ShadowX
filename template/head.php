@@ -50,8 +50,8 @@
                     <!--<div class="pull-left">
                         <i class="fa fa-user user-image" aria-hidden="true"></i></div>-->
                     <div class="pull-left info">
-                        <p>xiaodong</p>
-                        <small class="user-email">28111600@qq.com</small>
+                        <p><?php echo $User->GetUserName(); ?></p>
+                        <small class="user-email"><?php echo $User->GetEmail(); ?></small>
                     </div>
                 </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
