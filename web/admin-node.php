@@ -1,5 +1,6 @@
 <?php
 require_once '../template/main.php';
+require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
 $node = new ShadowX\Node();
@@ -80,5 +81,34 @@ require_once '../template/footer.php'; ?>
         var to = <?php echo $to; ?>;
         var interval =  <?php echo $interval; ?>;
         showUsage(".usage", from, to, interval);
+    })();
+    !(function() {
+        $(".node-del").click(function(){
+            if (confirm("确认删除此节点？")) {
+                var id = $(this).data("id");
+                $.ajax({
+                    type:"POST",
+                    url:"ajax/node.php",
+                    dataType:"json",
+                    data:{
+                        action: "del",
+                        id: id
+                    },
+                    success:function(data){
+                        if(data.ok){
+                            new Message(data.msg, "success");
+                            setTimeout(function(){ location.reload(); }, 1000);
+                        }else{
+                            new Message(data.msg, "error");
+                            setTimeout(function(){ location.reload(); }, 1000);
+                        }
+                    },
+                    error:function(jqXHR){
+                        new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    }
+                })
+            }
+            return false;
+        })
     })();
 </script>
