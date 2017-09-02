@@ -22,15 +22,15 @@ class Utility {
         $sign = ($value >=0) ? 1 : -1;
         $value = abs($value);
         if ($value > $gb) {
-            echo round($sign*$value/$gb, 2)." GB";
+            return round($sign*$value/$gb, 2)." GB";
         }
         else if ($value > $mb) {
-            echo round($sign*$value/$mb, 2)." MB";
+            return round($sign*$value/$mb, 2)." MB";
         }
         else if ($value > $kb) {
-            echo round($sign*$value/$kb, 2)." KB";
+            return round($sign*$value/$kb, 2)." KB";
         } else {
-            echo round($sign*$value, 2)." B";
+            return round($sign*$value, 2)." B";
         }
     }
 
