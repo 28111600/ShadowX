@@ -39,7 +39,7 @@ class User {
     }
 
     function getTransfer(){
-        return $data['u'] + data['d'];
+        return $data['u'] + $data['d'];
     }
 
     function getTransferEnable(){
