@@ -82,12 +82,12 @@ $pagelast  = min($pagelast,$pagemax);
                 </div>
             </div>
             <div class="btn-group">
-                <button type="button" class="btn btn-default" onclick="location.reload();">刷新</button>
+                <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
             </div>
 <?php
     if ($url_log_calendar) { ?>
             <div class="btn-group">
-                <a class="btn btn-default" href="<?php echo $url_log_calendar; ?>">在日历中查看</a>
+                <a class="btn btn-success" href="<?php echo $url_log_calendar; ?>">日历视图</a>
             </div>
 <?php } ?>
         </div>

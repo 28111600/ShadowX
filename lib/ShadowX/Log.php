@@ -73,7 +73,6 @@ function getLogsRange($from,$to,$type,$node_id,$timeoffset=0){
     $where = " WHERE ".$where_from_to.$where_user.$where_node.$group." ";
 
     $datas = $this->db->query("SELECT SUM(log.u) AS u, SUM(log.d) AS d,".$select_t." FROM log ".$where." ORDER BY log.t asc;");
-
     return $datas;
     }
 }
