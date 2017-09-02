@@ -46,8 +46,8 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                                 <tr>
                                     <td colspan="2">
                                         <div class="progress-group">
-                                            <div class="progress sm" data-toggle="tooltip" data-placement="top" title='<?php echo used; ?>%'>
-                                                <div class="progress-bar progress-bar-primary" style="width: <?php echo used; ?>%"></div>
+                                            <div class="progress sm" data-toggle="tooltip" data-placement="top" title='<?php echo $used; ?>%'>
+                                                <div class="progress-bar progress-bar-primary" style="width: <?php echo $used; ?>%"></div>
                                             </div>
                                         </div>
                                     </td>
