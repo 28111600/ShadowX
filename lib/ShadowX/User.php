@@ -23,27 +23,27 @@ class User {
     }
 
     function GetEmail(){
-        return $data['email'];
+        return $this->data['email'];
     }
 
     function GetUserName(){
-        return $data['user_name'];
+        return $this->data['user_name'];
     }
 
     function getPort(){
-         return $data['port'];
+         return $this->data['port'];
     }
 
     function getPass(){
-        return $data['passwd'];
+        return $this->data['passwd'];
     }
 
     function getTransfer(){
-        return $data['u'] + $data['d'];
+        return $this->data['u'] + $this->data['d'];
     }
 
     function getTransferEnable(){
-        return $data['transfer_enable'];
+        return $this->data['transfer_enable'];
     }
 
     function getUnusedTransfer(){
@@ -51,7 +51,7 @@ class User {
     }
 
     function getLastUseTime(){
-        return $data['t'];
+        return $this->data['t'];
     }
 
     function addTransfer($transfer=0){
