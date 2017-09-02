@@ -1,6 +1,6 @@
 <?php
-require_once 'template/main.php';
-require_once 'template/head.php';
+require_once '../template/main.php';
+require_once '../template/head.php';
 
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -97,7 +97,7 @@ require_once 'template/head.php';
 </div>
 <!-- /.content-wrapper -->
 <?php
-require_once 'template/footer.php'; ?>
+require_once '../template/footer.php'; ?>
 
 <!-- Chart 2.6.0 -->
 <script src="asset/js/chart.bundle.min.js"></script>
