@@ -15,6 +15,11 @@ class User {
         $this->data = $this->getUser();
     }
 
+    function getAllUsers(){
+       $datas = $this->db->select($this->table,"*");
+       return $datas;
+    }
+
     function getUser(){
         $datas = $this->db->select($this->table,"*",[
             "uid" => $this->uid,

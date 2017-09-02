@@ -91,8 +91,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="admin_user.php">
-                            <i class="fa fa-user"></i> <span>查看用户</span>
+                        <a href="admin-user.php">
+                            <i class="fa fa-user"></i> <span>用户列表</span>
                         </a>
                     </li>
                     <li>
