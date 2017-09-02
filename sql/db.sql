@@ -91,15 +91,14 @@ CREATE TABLE `ss_node` (
   `server` varchar(128) NOT NULL,
   `method` varchar(64) NOT NULL,
   `info` varchar(128) NOT NULL,
-  `status` varchar(128) NOT NULL,
   `loadavg` varchar(64) NOT NULL,
   `uptime` int(11) NOT NULL DEFAULT 0,
   `checktime` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `ss_node` (`node_id`, `name`, `server`, `method`, `info`, `status`, `loadavg`, `uptime`, 'checktime') VALUES
-(1, '第一个节点', 'node.url.io', 'aes-256-cfb', 'node描述', '可用', 0, '0.00,0.00,0.00', '0', '0');
+INSERT INTO `ss_node` (`node_id`, `name`, `server`, `method`, `info`, `loadavg`, `uptime`, 'checktime') VALUES
+(1, '第一个节点', 'node.url.io', 'aes-256-cfb', 'node描述', 0, '0.00,0.00,0.00', '0', '0');
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";

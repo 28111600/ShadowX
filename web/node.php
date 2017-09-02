@@ -75,7 +75,6 @@ $node = new ShadowX\Node();
                                 <tr><td>节点地址</td> <td class="text-right"><?php echo $row['server']; ?></td></tr>
                             </thead>
                             <tbody>
-                                <tr><td>状态</td> <td class="text-right"><?php echo $row['status']; ?></td></tr>
                                 <tr><td>加密方式</td> <td class="text-right"><?php echo $row['method']; ?></td></tr>
                                 <tr><td>说明</td> <td class="text-right"><?php echo $row['info']; ?></td></tr>
                                 <tr><td>Uptime</td> <td class="text-right"><?php echo ShadowX\Utility::getUptime($row['uptime']); ?></td></tr>

@@ -30,25 +30,23 @@ class Node {
         return $datas;
     }
 
-    function addNode($name,$server,$method,$info,$status,$node_id){
+    function addNode($name,$server,$method,$info,$node_id){
         $this->db->insert($this->table, [
             "name" => $name,
             "server" => $server,
             "method" => $method,
             "info" => $info,
-            "status" => $status,
             "node_id" =>  $node_id
         ]);
         return 1;
     }
     
-    function updateNode($name,$server,$method,$info,$status,$node_id){
+    function updateNode($name,$server,$method,$info,$node_id){
         $this->db->update($this->table, [
             "name" => $name,
             "server" => $server,
             "method" => $method,
             "info" => $info,
-            "status" => $status,
             "node_id" =>  $node_id
         ],[
             "id[=]"  => $this->id
