@@ -7,7 +7,7 @@ $url_log = 'log.php';
 date_default_timezone_set('UTC');
 
 $Log = new ShadowX\Log($User->getUid());
-$t = isset($_GET['t']) ? strtotime($_GET['t']) : time();;
+$t = isset($_GET['t']) ? strtotime($_GET['t']."/01") : time();;
 $from = strtotime(date("Y-m-d", mktime(0, 0, 0, date("m", $t), 1, date("Y", $t))));
 $to = strtotime(date("Y-m-d", mktime(0, 0, 0, date("m", $t), date("t", $t), date("Y", $t))));
 $logs = $Log->getLogsRange($from, $to, 'days', '', $timeoffset);
