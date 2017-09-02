@@ -5,11 +5,9 @@ require_once '../template/head.php';
 
 $node = new ShadowX\Node();
 
-$Log = new ShadowX\Log();
 $interval = 1200;
 $to = strtotime(date("Y-m-d H:i", floor((time() + $timeoffset) / $interval) * $interval).":00");
 $from = $to - 3600 * 24;
-$logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -31,7 +29,9 @@ $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
         <div class="row">
         <?php
         $nodes = $node->getAllNodes();
-        foreach($nodes as $row){ ?>
+        foreach($nodes as $row){ 
+        $Log = new ShadowX\Log($row['node_id']);
+        $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset); ?>
             <div class="col-md-6">
                 <div class="nav-tabs-custom box box-primary">
                     <ul class="nav nav-tabs pull-right">
