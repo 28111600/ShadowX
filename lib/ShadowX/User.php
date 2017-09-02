@@ -13,7 +13,7 @@ class User {
         $this->db  = $db;
     }
 
-    function getUserArray(){
+    function getUser(){
         $datas = $this->db->select($this->table,"*",[
             "uid" => $this->uid,
             "LIMIT" => "1"
@@ -21,20 +21,28 @@ class User {
         return $datas[0];
     }
 
+    function GetEmail(){
+        return $this->UserArray()['email'];
+    }
+
+    function GetUserName(){
+        return $this->UserArray()['user_name'];
+    }
+
     function getPort(){
-         return $this->getUserArray()['port'];
+         return $this->getUser()['port'];
     }
 
     function getPass(){
-        return $this->getUserArray()['passwd'];
+        return $this->getUser()['passwd'];
     }
 
     function getTransfer(){
-        return $this->getUserArray()['u'] + $this->getUserArray()['d'];
+        return $this->getUser()['u'] + $this->getUser()['d'];
     }
 
     function getTransferEnable(){
-        return $this->getUserArray()['transfer_enable'];
+        return $this->getUser()['transfer_enable'];
     }
 
     function getUnusedTransfer(){
@@ -42,7 +50,7 @@ class User {
     }
 
     function getLastUseTime(){
-        return $this->getUserArray()['t'];
+        return $this->getUser()['t'];
     }
 
     function addTransfer($transfer=0){
