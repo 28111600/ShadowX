@@ -2,6 +2,8 @@
 require_once '../template/main.php';
 require_once '../template/head.php';
 
+$url_log = 'log.php';
+
 $Log = new ShadowX\Log($User->getUid());
 $to = strtotime(date("Y-m-d 00:00:00", time() + $timeoffset));
 $from = strtotime(date("Y-m-1 00:00:00", time() + $timeoffset));
@@ -17,20 +19,30 @@ $logs = $Log->getLogsRange($from, $to, 'days', '', $timeoffset);
     </section>
     <!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-md-12 col-lg-9">
-          <div class="box box-primary">
-            <div class="box-body no-padding">
-              <!-- THE CALENDAR -->
-              <div id="calendar"></div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+<?php
+    if ($url_log) { ?>
+                <div class="btn-group">
+                    <a class="btn btn-default" href="<?php echo $url_log; ?>">返回流量日志</a>
+                </div>
+<?php } ?>
             </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /. box -->
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+        <div class="row">
+            <div class="col-md-12 col-lg-9">
+                <div class="box box-primary">
+                    <div class="box-body no-padding">
+                        <!-- THE CALENDAR -->
+                        <div id="calendar"></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /. box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
     </section>
     <!-- /.content -->
 </div>
