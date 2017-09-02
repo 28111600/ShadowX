@@ -3,7 +3,7 @@ namespace ShadowX;
 
 class Utility {
     //获取随机字符串
-    static function get_random_char( $length = 8 ) {
+    static function getRandomChar($length = 8) {
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
         $char = '';
         for ( $i = 0; $i < $length; $i++ )
