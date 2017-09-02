@@ -35,6 +35,12 @@ class User {
         return $this->data['user_name'];
     }
 
+    function isAdmin(){
+        return $this->db->has("ss_user_admin",[
+            "uid" => $this->uid
+        ]);
+    }
+
     function getPort(){
          return $this->data['port'];
     }
