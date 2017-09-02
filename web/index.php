@@ -25,17 +25,17 @@ require_once '../template/head.php';
                             <thead>
                                 <tr>
                                     <td>已用流量</td>
-                                    <td>18.69 GB</td>
+                                    <td><?php \ShadowX\Utility::getSize($User->getTransfer()); ?></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>剩余流量</td>
-                                    <td>981.31 GB</td>
+                                    <td><?php \ShadowX\Utility::getSize($User->getUnusedTransfer()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>总流量</td>
-                                    <td>1000 GB</td>
+                                    <td><?php \ShadowX\Utility::getSize($User->getTransferEnable()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>24小时流量</td>
