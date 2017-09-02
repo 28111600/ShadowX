@@ -3,6 +3,7 @@ require_once '../template/main.php';
 require_once '../template/head.php';
 
 $uid_log = $User->getUid();
+$log_calendar = 'log-calendar.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
