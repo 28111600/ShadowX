@@ -1,9 +1,9 @@
 <?php
 
 //Version
-$version   ="0.1.0";
+$version = "0.1.0";
 
-//set timezone
+//Set timezone
 date_default_timezone_set('UTC');
 
 //Using Mysqli
@@ -12,7 +12,6 @@ $db_char = DB_CHARSET;
 $dbc->query("SET NAMES utf8;");
 $dbc->query("SET time_zone = '+0:00';");
 
-//$dbinfo
 $dbInfo['database_type'] = DB_TYPE;
 $dbInfo['database_name'] = DB_DBNAME;
 $dbInfo['server'] = DB_HOST;
