@@ -10,16 +10,6 @@
     transition: unset;
 }
 
-.user-panel>.info {
-    position: relative;
-    left: 0;
-}
-
-.user-image {
-    color: white;
-    font-size: 4.5em;
-}
-
 .skin-black .main-header>.logo,
 .skin-black .main-header .navbar>.sidebar-toggle {
     border: none;
@@ -57,16 +47,23 @@
     background-color: #efefef;
 }
 
-.pagination {
-    margin: 0;
+.user-panel>.info {
+    position: relative;
+    font-weight: normal;
+    left: 0;
 }
 
-.row {
-    margin-bottom: 10px;
+.user-image {
+    color: white;
+    font-size: 4.5em;
 }
 
-.log-date {
-    width: 10em;
+.user-panel>.info>.user-email {
+    font-size: .75em;
+}
+
+.vertical-middle {
+    vertical-align: middle!important;
 }
 
 .multiple-row {
@@ -74,6 +71,26 @@
     border-right: 1px solid #f4f4f4;
 }
 
-.vertical-middle {
-    vertical-align: middle!important;
+.table>tbody+tbody {
+    border-top: 0;
+}
+
+.table-hover>tbody:hover .multiple-row {
+    background-color: #f5f5f5;
+}
+
+.table {
+    overflow: hidden;
+}
+
+.log-date {
+    width: 10em;
+}
+
+.progress-usage {
+    min-width: 10em;
+}
+
+.row {
+    margin-bottom: 10px;
 }
