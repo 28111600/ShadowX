@@ -8,7 +8,7 @@ class User {
 
     public $uid;
 
-    function __construct($uid=0){
+    function __construct($uid=-1){
         global $db;
         $this->uid  = $uid;
         $this->db   = $db;
@@ -20,7 +20,7 @@ class User {
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
-        return $datas[0];
+        return count($datas) > 0 ? $datas[0] : [];
     }
 
     function getUid(){
