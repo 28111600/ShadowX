@@ -91,7 +91,7 @@
     min-width: 10em;
 }
 
-.row {
+.row>div {
     margin-bottom: 10px;
 }
 
