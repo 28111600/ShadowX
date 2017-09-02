@@ -15,7 +15,7 @@ class Log {
         $this->db  = $db;
     }
 
-    function Logs($page=0,$type,$node_id,$timeoffset=0){
+    function getLogs($page=0,$type,$node_id,$timeoffset=0){
     if ($type == "hours"){
         $select_t = " UNIX_TIMESTAMP(FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H:00:00')) AS t ";
         $group = " GROUP BY CONCAT(log.port,FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H')) ";
@@ -46,7 +46,7 @@ class Log {
     return $datas;
     }
 
-function LogsRange($from,$to,$type,$node_id,$timeoffset=0){
+function getLogsRange($from,$to,$type,$node_id,$timeoffset=0){
     if ($type == "10min"){
         $select_t = " floor((log.t + ".$timeoffset.") / 600) * 600 AS t ";
         $group = " GROUP BY FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H:%i') ";
@@ -76,5 +76,4 @@ function LogsRange($from,$to,$type,$node_id,$timeoffset=0){
 
     return $datas;
     }
-
 }
