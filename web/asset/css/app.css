@@ -94,3 +94,7 @@
 .row {
     margin-bottom: 10px;
 }
+
+.pagination {
+    margin: 0;
+}
