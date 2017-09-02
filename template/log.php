@@ -8,7 +8,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : "hours";
 $node_id = isset($_GET['id']) ? $_GET['id'] : "";
 
 if ($node_id !== ""){
-    $nodes = $node->AllNode();
+    $nodes = $node->getAllNodes();
     foreach($nodes as $rs){
         if ($rs['node_id'] === $node_id){
             $name = $rs['name'];
@@ -74,7 +74,7 @@ $pagelast  = min($pagelast,$pagemax);
                     <ul class="dropdown-menu">
                         <li><a href="?type=<?php echo $type;?>">All</a></li>
                     <?php
-                    $nodes = $node->AllNode();
+                    $nodes = $node->getAllNodes();
                     foreach($nodes as $rs){ ?>
                         <li><a href="?type=<?php echo $type;?>&id=<?php echo $rs['node_id'];?>"><?php echo $rs['name']; ?></a></li>
                     <?php } ?>
@@ -86,7 +86,7 @@ $pagelast  = min($pagelast,$pagemax);
             </div>
         </div>
         <div class="col-xs-12 col-sm-6 text-right">
-            <div class="dataTables_paginate">
+            <div>
                 <ul class="pagination">
                 <?php if ($page == 1){ ?>
                     <li class="paginate_button previous disabled">
@@ -151,8 +151,8 @@ function showRows($rows, $date) {
         } ?>
                                 <td><?php echo $row['user_name']; ?></td>
                                 <td><?php echo $row['port']; ?></td>
-                                <td class="text-right"><?php if ($row['u'] != 0) { \Ss\Etc\Comm::flowAutoShow($row['u']); } else { echo '-'; } ?></td>
-                                <td class="text-right"><?php if ($row['d'] != 0) { \Ss\Etc\Comm::flowAutoShow($row['d']); } else { echo '-'; } ?></td>
+                                <td class="text-right"><?php if ($row['u'] != 0) { echo \ShadowX\Utility::getSize($row['u']); } else { echo '-'; } ?></td>
+                                <td class="text-right"><?php if ($row['d'] != 0) { echo \ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
                             </tr><?php
         $index++;
     } ?>
