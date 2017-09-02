@@ -84,7 +84,7 @@
                     </li>
                     <li class="header">管理</li>
                     <li>
-                        <a href="admin_node.php">
+                        <a href="admin-node.php">
                             <i class="fa fa-server"></i> <span>节点列表</span>
                         </a>
                     </li>
