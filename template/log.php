@@ -157,8 +157,8 @@ function showRows($rows, $date) {
         } ?>
                                 <td><?php echo $row['user_name']; ?></td>
                                 <td><?php echo $row['port']; ?></td>
-                                <td class="text-right"><?php if ($row['u'] != 0) { echo \ShadowX\Utility::getSize($row['u']); } else { echo '-'; } ?></td>
-                                <td class="text-right"><?php if ($row['d'] != 0) { echo \ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
+                                <td class="text-right"><?php if ($row['u'] != 0) { echo ShadowX\Utility::getSize($row['u']); } else { echo '-'; } ?></td>
+                                <td class="text-right"><?php if ($row['d'] != 0) { echo ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
                             </tr><?php
         $index++;
     } ?>
