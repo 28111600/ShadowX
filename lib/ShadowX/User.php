@@ -18,7 +18,7 @@ class User {
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
-        return $datas[0];
+        return $datas['0'];
     }
 
     function  getPort(){
