@@ -7,7 +7,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $type = isset($_GET['type']) ? $_GET['type'] : "hours";
 $node_id = isset($_GET['id']) ? $_GET['id'] : "";
 
-if ($node_id !== ""){
+if ($node_id !== "" && $node_id !== "all"){
     $nodes = $node->getAllNodes();
     foreach($nodes as $rs){
         if ($rs['node_id'] === $node_id){
@@ -15,7 +15,8 @@ if ($node_id !== ""){
         }
     }
 } else {
-    $name = 'All';
+    $name = "All";
+    $node_id = "";
 }
 
 if ($type == "days") {
@@ -53,7 +54,7 @@ $pagelast  = min($pagelast,$pagemax);
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-xs-12 col-sm-6">
+        <div class="col-xs-12 col-lg-6">
             <div class="btn-group">
                 <div class="dropdown btn-group">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -61,9 +62,9 @@ $pagelast  = min($pagelast,$pagemax);
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="?type=hours&id=<?php echo $node_id;?>">Hours</a></li>
-                        <li><a href="?type=days&id=<?php echo $node_id;?>">Days</a></li>
-                        <li><a href="?type=months&id=<?php echo $node_id;?>">Months</a></li>
+                        <li><a href="?type=hours&id=<?php echo $node_id; ?>">Hours</a></li>
+                        <li><a href="?type=days&id=<?php echo $node_id; ?>">Days</a></li>
+                        <li><a href="?type=months&id=<?php echo $node_id; ?>">Months</a></li>
                     </ul>
                 </div>
                 <div class="dropdown btn-group">
@@ -72,7 +73,7 @@ $pagelast  = min($pagelast,$pagemax);
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="?type=<?php echo $type;?>">All</a></li>
+                        <li><a href="?type=<?php echo $type;?>&id=all">All</a></li>
                     <?php
                     $nodes = $node->getAllNodes();
                     foreach($nodes as $rs){ ?>
@@ -91,7 +92,7 @@ $pagelast  = min($pagelast,$pagemax);
             </div>
 <?php } ?>
         </div>
-        <div class="col-xs-12 col-sm-6 text-right">
+        <div class="col-xs-12 col-lg-6 text-right">
             <div>
                 <ul class="pagination">
                 <?php if ($page == 1){ ?>

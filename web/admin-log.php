@@ -4,7 +4,7 @@ require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
 $uid_log = 0;
-$url_log_calendar = '';
+$url_log_calendar = 'admin-log-calendar.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

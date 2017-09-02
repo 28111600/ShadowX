@@ -1,9 +1,10 @@
 <?php
 require_once '../template/main.php';
+require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
-$url_log = 'log.php';
-$uid_log = $User->getUid();
+$uid_log = 0;
+$url_log = 'admin-log.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">

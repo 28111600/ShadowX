@@ -13,7 +13,7 @@ require_once '../template/head.php';
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-lg-6">
                 <div class="btn-group">
                     <a class="btn btn-default" href="#>">链接1</a>
                     <a class="btn btn-default" href="#>">链接2</a>
