@@ -1,0 +1,54 @@
+.main-sidebar,
+.content-wrapper,
+.main-footer,
+.main-header .logo,
+.main-header .navbar,
+.main-header .logo {
+    -webkit-transition: unset;
+    -moz-transition: unset;
+    -o-transition: unset;
+    transition: unset;
+}
+
+.user-panel>.info {
+    position: relative;
+    left: 0;
+}
+
+.user-image {
+    color: white;
+    font-size: 4.5em;
+}
+
+.skin-black .main-header>.logo,
+.skin-black .main-header .navbar>.sidebar-toggle {
+    border: none;
+}
+
+.skin-black .main-header .navbar .sidebar-toggle:hover {
+    color: white;
+    background-color: #367fa9;
+}
+
+.skin-black .main-header .navbar>.sidebar-toggle,
+.skin-black .main-header .navbar,
+.skin-black .main-header>.logo,
+.skin-black .main-header>.logo:hover {
+    background-color: #222d32;
+    color: white;
+}
+
+@media (max-width: 767px) {
+    .main-sidebar {
+        padding-top: 50px;
+    }
+}
+
+.sidebar-mini.sidebar-collapse .main-header .navbar,
+.main-header .navbar {
+    margin-left: 0;
+}
+
+.ss-pwd-toggle {
+    cursor: pointer;
+}
