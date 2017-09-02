@@ -86,4 +86,23 @@ class User {
             "uid" => $this->uid
         ]);
     }
+
+    function isEmailLogin($email,$passwd){
+        return $this->db->has($this->table,[
+            "AND" => [
+                "email" => $email,
+                "pass" => $passwd
+            ]
+        ]);
+    }
+
+    function getUidByEmail($email){
+        $datas = $this->db->select($this->table,"*",[
+            "email" => $email,
+            "LIMIT" => 1
+        ]);
+        return $datas['0']['uid'];
+    }
+
+
 }
