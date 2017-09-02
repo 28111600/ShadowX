@@ -17,6 +17,10 @@ class Utility {
         return date('Y-m-d H:i:s',$time);
     }
 
+    static function getPwdHash($pw){
+        global $salt;
+        return hash('sha256',$pw.$salt);
+    }
     static function getSize($value){
         $kb = 1024; $mb = 1024 * 1024; $gb = 1024 * 1024 * 1024;
         $sign = ($value >=0) ? 1 : -1;
