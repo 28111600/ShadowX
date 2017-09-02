@@ -7,7 +7,7 @@ class User {
 
     private $table = "user";
 
-    function  __construct($uid=0){
+    function __construct($uid=0){
         global $db;
         $this->uid = $uid;
         $this->db  = $db;
@@ -18,14 +18,14 @@ class User {
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
-        return $datas['0'];
+        return $datas[0];
     }
 
-    function  getPort(){
+    function getPort(){
          return $this->getUserArray()['port'];
     }
 
-    function  getPass(){
+    function getPass(){
         return $this->getUserArray()['passwd'];
     }
 
@@ -33,7 +33,7 @@ class User {
         return $this->getUserArray()['u'] + $this->getUserArray()['d'];
     }
 
-    function  getTransferEnable(){
+    function getTransferEnable(){
         return $this->getUserArray()['transfer_enable'];
     }
 
@@ -45,7 +45,7 @@ class User {
         return $this->getUserArray()['t'];
     }
 
-    function  addTransfer($transfer=0){
+    function addTransfer($transfer=0){
         $transfer = $this->getTransferEnable() + $transfer;
         $this->db->update($this->table,[
             "transfer_enable" => $transfer
