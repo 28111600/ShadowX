@@ -82,7 +82,7 @@ $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
                             <tbody>
                                 <tr>
                                     <td>密码</td>
-                                    <td><code class="ss-pwd-toggle" data-value="<?php echo addslashes($User->getPass()); ?>">点击查看</code></td>
+                                    <td><code class="ss-pwd-toggle" data-value="<?php echo addslashes($User->getSsPasswd()); ?>">点击查看</code></td>
                                 </tr>
                                 <tr>
                                     <td>最后使用时间</td>

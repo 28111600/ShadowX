@@ -50,8 +50,12 @@ class User {
          return $this->data['port'];
     }
 
-    function getPass(){
+    function getSsPasswd(){
         return $this->data['passwd'];
+    }
+
+    function getPasswd(){
+        return $this->data['pass'];
     }
 
     function getTransfer(){
