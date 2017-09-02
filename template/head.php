@@ -94,7 +94,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="admin_log.php">
+                        <a href="admin-log.php">
                             <i class="fa fa-bar-chart"></i> <span>流量日志</span>
                         </a>
                     </li>
