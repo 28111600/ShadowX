@@ -6,12 +6,6 @@ $version = "0.1.0";
 //Set timezone
 date_default_timezone_set('UTC');
 
-//Using Mysqli
-$dbc = new mysqli(DB_HOST,DB_USER,DB_PWD,DB_DBNAME);
-$db_char = DB_CHARSET;
-$dbc->query("SET NAMES utf8;");
-$dbc->query("SET time_zone = '+0:00';");
-
 $dbInfo['database_type'] = DB_TYPE;
 $dbInfo['database_name'] = DB_DBNAME;
 $dbInfo['server'] = DB_HOST;
@@ -40,3 +34,6 @@ $db = new medoo([
         PDO::ATTR_CASE => PDO::CASE_NATURAL
     ]
 ]);
+
+$db->query("SET NAMES utf8;");
+$db->query("SET time_zone = '+00:00';");
