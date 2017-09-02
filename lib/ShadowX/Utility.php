@@ -2,8 +2,6 @@
 namespace ShadowX;
 
 class Utility {
-    private $kb = 1024, $mb = 1024 * 1024, $gb =  1024 * 1024 * 1024;
-
     //获取随机字符串
     static function get_random_char( $length = 8 ) {
         $chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -20,17 +18,17 @@ class Utility {
     }
 
     static function getSize($value){
-        global $tokb, $tomb, $togb;
+        $kb = 1024, $mb = 1024 * 1024, $gb =  1024 * 1024 * 1024;
         $sign = ($value >=0) ? 1 : -1;
         $value = abs($value);
-        if ($value > $togb) {
-            echo round($sign*$value/$togb, 2)." GB";
+        if ($value > $gb) {
+            echo round($sign*$value/$gb, 2)." GB";
         }
-        else if ($value > $tomb) {
-            echo round($sign*$value/$tomb, 2)." MB";
+        else if ($value > $mb) {
+            echo round($sign*$value/$mb, 2)." MB";
         }
-        else if ($value > $tokb) {
-            echo round($sign*$value/$tokb, 2)." KB";
+        else if ($value > $kb) {
+            echo round($sign*$value/$kb, 2)." KB";
         } else {
             echo round($sign*$value, 2)." B";
         }
