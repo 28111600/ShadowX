@@ -2,6 +2,7 @@
 require_once '../template/main.php';
 require_once '../template/head.php';
 
+$used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -25,17 +26,17 @@ require_once '../template/head.php';
                             <thead>
                                 <tr>
                                     <td>已用流量</td>
-                                    <td><?php \ShadowX\Utility::getSize($User->getTransfer()); ?></td>
+                                    <td><?php echo \ShadowX\Utility::getSize($User->getTransfer()); ?></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>剩余流量</td>
-                                    <td><?php \ShadowX\Utility::getSize($User->getUnusedTransfer()); ?></td>
+                                    <td><?php echo \ShadowX\Utility::getSize($User->getUnusedTransfer()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>总流量</td>
-                                    <td><?php \ShadowX\Utility::getSize($User->getTransferEnable()); ?></td>
+                                    <td><?php echo \ShadowX\Utility::getSize($User->getTransferEnable()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>24小时流量</td>
@@ -45,8 +46,8 @@ require_once '../template/head.php';
                                 <tr>
                                     <td colspan="2">
                                         <div class="progress-group">
-                                            <div class="progress sm" data-toggle="tooltip" data-placement="top" title='12.5%'>
-                                                <div class="progress-bar progress-bar-primary" style="width: 12.5%"></div>
+                                            <div class="progress sm" data-toggle="tooltip" data-placement="top" title='<?php echo used; ?>%'>
+                                                <div class="progress-bar progress-bar-primary" style="width: <?php echo used; ?>%"></div>
                                             </div>
                                         </div>
                                     </td>
@@ -70,17 +71,17 @@ require_once '../template/head.php';
                             <thead>
                                 <tr>
                                     <td>端口</td>
-                                    <td><code>5001</code></td>
+                                    <td><code><?php echo $User->getPort(); ?></code></td>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>密码</td>
-                                    <td><code class="ss-pwd-toggle" data-value="JkwTDDuh">点击查看</code></td>
+                                    <td><code class="ss-pwd-toggle" data-value="<?php echo addslashes($User->getPass()); ?>">点击查看</code></td>
                                 </tr>
                                 <tr>
                                     <td>最后使用时间</td>
-                                    <td><code>2017-09-02 00:01:16</code></td>
+                                    <td><code><?php echo date('Y-m-d H:i:s',$User->getLastUseTime() + $timeoffset); ?></code></td>
                                 </tr>
                             </tbody>
                         </table>
