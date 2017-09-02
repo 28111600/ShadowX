@@ -52,3 +52,7 @@
 .ss-pwd-toggle {
     cursor: pointer;
 }
+
+.content-wrapper {
+    background-color: #efefef;
+}
