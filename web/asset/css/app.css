@@ -56,3 +56,11 @@
 .content-wrapper {
     background-color: #efefef;
 }
+
+.pagination {
+    margin: 0;
+}
+
+.row {
+    margin-bottom: 10px;
+}

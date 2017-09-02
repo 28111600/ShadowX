@@ -8,7 +8,7 @@ $Log = new ShadowX\Log($User->getUid());
 $interval = 1200;
 $to = strtotime(date("Y-m-d H:i", floor((time() + $timeoffset) / $interval) * $interval).":00");
 $from = $to - 3600 * 24;
-$logs = $Log->LogsRange($from, $to, '20min', '', $timeoffset);
+$logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
