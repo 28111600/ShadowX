@@ -24,6 +24,9 @@ $from = $to - 3600 * 24;
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary">添加节点</button>
                 </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
+                </div>
             </div>
         </div>
         <div class="row">
