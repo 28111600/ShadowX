@@ -54,7 +54,7 @@ $pagelast  = min($pagelast,$pagemax);
 <!-- Main content -->
 <section class="content">
     <div class="row">
-        <div class="col-xs-12 col-lg-6">
+        <div class="col-xs-12 col-md-6">
             <div class="btn-group">
                 <div class="dropdown btn-group">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -92,7 +92,7 @@ $pagelast  = min($pagelast,$pagemax);
             </div>
 <?php } ?>
         </div>
-        <div class="col-xs-12 col-lg-6 text-right">
+        <div class="col-xs-12 col-md-6 text-right">
             <div>
                 <ul class="pagination">
                 <?php if ($page == 1){ ?>
