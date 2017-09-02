@@ -12,8 +12,8 @@ $from = strtotime(date("Y-m-d", mktime(0, 0, 0, date("m", $t), 1, date("Y", $t))
 $to = strtotime(date("Y-m-d", mktime(0, 0, 0, date("m", $t), date("t", $t), date("Y", $t))));
 $logs = $Log->getLogsRange($from, $to, 'days', '', $timeoffset);
 
-$t_pre = date("Y/m/d", mktime(0, 0, 0, date("m", $from - 3600), 1, date("Y", $from - 3600)));
-$t_next = date("Y/m/d", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $to + 3600 * 24)));
+$t_pre = date("Y/m", mktime(0, 0, 0, date("m", $from - 3600), 1, date("Y", $from - 3600)));
+$t_next = date("Y/m", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $to + 3600 * 24)));
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
