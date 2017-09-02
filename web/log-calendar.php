@@ -70,7 +70,7 @@ require_once '../template/footer.php'; ?>
         var data = <?php $rows = array(); foreach ($logs as $log) { $d['t'] = $log['t']; $d['u'] = $log['u']; $d['d'] = $log['d']; $rows[] = $d; }; echo json_encode($rows); ?>;
         var events = [];
         $.each(data, function(index, item){
-            var t = moment(parseInt(item.t) * 1000).format('YYYY/MM/DD');
+            var t = moment(parseInt(item.t) * 1000).format('YYYY-MM-DD');
             parseInt(item.u) && events.push({
                 title: '↑ ' + getSize(item.u, 2),
                 start: t,
