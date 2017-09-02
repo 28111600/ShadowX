@@ -29,7 +29,6 @@ $t_next = date("Y/m", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $
                     <a class="btn btn-default" href="?t=<?php echo $t_pre; ?>"><i class="fa fa-angle-left" aria-hidden="true"></i> <?php echo $t_pre; ?></a>
                     <a class="btn btn-default" href="?t=<?php echo $t_next; ?>"><?php echo $t_next; ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 </div>
-                
 <?php
     if ($url_log) { ?>
                 <div class="btn-group">

@@ -1,5 +1,6 @@
 <?php
 require_once '../template/main.php';
+require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
 $uid_log = 0;
