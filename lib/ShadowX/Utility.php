@@ -72,6 +72,10 @@ class Utility {
         return $ip;
     }
 
+    static function getUptime($t) {
+        return intval($t / (3600 * 24)).'天'.date('G',$t)."小时".intval(date('i',$t))."分钟";
+    }
+
     static function checkHtml($html) {
         $html = stripslashes($html);
 
