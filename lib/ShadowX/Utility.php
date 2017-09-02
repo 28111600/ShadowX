@@ -18,7 +18,7 @@ class Utility {
     }
 
     static function getSize($value){
-        $kb = 1024, $mb = 1024 * 1024, $gb =  1024 * 1024 * 1024;
+        $kb = 1024; $mb = 1024 * 1024; $gb = 1024 * 1024 * 1024;
         $sign = ($value >=0) ? 1 : -1;
         $value = abs($value);
         if ($value > $gb) {
