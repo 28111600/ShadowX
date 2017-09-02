@@ -12,8 +12,8 @@ $from = strtotime(date("Y-m-d", mktime(0, 0, 0, date("m", $t), 1, date("Y", $t))
 $to = strtotime(date("Y-m-d", mktime(0, 0, 0, date("m", $t), date("t", $t), date("Y", $t))));
 $logs = $Log->getLogsRange($from, $to, 'days', '', $timeoffset);
 
-$t_pre = date("Y-m-d", mktime(0, 0, 0, date("m", $from - 3600), 1, date("Y", $from - 3600)));
-$t_next = date("Y-m-d", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $to + 3600 * 24)));
+$t_pre = date("Y/m/d", mktime(0, 0, 0, date("m", $from - 3600), 1, date("Y", $from - 3600)));
+$t_next = date("Y/m/d", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $to + 3600 * 24)));
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -73,14 +73,14 @@ require_once '../template/footer.php'; ?>
         var data = <?php $rows = array(); foreach ($logs as $log) { $d['t'] = $log['t']; $d['u'] = $log['u']; $d['d'] = $log['d']; $rows[] = $d; }; echo json_encode($rows); ?>;
         var events = [];
         $.each(data, function(index, item){
-            var t = moment(parseInt(item.t) * 1000).format('YYYY-MM-DD');
-            events.push({
+            var t = moment(parseInt(item.t) * 1000).format('YYYY/MM/DD');
+            parseInt(item.u) && events.push({
                 title: '↑ ' + getSize(item.u, 2),
                 start: t,
                 backgroundColor: 'rgba(54, 162, 235, 0.7)',
                 borderColor: 'rgba(54, 162, 235, 1)'
             });
-            events.push({
+            parseInt(item.d) && events.push({
                 title: '↓ ' + getSize(item.d, 2),
                 start: t,
                 backgroundColor: 'rgba(0, 166, 90, 0.7)',
@@ -98,13 +98,13 @@ require_once '../template/footer.php'; ?>
             },
             views: {
                 month: {
-                    titleFormat: 'YYYY-MM'
+                    titleFormat: 'YYYY/MM'
                 },
                 week: {
-                    titleFormat: 'YYYY-MM-DD'
+                    titleFormat: 'YYYY/MM/DD'
                 },
                 day: {
-                    titleFormat: 'YYYY-MM-DD'
+                    titleFormat: 'YYYY/MM/DD'
                 }
             },
             buttonText: {
