@@ -100,7 +100,7 @@ require_once '../template/head.php';
 require_once '../template/footer.php'; ?>
 
 <!-- Chart 2.6.0 -->
-<script src="asset/js/chart.bundle.min.js"></script>
+<script src="asset/js/Chart.bundle.min.js"></script>
 
 <script>
     $(".ss-pwd-toggle").one("click", function() {
