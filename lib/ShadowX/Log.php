@@ -49,10 +49,10 @@ class Log {
 function getLogsRange($from,$to,$type,$node_id,$timeoffset=0){
     if ($type == "10min"){
         $select_t = " floor((log.t + ".$timeoffset.") / 600) * 600 AS t ";
-        $group = " GROUP BY FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H:%i') ";
+        $group = " GROUP BY floor((log.t + ".$timeoffset.") / 600) ";
     } else if ($type == "20min"){
         $select_t = " floor((log.t + ".$timeoffset.") / 1200) * 1200 AS t ";
-        $group = " GROUP BY FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H:%i') ";
+        $group = " GROUP BY floor((log.t + ".$timeoffset.") / 1200) ";
     } else if ($type == "hours"){
         $select_t = " UNIX_TIMESTAMP(FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H:00:00')) AS t ";
         $group = " GROUP BY FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y-%m-%d %H') ";
