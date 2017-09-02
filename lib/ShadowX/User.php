@@ -23,15 +23,15 @@ class User {
         return $datas[0];
     }
 
-    function GetUid(){
+    function getUid(){
         return $this->data['uid'];
     }
 
-    function GetEmail(){
+    function getEmail(){
         return $this->data['email'];
     }
 
-    function GetUserName(){
+    function getUserName(){
         return $this->data['user_name'];
     }
 
