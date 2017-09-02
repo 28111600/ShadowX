@@ -9,8 +9,8 @@ class Node {
 
     function __construct($id=0){
         global $db;
-        $this->id  = $id;
-        $this->db  = $db;
+        $this->id = $id;
+        $this->db = $db;
     }
 
     function getAllNodes(){
@@ -30,5 +30,11 @@ class Node {
             "node_id" =>  $node_id
         ]);
         return 1;
+    }
+
+    function deleteNode(){
+        $this->db->delete($this->table,[
+            "id" => $this->id
+        ]);
     }
 }

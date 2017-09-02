@@ -1,4 +1,5 @@
 <?php
+chdir(dirname(__FILE__));
 require_once '../config.php';
 require_once '../lib/init.php';
 

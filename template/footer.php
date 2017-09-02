@@ -21,3 +21,5 @@
 <script src="asset/js/adminlte.app.min.js"></script>
 <!-- App -->
 <script src="asset/js/app.js"></script>
+<!-- Messg -->
+<script src="asset/js/messg.min.js"></script>

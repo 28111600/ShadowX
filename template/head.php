@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="asset/css/skins/skin-black.min.css">
     <!-- App -->
     <link rel="stylesheet" href="asset/css/app.css">
+    <!-- Messg -->
+    <link rel="stylesheet" href="asset/css/messg.min.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

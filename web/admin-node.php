@@ -36,7 +36,7 @@ $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
                 <div class="nav-tabs-custom box box-primary">
                     <ul class="nav nav-tabs pull-right">
                         <li><a class="option text-blue " href="#">编辑</a></li>
-                        <li><a class="option text-red node-del" data-id="<?php echo $row['id']; ?>" href="#">删除</a></li>
+                        <li><a class="option text-red node-delete" data-id="<?php echo $row['id']; ?>" href="#">删除</a></li>
                         <li class="pull-left header"><?php echo $row['name']; ?></li>
                     </ul>
                     <div class="tab-content">
@@ -83,7 +83,7 @@ require_once '../template/footer.php'; ?>
         showUsage(".usage", from, to, interval);
     })();
     !(function() {
-        $(".node-del").click(function(){
+        $(".node-delete").click(function(){
             if (confirm("确认删除此节点？")) {
                 var id = $(this).data("id");
                 $.ajax({
@@ -91,15 +91,15 @@ require_once '../template/footer.php'; ?>
                     url:"ajax/node.php",
                     dataType:"json",
                     data:{
-                        action: "del",
+                        action: "delete",
                         id: id
                     },
                     success:function(data){
                         if(data.ok){
-                            new Message(data.msg, "success");
+                            new Message("操作成功！", "success");
                             setTimeout(function(){ location.reload(); }, 1000);
                         }else{
-                            new Message(data.msg, "error");
+                            new Message("操作失败！", "error");
                             setTimeout(function(){ location.reload(); }, 1000);
                         }
                     },
