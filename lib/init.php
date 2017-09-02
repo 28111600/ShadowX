@@ -20,6 +20,10 @@ $dbInfo['username'] = DB_USER;
 $dbInfo['password'] = DB_PWD;
 $dbInfo['charset'] = DB_CHARSET;
 
+spl_autoload_register(function ($class) {
+    require_once 'ShadowX/'.str_replace('\\', '/', $class).'.php';
+});
+
 require_once 'Medoo.php';
 $db = new medoo([
     // required
