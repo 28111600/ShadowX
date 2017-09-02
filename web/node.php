@@ -110,6 +110,7 @@ require_once '../template/footer.php'; ?>
         that.parent().find(".modal").modal();
         return false;
     });
+
     $(".option").each(function(index, item) {
         var that = $(item);
         var id = that.data("id");
@@ -124,8 +125,8 @@ require_once '../template/footer.php'; ?>
             var ssurl_encode = "ss://" + $.base64.btoa(ssurl);
             that.parent().find(".option-qrcode").empty().qrcode({
                 text: ssurl_encode,
-                height: 128,
-                width: 128
+                height: 256,
+                width: 256
             });
             that.parent().find(".option-url").val(ssurl_encode).focus(function() {
                 this.select();

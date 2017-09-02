@@ -98,3 +98,7 @@
 .pagination {
     margin: 0;
 }
+
+.option-qrcode {
+    zoom: .5;
+}
