@@ -6,11 +6,12 @@ class User {
     public $db;
 
     private $table = "user";
-
+    private $data;
     function __construct($uid=0){
         global $db;
-        $this->uid = $uid;
-        $this->db  = $db;
+        $this->uid  = $uid;
+        $this->db   = $db;
+        $this->data = getUser();
     }
 
     function getUser(){
@@ -22,27 +23,27 @@ class User {
     }
 
     function GetEmail(){
-        return $this->UserArray()['email'];
+        return $data['email'];
     }
 
     function GetUserName(){
-        return $this->UserArray()['user_name'];
+        return $data['user_name'];
     }
 
     function getPort(){
-         return $this->getUser()['port'];
+         return $data['port'];
     }
 
     function getPass(){
-        return $this->getUser()['passwd'];
+        return $data['passwd'];
     }
 
     function getTransfer(){
-        return $this->getUser()['u'] + $this->getUser()['d'];
+        return $data['u'] + data['d'];
     }
 
     function getTransferEnable(){
-        return $this->getUser()['transfer_enable'];
+        return $data['transfer_enable'];
     }
 
     function getUnusedTransfer(){
@@ -50,7 +51,7 @@ class User {
     }
 
     function getLastUseTime(){
-        return $this->getUser()['t'];
+        return $data['t'];
     }
 
     function addTransfer($transfer=0){
