@@ -16,7 +16,6 @@ $logs = $Log->getLogsRange($from, $to, 'days', '', $timeoffset);
         </h1>
     </section>
     <!-- Main content -->
-     <!-- Main content -->
     <section class="content">
       <div class="row">
         <div class="col-md-12 col-lg-9">
