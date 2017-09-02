@@ -11,7 +11,7 @@ class User {
         global $db;
         $this->uid  = $uid;
         $this->db   = $db;
-        $this->data = getUser();
+        $this->data = $this->getUser();
     }
 
     function getUser(){
