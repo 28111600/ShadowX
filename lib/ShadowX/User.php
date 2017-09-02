@@ -2,11 +2,12 @@
 namespace ShadowX;
 
 class User {
-    public $uid;
-    public $db;
-
+    private $db;
     private $table = "user";
     private $data;
+
+    public $uid;
+
     function __construct($uid=0){
         global $db;
         $this->uid  = $uid;
@@ -20,6 +21,10 @@ class User {
             "LIMIT" => "1"
         ]);
         return $datas[0];
+    }
+
+    function GetUid(){
+        return $this->data['uid'];
     }
 
     function GetEmail(){
