@@ -2,7 +2,7 @@
 require_once '../template/main.php';
 require_once '../template/head.php';
 
-$uid_log = $U->uid;
+$uid_log = $User->getUid();
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
