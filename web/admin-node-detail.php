@@ -95,7 +95,7 @@ if(!empty($_GET)){
 require_once '../template/footer.php'; ?>
 
 <!-- Select2 4.0.3 -->
-<script src="asset/js/select2.full.min.js"></script>
+<script src="asset/js/select2.min.js"></script>
 
 <script>
     //Initialize Select2 Elements
