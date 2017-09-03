@@ -41,9 +41,8 @@ class User {
     }
 
     function isAdmin(){
-        return $this->db->has("ss_user_admin",[
-            "uid" => $this->uid
-        ]);
+        return $this->data['is_admin'];
+
     }
 
     function getPort(){

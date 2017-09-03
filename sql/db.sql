@@ -18,15 +18,17 @@ CREATE TABLE `user` (
   `max_speed` int(11) NOT NULL DEFAULT '0',
   `enable` tinyint(4) NOT NULL DEFAULT '1',
   `reg_date` int(11) NOT NULL DEFAULT '0',
+  `reg_ip` varchar(128) NOT NULL DEFAULT `unknown`,
   `invite_num` int(8) NOT NULL,
   `ref_by` int(11) NOT NULL DEFAULT '0',
+  `is_admin` int(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`uid`, `port`),
   INDEX `user_uid` (`uid`) USING BTREE,
   INDEX `user_port` (`port`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `transfer_enable`, `port`, `max_speed`, `enable`, `reg_date`, `invite_num`, `ref_by`) VALUES
-('xiaodong', 'xiaodong@abc.com', 'c5a4e7e6882845ea7bb4d9462868219b', 'ABCDEDG', 1427454468, 0, 0, 1024000, 5000, 0, 1, 1429758822, 0, 0);
+INSERT INTO `user` (`user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `transfer_enable`, `port`, `max_speed`, `enable`, `reg_date`, `reg_ip`, `invite_num`, `ref_by`, `is_admin`) VALUES
+('xiaodong', 'xiaodong@abc.com', 'c5a4e7e6882845ea7bb4d9462868219b', 'ABCDEDG', 1427454468, 0, 0, 1024000, 5000, 0, 1, 1429758822, '127.0.0.1', 0, 0, 1);
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
