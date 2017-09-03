@@ -18,20 +18,6 @@ if(!empty($_GET)){
         $rs = $node->getNode();
     }
 }
-
-$array_method = array(
-    "aes-256-cfb",
-    "aes-256-ofb",
-    "aes-192-cfb",
-    "aes-192-ofb",
-    "aes-128-cfb",
-    "aes-128-ofb",
-    "chacha20",
-    "rc4",
-    "rc4-md5",
-    "cast5-cfb",
-    "cast5-ofbs"
-);
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -47,32 +33,36 @@ $array_method = array(
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
+                    <?php if ($isNew) { ?>
+                        <h3 class="box-title">添加节点</h3>
+                    <?php } else { ?>
                         <h3 class="box-title">编辑节点</h3>
+                    <?php } ?>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form">
                         <div class="box-body">
-                            <div class="form-group" style="display:none" >
+                            <div class="form-group hidden">
                                 <label for="cate_title">id</label>
                                 <input class="form-control" id="id" value="<?php echo $id;?>" >
                             </div>
                             <div class="form-group" >
                                 <label for="cate_title">Node Id</label>
-                                <input class="form-control" id="node_id" value="<?php echo $rs['node_id'];?>" >
+                                <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id'];?>" >
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">节点名称</label>
-                                <input class="form-control" id="name" value="<?php echo $rs['name'];?>" >
+                                <input class="form-control" id="name" required="required" value="<?php echo $rs['name'];?>" >
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">地址</label>
-                                <input class="form-control" id="server" value="<?php echo $rs['server'];?>" >
+                                <input class="form-control" id="server" required="required" value="<?php echo $rs['server'];?>" >
                             </div>
                             <div class="form-group">
                                 <label for="cate_method">加密方式</label>
                                 <select class="form-control select2" id="method" style="width: 100%;">
-                                <?php foreach ($array_method as $method) { ?>
+                                <?php foreach ($ss_methods as $method) { ?>
                                     <option <?php if ($method == $rs['method']) { echo 'selected="selected"'; } ?>><?php echo $method?></option>
                                 <?php } ?>
                                 </select>
