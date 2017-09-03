@@ -10,6 +10,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <!-- Bootstrap Align -->
+    <link rel="stylesheet" href="asset/css/bootstrap-align.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="asset/css/font-awesome.min.css">
     <!-- Select2 4.0.3 -->
