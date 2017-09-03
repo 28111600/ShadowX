@@ -3,7 +3,7 @@ require_once '../template/main.php';
 require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
-$uid_log = 0;
+$uid_log = -1;
 $url_log_calendar = 'admin-log-calendar.php';
 ?>
 <!-- Content Wrapper. Contains page content -->
