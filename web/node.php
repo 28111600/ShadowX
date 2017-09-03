@@ -1,8 +1,6 @@
 <?php
 require_once '../template/main.php';
 require_once '../template/head.php';
-
-$node = new ShadowX\Node();
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -24,12 +22,12 @@ $node = new ShadowX\Node();
         <div class="row">
         <?php
         $nodes = ShadowX\Node::getAllNodes();
-        foreach($nodes as $row){ ?>
+        foreach ($nodes as $row) { ?>
             <div class="col-md-6">
                 <div class="nav-tabs-custom box box-primary">
                     <ul class="nav nav-tabs pull-right">
                         <li class="dropdown">
-                            <a class="option" href="#" data-id="<?php echo $row['id']; ?>">配置</a>
+                            <a class="option text-blue" href="#" data-id="<?php echo $row['id']; ?>">配置</a>
                             <div class="modal fade" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">

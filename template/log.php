@@ -1,16 +1,15 @@
 <?php
 
 $Log = new ShadowX\Log($uid_log);
-$node = new ShadowX\Node();
 
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $type = isset($_GET['type']) ? $_GET['type'] : "hours";
 $node_id = isset($_GET['id']) ? $_GET['id'] : "";
 
-if ($node_id !== "" && $node_id !== "all"){
+if ($node_id !== "" && $node_id !== "all") {
     $nodes = ShadowX\Node::getAllNodes();
-    foreach($nodes as $rs){
-        if ($rs['node_id'] === $node_id){
+    foreach ($nodes as $rs) {
+        if ($rs['node_id'] === $node_id) {
             $name = $rs['name'];
         }
     }
@@ -76,7 +75,7 @@ $pagelast  = min($pagelast,$pagemax);
                         <li><a href="?type=<?php echo $type;?>&id=all">All</a></li>
                     <?php
                     $nodes = ShadowX\Node::getAllNodes();
-                    foreach($nodes as $rs){ ?>
+                    foreach ($nodes as $rs) { ?>
                         <li><a href="?type=<?php echo $type;?>&id=<?php echo $rs['node_id'];?>"><?php echo $rs['name']; ?></a></li>
                     <?php } ?>
                     </ul>
