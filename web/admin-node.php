@@ -30,9 +30,9 @@ $from = $to - 3600 * 24;
         <div class="row">
         <?php
         $nodes = ShadowX\Node::getAllNodes();
-        foreach ($nodes as $row) { 
-        $Log = new ShadowX\Log($row['node_id']);
-        $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset); ?>
+        foreach ($nodes as $row) {
+        $Log = new ShadowX\Log();
+        $logs = $Log->getLogsRange($from, $to, '20min', $row['node_id'], $timeoffset); ?>
             <div class="col-md-6">
                 <div class="nav-tabs-custom box box-primary">
                     <ul class="nav nav-tabs pull-right">
