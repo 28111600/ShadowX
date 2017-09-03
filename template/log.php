@@ -91,7 +91,7 @@ $pagelast  = min($pagelast,$pagemax);
             </div>
 <?php } ?>
         </div>
-        <div class="col-xs-12 col-md-6 text-right">
+        <div class="col-xs-12 col-md-6 text-xs-left text-md-right">
             <div>
                 <ul class="pagination">
                 <?php if ($page == 1){ ?>
