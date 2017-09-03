@@ -6,14 +6,6 @@ $version = "0.1.0";
 //Set timezone
 date_default_timezone_set('UTC');
 
-$dbInfo['database_type'] = DB_TYPE;
-$dbInfo['database_name'] = DB_DBNAME;
-$dbInfo['server'] = DB_HOST;
-$dbInfo['port'] = DB_PORT;
-$dbInfo['username'] = DB_USER;
-$dbInfo['password'] = DB_PWD;
-$dbInfo['charset'] = DB_CHARSET;
-
 spl_autoload_register(function ($class) {
     require_once str_replace('\\', '/', $class).'.php';
 });
@@ -21,13 +13,13 @@ spl_autoload_register(function ($class) {
 require_once 'Medoo.php';
 $db = new medoo([
     // required
-    'database_type' => DB_TYPE,
-    'database_name' => DB_DBNAME,
-    'server' => DB_HOST,
-    'port' => DB_PORT,
-    'username' => DB_USER,
-    'password' => DB_PWD,
-    'charset' => DB_CHARSET,
+    'database_type' => $DB_TYPE,
+    'database_name' => $DB_DBNAME,
+    'server' => $DB_HOST,
+    'port' => $DB_PORT,
+    'username' => $DB_USER,
+    'password' => $DB_PWD,
+    'charset' => $DB_CHARSET,
 
     // driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
     'option' => [

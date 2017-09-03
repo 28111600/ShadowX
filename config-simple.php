@@ -1,13 +1,13 @@
 <?php
 
 //数据库连接信息
-define('DB_HOST','localhost');
-define('DB_PORT',3306);
-define('DB_USER','root');
-define('DB_PWD','password');
-define('DB_DBNAME','db');
-define('DB_CHARSET','utf8');
-define('DB_TYPE','mysql');
+$DB_HOST    = "localhost";
+$DB_PORT    = 3306;
+$DB_USER    = 'user';
+$DB_PWD     = 'password';
+$DB_DBNAME  = 'db';
+$DB_CHARSET = 'utf8';
+$DB_TYPE    = 'mysql';
 
 //新用户初始流量
 $default_transfer = 1024 * 1024 * 1024 * 1;
@@ -17,8 +17,8 @@ $site_name = "ShadowX";
 $site_url  = "https://yourdomain.com/";
 
 //密码Salt
-$salt = "ShadowX";
+$salt = "";
 
-$mail_sender = "noreply@xxx.xx";
-$mailgun_key = "";
+$mail_sender    = "noreply@xxx.xx";
+$mailgun_key    = "";
 $mailgun_domain = "";
