@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="asset/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+    <!-- Select2 4.0.3 -->
+    <link rel="stylesheet" href="asset/css/select2.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="asset/css/adminlte.min.css">
     <!-- AdminLTE Skins -->
