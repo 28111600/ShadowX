@@ -6,8 +6,7 @@ $email = strtolower($_POST['email']);
 $passwd = ShadowX\Utility::getPwdHash(urldecode($_POST['passwd']));
 $rem = $_POST['remember_me'];
 
-$User = new ShadowX\User();
-if($User->isEmailLogin($email, $passwd)){
+if (ShadowX\User::isEmailLogin($email, $passwd)) {
     $result['code'] = '1';
     $result['ok'] = '1';
 
@@ -17,7 +16,7 @@ if($User->isEmailLogin($email, $passwd)){
         $expire = 3600 * 24 * 1;
     }
 
-    $uid = $User->getUidByEmail($email);
+    $uid = ShadowX\User::getUidByEmail($email);
 
     $t = time() + $expire;
     $passwd_cookie = ShadowX\Utility::getPwdHash($passwd);

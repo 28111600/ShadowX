@@ -3,13 +3,13 @@ namespace ShadowX;
 
 class Log {
     private $db;
-    private $table = "log";
+    private static $table = "log";
 
     public  $uid;
     public  $pagesize = 20;
     public  $count ;
 
-    function __construct($uid=0){
+    function __construct($uid=-1){
         global $db;
         $this->uid = $uid;
         $this->db  = $db;
@@ -30,7 +30,7 @@ class Log {
         $group = " GROUP BY CONCAT(log.port,FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y')) ";
     }
 
-    $where_user = $this->uid!=0 ? " AND log.uid=".$this->uid." " : "";
+    $where_user = $this->uid!=-1 ? " AND log.uid=".$this->uid." " : "";
     $where_node = $node_id!="" ? " AND log.node_id=".$node_id." " : "";
     $where = " WHERE log.uid = user.uid ".$where_user.$where_node.$group." ";
 
@@ -67,7 +67,7 @@ function getLogsRange($from,$to,$type,$node_id,$timeoffset=0){
         $group = " GROUP BY FROM_UNIXTIME(log.t + ".$timeoffset.", '%Y') ";
     }
 
-    $where_user = $this->uid!=0 ? " AND log.uid=".$this->uid." " : "";
+    $where_user = $this->uid!=-1 ? " AND log.uid=".$this->uid." " : "";
     $where_node = $node_id!="" ? " AND log.node_id=".$node_id." " : "";
     $where_from_to = " log.t >= ".$from." AND log.t < ".$to;
     $where = " WHERE ".$where_from_to.$where_user.$where_node.$group." ";

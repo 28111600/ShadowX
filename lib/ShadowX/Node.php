@@ -5,7 +5,7 @@ class Node {
     public $id;
 
     private $db;
-    private $table = "ss_node";
+    private static $table = "ss_node";
     private $data;
 
     function __construct($id=-1){
@@ -16,22 +16,24 @@ class Node {
     }
 
     function getNode(){
-        $datas = $this->db->select($this->table,"*",[
+        $datas = $this->db->select(self::$table,"*",[
             "id" => $this->id,
             "LIMIT" => "1"
         ]);
         return count($datas) > 0 ? $datas[0] : [];
     }
 
-    function getAllNodes(){
-        $datas = $this->db->select($this->table,"*",[
+    static function getAllNodes(){
+        global $db;
+        $datas = $db->select(self::$table,"*",[
             "ORDER" => "node_id"
         ]);
         return $datas;
     }
 
-    function addNode($name,$server,$method,$info,$node_id){
-        $this->db->insert($this->table, [
+    static function addNode($name,$server,$method,$info,$node_id){
+        global $db;
+        $db->insert(self::$table, [
             "name" => $name,
             "server" => $server,
             "method" => $method,
@@ -42,7 +44,7 @@ class Node {
     }
     
     function updateNode($name,$server,$method,$info,$node_id){
-        $this->db->update($this->table, [
+        $this->db->update(self::$table, [
             "name" => $name,
             "server" => $server,
             "method" => $method,
@@ -55,7 +57,7 @@ class Node {
     }
 
     function deleteNode(){
-        $this->db->delete($this->table,[
+        $this->db->delete(self::$table,[
             "id" => $this->id
         ]);
     }

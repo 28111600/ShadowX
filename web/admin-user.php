@@ -44,7 +44,7 @@ $from = $to - 3600 * 24;
                             </thead>
                             <tbody>
                             <?php
-                            $users = $User->getAllUsers();
+                            $users = ShadowX\User::getAllUsers();
                             foreach ($users as $rs){ 
                                 $Log = new ShadowX\Log($rs['uid']);
                                 $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);?>

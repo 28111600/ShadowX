@@ -8,7 +8,7 @@ $type = isset($_GET['type']) ? $_GET['type'] : "hours";
 $node_id = isset($_GET['id']) ? $_GET['id'] : "";
 
 if ($node_id !== "" && $node_id !== "all"){
-    $nodes = $node->getAllNodes();
+    $nodes = ShadowX\Node::getAllNodes();
     foreach($nodes as $rs){
         if ($rs['node_id'] === $node_id){
             $name = $rs['name'];
@@ -75,7 +75,7 @@ $pagelast  = min($pagelast,$pagemax);
                     <ul class="dropdown-menu">
                         <li><a href="?type=<?php echo $type;?>&id=all">All</a></li>
                     <?php
-                    $nodes = $node->getAllNodes();
+                    $nodes = ShadowX\Node::getAllNodes();
                     foreach($nodes as $rs){ ?>
                         <li><a href="?type=<?php echo $type;?>&id=<?php echo $rs['node_id'];?>"><?php echo $rs['name']; ?></a></li>
                     <?php } ?>

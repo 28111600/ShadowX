@@ -23,7 +23,7 @@ $node = new ShadowX\Node();
         </div>
         <div class="row">
         <?php
-        $nodes = $node->getAllNodes();
+        $nodes = ShadowX\Node::getAllNodes();
         foreach($nodes as $row){ ?>
             <div class="col-md-6">
                 <div class="nav-tabs-custom box box-primary">

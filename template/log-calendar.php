@@ -4,7 +4,7 @@ $node = new ShadowX\Node();
 $node_id = isset($_GET['id']) ? $_GET['id'] : "";
 
 if ($node_id !== "" && $node_id !== 'all'){
-    $nodes = $node->getAllNodes();
+    $nodes = ShadowX\Node::getAllNodes();
     foreach($nodes as $rs){
         if ($rs['node_id'] === $node_id){
             $name = $rs['name'];
@@ -41,7 +41,7 @@ $t_next = date("Y/m", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $
                 <ul class="dropdown-menu">
                     <li><a href="?t=<?php echo $t_cur; ?>&id=all">All</a></li>
                 <?php
-                $nodes = $node->getAllNodes();
+                $nodes = ShadowX\Node::getAllNodes();
                 foreach($nodes as $rs){ ?>
                     <li><a href="?t=<?php echo $t_cur; ?>&id=<?php echo $rs['node_id'];?>"><?php echo $rs['name']; ?></a></li>
                 <?php } ?>

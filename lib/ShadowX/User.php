@@ -3,7 +3,7 @@ namespace ShadowX;
 
 class User {
     private $db;
-    private $table = "user";
+    private static $table = "user";
     private $data;
 
     public $uid;
@@ -15,13 +15,14 @@ class User {
         $this->data = $this->getUser();
     }
 
-    function getAllUsers(){
-       $datas = $this->db->select($this->table,"*");
-       return $datas;
+    static function getAllUsers(){
+        global $db;
+        $datas = $db->select(self::$table,"*");
+        return $datas;
     }
 
     function getUser(){
-        $datas = $this->db->select($this->table,"*",[
+        $datas = $this->db->select(self::$table,"*",[
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
@@ -42,7 +43,6 @@ class User {
 
     function isAdmin(){
         return $this->data['is_admin'];
-
     }
 
     function getPort(){
@@ -75,7 +75,7 @@ class User {
 
     function addTransfer($transfer=0){
         $transfer = $this->getTransferEnable() + $transfer;
-        $this->db->update($this->table,[
+        $this->db->update(self::$table,[
             "transfer_enable" => $transfer
         ],[
             "uid" => $this->uid
@@ -83,15 +83,16 @@ class User {
     }
 
     function setSsPass($pass){
-        $this->db->update($this->table,[
+        $this->db->update(self::$table,[
             "passwd" => $pass
         ],[
             "uid" => $this->uid
         ]);
     }
 
-    function isEmailLogin($email,$passwd){
-        return $this->db->has($this->table,[
+    static function isEmailLogin($email,$passwd){
+        global $db;
+        return $db->has(self::$table,[
             "AND" => [
                 "email" => $email,
                 "pass" => $passwd
@@ -99,8 +100,9 @@ class User {
         ]);
     }
 
-    function getUidByEmail($email){
-        $datas = $this->db->select($this->table,"*",[
+    static function getUidByEmail($email){
+        global $db;
+        $datas = $db->select(self::$table,"*",[
             "email" => $email,
             "LIMIT" => 1
         ]);
