@@ -1,6 +1,6 @@
         <footer class="main-footer text-right">
-            <strong>Copyright &copy; 2014-<?php echo date('Y'); ?> <a href="<?php echo $site_url; ?>"><?php echo $site_name; ?></a> </strong> All rights reserved. Powered by <b>ShadowX</b>
-            <?php echo $version; ?>
+            <span class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><strong>Copyright &copy; 2014-<?php echo date('Y'); ?> <a href="<?php echo $site_url; ?>"><?php echo $site_name; ?></a> </strong> All rights reserved.</span>
+            <span class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">Powered by <b>ShadowX</b> <?php echo $version; ?></span>
         </footer>
     </div>
     <!-- ./wrapper -->
