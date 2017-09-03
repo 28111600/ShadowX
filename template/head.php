@@ -84,6 +84,7 @@
                             <i class="fa fa-users"></i> <span>邀请好友</span>
                         </a>
                     </li>
+                    <?php if ($User->isAdmin()) { ?>
                     <li class="header">管理</li>
                     <li>
                         <a href="admin-node.php">
@@ -105,6 +106,7 @@
                             <i class="fa fa-users"></i> <span>邀请管理</span>
                         </a>
                     </li>
+                    <?php } ?>
                     <li class="header"></li>
                     <li>
                         <a href="server.php">
