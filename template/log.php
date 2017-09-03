@@ -61,9 +61,9 @@ $pagelast  = min($pagelast,$pagemax);
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="?type=hours&id=<?php echo $node_id; ?>">Hours</a></li>
-                        <li><a href="?type=days&id=<?php echo $node_id; ?>">Days</a></li>
-                        <li><a href="?type=months&id=<?php echo $node_id; ?>">Months</a></li>
+                        <li><a href="?type=hours&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>">Hours</a></li>
+                        <li><a href="?type=days&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>">Days</a></li>
+                        <li><a href="?type=months&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>">Months</a></li>
                     </ul>
                 </div>
                 <div class="dropdown btn-group">
@@ -100,13 +100,13 @@ $pagelast  = min($pagelast,$pagemax);
                     </li>
                 <?php } else { ?>
                     <li class="paginate_button previous">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo $node_id;?>&page=<?php echo $page - 1;?>">Previous</a>
+                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $page - 1;?>">Previous</a>
                     </li>
                 <?php } ?>
                 
                 <?php for ($i = $pagefirst;$i < $page;$i++){ ?>
                         <li class="paginate_button">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo $node_id;?>&page=<?php echo $i;?>"><?php echo $i;?></a>
+                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $i;?>"><?php echo $i;?></a>
                         </li>
                 <?php } ?>
                 
@@ -116,7 +116,7 @@ $pagelast  = min($pagelast,$pagemax);
                     
                 <?php for ($i = $page + 1;$i < $pagelast + 1;$i++){ ?>
                         <li class="paginate_button">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo $node_id;?>&page=<?php echo $i;?>"><?php echo $i;?></a>
+                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $i;?>"><?php echo $i;?></a>
                         </li>
                 <?php } ?>
                 
@@ -126,7 +126,7 @@ $pagelast  = min($pagelast,$pagemax);
                     </li>
                 <?php } else { ?>
                     <li class="paginate_button next">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo $node_id;?>&page=<?php echo $page + 1;?>">Next</a>
+                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $page + 1;?>">Next</a>
                     </li>
                 <?php } ?>
                 </ul>

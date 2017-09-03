@@ -77,6 +77,10 @@ class Utility {
         return intval($t / (3600 * 24)).'天'.date('G',$t)."小时".intval(date('i',$t))."分钟";
     }
 
+    static function ifNull($s1,$s2) {
+        return empty($s1) ? $s2 : $s1;
+    }
+
     static function checkHtml($html) {
         $html = stripslashes($html);
 

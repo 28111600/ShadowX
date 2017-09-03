@@ -29,8 +29,8 @@ $t_next = date("Y/m", mktime(0, 0, 0, date("m", $to + 3600 * 24), 1, date("Y", $
     <div class="row">
         <div class="col-xs-12 col-lg-6">
             <div class="btn-group">
-                <a class="btn btn-default" href="?t=<?php echo $t_pre; ?>&id=<?php echo $node_id;?>"><i class="fa fa-angle-left" aria-hidden="true"></i> <?php echo $t_pre; ?></a>
-                <a class="btn btn-default" href="?t=<?php echo $t_next; ?>&id=<?php echo $node_id;?>"><?php echo $t_next; ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                <a class="btn btn-default" href="?t=<?php echo $t_pre; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>"><i class="fa fa-angle-left" aria-hidden="true"></i> <?php echo $t_pre; ?></a>
+                <a class="btn btn-default" href="?t=<?php echo $t_next; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>"><?php echo $t_next; ?> <i class="fa fa-angle-right" aria-hidden="true"></i></a>
             </div>
             <div class="dropdown btn-group">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
