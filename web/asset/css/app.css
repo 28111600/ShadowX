@@ -123,4 +123,5 @@
     pointer-events: none;
     padding: .2em .5em;
     font-size: 0.875em;
+    white-space: nowrap;
 }
