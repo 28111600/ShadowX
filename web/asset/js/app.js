@@ -94,24 +94,10 @@ var showUsage = function(elem, from, to, step, data) {
         },
         scales: {
             yAxes: [{
-                display: false,
-                ticks: {
-                    beginAtZero: true,
-                    display: false,
-                },
-                gridLines: {
-                    display: false
-                }
+                display: false
             }],
             xAxes: [{
-                display: false,
-                ticks: {
-                    beginAtZero: false,
-                    display: false,
-                },
-                gridLines: {
-                    display: false,
-                }
+                display: false
             }]
         },
         responsive: false,
@@ -119,6 +105,7 @@ var showUsage = function(elem, from, to, step, data) {
             duration: 0, // general animation time
         },
         hover: {
+            intersect: false,
             animationDuration: 0, // duration of animations when hovering an item
         },
         responsiveAnimationDuration: 0, // animation duration after a resize
