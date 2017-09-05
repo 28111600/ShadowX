@@ -18,6 +18,52 @@ var getSize = function(size, fixed) {
     return result + " " + unit[j];
 }
 
+var customNetworkTooltips = function(tooltip) {
+    // Tooltip Element
+    var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
+
+    if (!tooltipEl) {
+        tooltipEl = document.createElement('div');
+        tooltipEl.classList = 'chartjs-tooltip';
+        tooltipEl.innerHTML = "<table></table>"
+        this._chart.canvas.parentNode.appendChild(tooltipEl);
+    }
+
+    // Hide if no tooltip
+    if (tooltip.opacity === 0) {
+        tooltipEl.style.opacity = 0;
+        return;
+    }
+
+    function getBody(bodyItem) {
+        return bodyItem.lines;
+    }
+
+    // Set Text
+    if (tooltip.body) {
+        var bodyLines = tooltip.body.map(getBody);
+        var innerHtml = '';
+
+        innerHtml += '<tbody>';
+
+        bodyLines.forEach(function(body, i) {
+            innerHtml += '<tr><td>' + getSize(body, 2) + '</td></tr>';
+        });
+        innerHtml += '</tbody>';
+
+        var tableRoot = tooltipEl.querySelector('table');
+        tableRoot.innerHTML = innerHtml;
+    }
+
+    var positionY = this._chart.canvas.offsetTop;
+    var positionX = this._chart.canvas.offsetLeft;
+
+    // Display, position, and set styles for font
+    tooltipEl.style.opacity = 1;
+    tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+    tooltipEl.style.top = positionY + 'px';
+};
+
 var showUsage = function(elem, from, to, step, data) {
     var options = {
         layout: {
@@ -29,7 +75,11 @@ var showUsage = function(elem, from, to, step, data) {
             }
         },
         tooltips: {
-            enabled: false
+            enabled: false,
+            mode: 'index',
+            position: 'nearest',
+            intersect: false,
+            custom: customNetworkTooltips
         },
         legend: {
             display: false

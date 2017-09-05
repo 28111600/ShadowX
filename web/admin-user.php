@@ -55,7 +55,7 @@ require_once '../template/head.php';
                                         </div>
                                     </td>
                                     <td>
-                                        <div>
+                                        <div class="usage-box">
                                             <canvas data-id='<?php echo $rs['uid']; ?>' height="20px" width="144px" class="usage"></canvas>
                                         </div>
                                     </td>

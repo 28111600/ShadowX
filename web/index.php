@@ -40,7 +40,7 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                                 </tr>
                                 <tr>
                                     <td>24小时流量</td>
-                                    <td><canvas height="20px" width="144px" class="usage"></canvas></td>
+                                    <td><div class="usage-box"><canvas height="20px" width="144px" class="usage"></canvas></div></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">

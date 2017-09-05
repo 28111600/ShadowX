@@ -47,7 +47,7 @@ require_once '../template/head.php';
                                 <tr><td>刷新时间</td> <td class="text-right"><?php echo date('Y-m-d H:i:s', $row['checktime'] + $timeoffset); ?></td></tr>
                                 <tr>
                                     <td>24小时流量</td>
-                                    <td class="text-right"><canvas data-id="<?php echo $row['node_id']; ?>" height="20px" width="144px" class="usage pull-right"></canvas></td>
+                                    <td class="text-right"><div class="usage-box"><canvas data-id="<?php echo $row['node_id']; ?>" height="20px" width="144px" class="usage pull-right"></canvas></div></td>
                                 </tr>
                             </tbody> 
                         </table>
