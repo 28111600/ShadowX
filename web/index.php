@@ -3,12 +3,6 @@ require_once '../template/main.php';
 require_once '../template/head.php';
 
 $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
-
-$Log = new ShadowX\Log($User->getUid());
-$interval = 1200;
-$to = strtotime(date("Y-m-d H:i", floor((time() + $timeoffset) / $interval) * $interval).":00");
-$from = $to - 3600 * 24;
-$logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -46,7 +40,7 @@ $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);
                                 </tr>
                                 <tr>
                                     <td>24小时流量</td>
-                                    <td><canvas height="20px" width="144px" class="usage" data-value='<?php $rows = array(); foreach ($logs as $log) { $d['t'] = $log['t']; $d['u'] = $log['u']; $d['d'] = $log['d']; $rows[] = $d; }; echo json_encode($rows); ?>'></canvas></td>
+                                    <td><canvas height="20px" width="144px" class="usage"></canvas></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
@@ -115,9 +109,25 @@ require_once '../template/footer.php'; ?>
     });
 
     !(function() {
-        var from = <?php echo $from; ?>;
-        var to = <?php echo $to; ?>;
-        var interval =  <?php echo $interval; ?>;
-        showUsage(".usage", from, to, interval);
+        var interval = 1200;
+        var to = Math.floor(+new Date() / 1000 / interval ) * interval + getTimeZone() * 3600;
+        var from = to - 3600 * 24;
+
+        $(".usage").each(function() {
+            var elem = this;
+            $.ajax({
+                url: "ajax/log.php",
+                cache: false,
+                type: "POST",
+                data: {
+                    action: "getLogRange",
+                    from: from,
+                    to: to
+                }
+            }).done(function(text) {
+                var data = JSON.parse(text);
+                showUsage(elem, from, to, interval, data.data);
+            });
+        });
     })();
 </script>

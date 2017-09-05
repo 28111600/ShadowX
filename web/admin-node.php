@@ -2,10 +2,6 @@
 require_once '../template/main.php';
 require_once '../lib/admin-check.php';
 require_once '../template/head.php';
-
-$interval = 1200;
-$to = strtotime(date("Y-m-d H:i", floor((time() + $timeoffset) / $interval) * $interval).":00");
-$from = $to - 3600 * 24;
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -30,9 +26,7 @@ $from = $to - 3600 * 24;
         <div class="row">
         <?php
         $nodes = ShadowX\Node::getAllNodes();
-        foreach ($nodes as $row) {
-        $Log = new ShadowX\Log();
-        $logs = $Log->getLogsRange($from, $to, '20min', $row['node_id'], $timeoffset); ?>
+        foreach ($nodes as $row) { ?>
             <div class="col-md-6">
                 <div class="nav-tabs-custom box box-primary">
                     <ul class="nav nav-tabs pull-right">
@@ -53,7 +47,7 @@ $from = $to - 3600 * 24;
                                 <tr><td>刷新时间</td> <td class="text-right"><?php echo date('Y-m-d H:i:s', $row['checktime'] + $timeoffset); ?></td></tr>
                                 <tr>
                                     <td>24小时流量</td>
-                                    <td class="text-right"><canvas height="20px" width="144px" class="usage pull-right" data-value='<?php $rows = array(); foreach ($logs as $log) { $d['t'] = $log['t']; $d['u'] = $log['u']; $d['d'] = $log['d']; $rows[] = $d; }; echo json_encode($rows); ?>'></canvas></td>
+                                    <td class="text-right"><canvas data-id="<?php echo $row['node_id']; ?>" height="20px" width="144px" class="usage pull-right"></canvas></td>
                                 </tr>
                             </tbody> 
                         </table>
@@ -77,38 +71,27 @@ require_once '../template/footer.php'; ?>
 
 <script>
     !(function() {
-        var from = <?php echo $from; ?>;
-        var to = <?php echo $to; ?>;
-        var interval = <?php echo $interval; ?>;
-        showUsage(".usage", from, to, interval);
-    })();
-    !(function() {
-        $(".node-delete").click(function() {
-            if (confirm("确认删除此节点？")) {
-                var id = $(this).data("id");
-                $.ajax({
-                    type: "POST",
-                    url: "ajax/node.php",
-                    dataType: "json",
-                    data: {
-                        action: "delete",
-                        id: id
-                    },
-                    success: function(data) {
-                        if (data.ok) {
-                            new Message("操作成功！", "success");
-                            setTimeout(function() { location.reload(); }, 1000);
-                        } else {
-                            new Message("操作失败！", "error");
-                            setTimeout(function() { location.reload(); }, 1000);
-                        }
-                    },
-                    error: function(jqXHR) {
-                        new Message("发生错误：" + jqXHR.status, "error", 1000);
-                    }
-                })
-            }
-            return false;
-        })
+        var interval = 1200;
+        var to = Math.floor(+new Date() / 1000 / interval ) * interval + getTimeZone() * 3600;
+        var from = to - 3600 * 24;
+
+        $(".usage").each(function() {
+            var node_id = $(this).data("id");
+            var elem = this;
+            $.ajax({
+                url: "ajax/admin-log.php",
+                cache: false,
+                type: "POST",
+                data: {
+                    action: "getLogRange",
+                    from: from,
+                    to: to,
+                    node_id: node_id
+                }
+            }).done(function(text) {
+                var data = JSON.parse(text);
+                showUsage(elem, from, to, interval, data.data);
+            });
+        });
     })();
 </script>

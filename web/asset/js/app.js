@@ -1,7 +1,4 @@
-!(function() {
-    var gmtHours = -((new Date()).getTimezoneOffset() / 60);
-    $.cookie('timezone', gmtHours, { expires: 30, path: '/' });
-})();
+var getTimeZone = function() { return -((new Date()).getTimezoneOffset() / 60); };
 
 var getSize = function(size, fixed) {
     var K = 1024; //1024;
@@ -21,7 +18,7 @@ var getSize = function(size, fixed) {
     return result + " " + unit[j];
 }
 
-var showUsage = function(selector, from, to, step) {
+var showUsage = function(elem, from, to, step, data) {
     var options = {
         layout: {
             padding: {
@@ -77,37 +74,39 @@ var showUsage = function(selector, from, to, step) {
         responsiveAnimationDuration: 0, // animation duration after a resize
     };
 
-    $(selector).each(function(index, item) {
-        var ctx = $(item);
-        var data = ctx.data("value");
-        var usage = {};
-        var usage_u = [];
-        var usage_d = [];
-        var labels = [];
-        for (var i = 0; i < data.length; i++) {
-            usage[data[i].t] = data[i];
-        }
-        var t = 0;
-        for (var i = from; i <= to; i += step) {
-            usage_u.push(usage[i] ? usage[i].u : 0);
-            usage_d.push(usage[i] ? usage[i].d : 0);
-            labels.push(t++);
-        }
-        var datasets = [{
-            lineTension: 0,
-            data: usage_d,
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1,
-            pointRadius: .1
-        }];
-        var chart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: datasets
-            },
-            options: options
-        });
+    var ctx = $(elem);
+    var usage = {};
+    var usage_u = [];
+    var usage_d = [];
+    var labels = [];
+    for (var i = 0; i < data.length; i++) {
+        usage[data[i].t] = data[i];
+    }
+    var t = 0;
+    for (var i = from; i <= to; i += step) {
+        usage_u.push(usage[i] ? usage[i].u : 0);
+        usage_d.push(usage[i] ? usage[i].d : 0);
+        labels.push(t++);
+    }
+    var datasets = [{
+        lineTension: 0,
+        data: usage_d,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        pointRadius: .1
+    }];
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: datasets
+        },
+        options: options
     });
 }
+
+!(function() {
+    var timezone = getTimeZone();
+    $.cookie('timezone', timezone, { expires: 30, path: '/' });
+})();

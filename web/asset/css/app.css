@@ -102,3 +102,7 @@
 .option-qrcode {
     zoom: .5;
 }
+
+.no-break {
+    word-break: keep-all;
+}

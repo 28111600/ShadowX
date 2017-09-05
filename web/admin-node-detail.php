@@ -106,7 +106,7 @@ require_once '../template/footer.php'; ?>
     function add() {
         $.ajax({
             type: "POST",
-            url: "ajax/node.php",
+            url: "ajax/admin-node.php",
             dataType: "json",
             data: {
                 action: "add",
@@ -140,7 +140,7 @@ require_once '../template/footer.php'; ?>
     function update() {
         $.ajax({
             type: "POST",
-            url: "ajax/node.php",
+            url: "ajax/admin-node.php",
             dataType: "json",
             data: {
                 action: "update",
@@ -177,7 +177,7 @@ require_once '../template/footer.php'; ?>
             var id = $("#id").val();
             $.ajax({
                 type: "POST",
-                url: "ajax/node.php",
+                url: "ajax/admin-node.php",
                 dataType: "json",
                 data: {
                     action: "delete",

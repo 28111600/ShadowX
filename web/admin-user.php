@@ -2,10 +2,6 @@
 require_once '../template/main.php';
 require_once '../lib/admin-check.php';
 require_once '../template/head.php';
-
-$interval = 1200;
-$to = strtotime(date("Y-m-d H:i", floor((time() + $timeoffset) / $interval) * $interval).":00");
-$from = $to - 3600 * 24;
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -38,16 +34,13 @@ $from = $to - 3600 * 24;
                                     <th>流量</th>
                                     <th>24小时流量</th>
                                     <th>最后使用</th>
-                                    <th>邀请人</th>
-                                    <th>操作</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php
                             $users = ShadowX\User::getAllUsers();
-                            foreach ($users as $rs){ 
-                                $Log = new ShadowX\Log($rs['uid']);
-                                $logs = $Log->getLogsRange($from, $to, '20min', '', $timeoffset);?>
+                            foreach ($users as $rs){ ?>
                                 <tr>
                                     <td>#<?php echo $rs['uid']; ?></td>
                                     <td><?php echo $rs['user_name']; ?></td>
@@ -63,22 +56,12 @@ $from = $to - 3600 * 24;
                                     </td>
                                     <td>
                                         <div>
-                                            <canvas height="20px" width="144px" class="usage" data-value='<?php $rows = array(); foreach ($logs as $log) { $d['t'] = $log['t']; $d['u'] = $log['u']; $d['d'] = $log['d']; $rows[] = $d; }; echo json_encode($rows); ?>'></canvas>
+                                            <canvas data-id='<?php echo $rs['uid']; ?>' height="20px" width="144px" class="usage"></canvas>
                                         </div>
                                     </td>
                                     <td><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></td>
                                     <td>
-                                        <?php
-                                        if ($rs['ref_by'] != 0) {
-                                            $user_ref = new ShadowX\User($rs['ref_by']);
-                                            echo $user_ref->GetUserName();
-                                        } else {
-                                            echo '-';
-                                        } ?>
-                                    </td>
-                                    <td>
-                                        <a class="btn btn-info btn-sm" href="#">查看</a>
-                                        <a class="btn btn-danger btn-sm user-delete" data-uid="<?php echo $rs['uid']; ?>" href="#">删除</a>
+                                        <a class="no-break" href="#">编辑</a>
                                     </td>
                                 </tr>
                             <?php } ?>
@@ -100,9 +83,27 @@ require_once '../template/footer.php'; ?>
 
 <script>
     !(function() {
-        var from = <?php echo $from; ?>;
-        var to = <?php echo $to; ?>;
-        var interval =  <?php echo $interval; ?>;
-        showUsage(".usage", from, to, interval);
+        var interval = 1200;
+        var to = Math.floor(+new Date() / 1000 / interval ) * interval + getTimeZone() * 3600;
+        var from = to - 3600 * 24;
+
+        $(".usage").each(function() {
+            var uid = $(this).data("id");
+            var elem = this;
+            $.ajax({
+                url: "ajax/admin-log.php",
+                cache: false,
+                type: "POST",
+                data: {
+                    action: "getLogRange",
+                    from: from,
+                    to: to,
+                    uid: uid
+                }
+            }).done(function(text) {
+                var data = JSON.parse(text);
+                showUsage(elem, from, to, interval, data.data);
+            });
+        });
     })();
 </script>
