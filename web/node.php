@@ -129,13 +129,6 @@ require_once '../template/footer.php'; ?>
             that.parent().find(".option-url").val(ssurl_encode).focus(function() {
                 this.select();
             });
-            var option = {
-                server: data.server,
-                server_port: data.server_port,
-                password: data.password,
-                method: data.method
-            }
-
             that.parent().find(".option-json").val(text).focus(function() {
                 this.select();
             });
