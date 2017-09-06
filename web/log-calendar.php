@@ -3,7 +3,6 @@ require_once '../template/main.php';
 require_once '../template/head.php';
 
 $url_log = 'log.php';
-$uid_log = $User->getUid();
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -28,29 +27,10 @@ require_once '../template/footer.php'; ?>
 <script>
     (function() {
         /* initialize the calendar */
-        var data = <?php $rows = array(); foreach ($logs as $log) { $d['t'] = $log['t']; $d['u'] = $log['u']; $d['d'] = $log['d']; $rows[] = $d; }; echo json_encode($rows); ?>;
-        var events = [];
-        $.each(data, function(index, item){
-            var t = moment(parseInt(item.t) * 1000).format('YYYY-MM-DD');
-            parseInt(item.u) && events.push({
-                title: '↑ ' + getSize(item.u, 2),
-                start: t,
-                backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                borderColor: 'rgba(54, 162, 235, 1)'
-            });
-            parseInt(item.d) && events.push({
-                title: '↓ ' + getSize(item.d, 2),
-                start: t,
-                backgroundColor: 'rgba(0, 166, 90, 0.7)',
-                borderColor: 'rgba(0, 166, 90, 1)'
-            });
-            console.log(t);
-            console.log(item.t);
-        })
+        var eventsCache = {};
         $('#calendar').fullCalendar({
-            defaultDate: <?php echo $from; ?> * 1000,
             header: {
-                right: '',//'prev,next today',
+                right: 'prev,next today',
                 left: 'title',
                 center: ''//'month,agendaWeek,agendaDay'
             },
@@ -71,7 +51,44 @@ require_once '../template/footer.php'; ?>
                 week: 'week',
                 day: 'day'
             },
-            events: events,
+            events: function(from, to, timezone, callback) {
+                var cache = eventsCache[from.unix() + "-" + to.unix()];
+                if (cache) {
+                    callback(cache);
+                } else {
+                    $.ajax({
+                        url: "ajax/log.php",
+                        cache: false,
+                        type: "POST",
+                        data: {
+                            action: "getLogRange",
+                            from: from.unix(),
+                            to: to.unix(),
+                            type: "days"
+                        }
+                    }).done(function(text) {
+                        var data = JSON.parse(text);
+                        var events = [];
+                        $.each(data.data, function(index, item){
+                            var t = moment(parseInt(item.t) * 1000).format('YYYY-MM-DD');
+                            parseInt(item.u) && events.push({
+                                title: '↑ ' + getSize(item.u, 2),
+                                start: t,
+                                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                                borderColor: 'rgba(54, 162, 235, 1)'
+                            });
+                            parseInt(item.d) && events.push({
+                                title: '↓ ' + getSize(item.d, 2),
+                                start: t,
+                                backgroundColor: 'rgba(0, 166, 90, 0.7)',
+                                borderColor: 'rgba(0, 166, 90, 1)'
+                            });
+                        });
+                        eventsCache[from.unix() + "-" + to.unix()] = events;
+                        callback(events);
+                    });
+                }
+            },
             editable: false,
             droppable: false
         })

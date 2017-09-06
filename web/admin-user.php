@@ -98,6 +98,7 @@ require_once '../template/footer.php'; ?>
                     action: "getLogRange",
                     from: from,
                     to: to,
+                    type: "20min",
                     uid: uid
                 }
             }).done(function(text) {

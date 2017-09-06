@@ -7,8 +7,10 @@ if(!empty($_POST)){
         $node_id = isset($_POST['node_id']) ? $_POST['node_id'] : "";
         $from = isset($_POST['from']) ? $_POST['from'] : time();
         $to = isset($_POST['to']) ? $_POST['to'] : time();
+        $type = isset($_POST['type']) ? $_POST['type'] : "hours";
+
         $Log = new ShadowX\Log($User->getUid());
-        $logs = $Log->getLogsRange($from, $to, '20min', $node_id, $timeoffset);
+        $logs = $Log->getLogsRange($from, $to, $type, $node_id, $timeoffset);
         $rows = array();
         if (count($logs) > 0) {
             foreach ($logs as $log) {
