@@ -29,6 +29,7 @@ require_once '../template/footer.php'; ?>
         /* initialize the calendar */
         var eventsCache = {};
         $('#calendar').fullCalendar({
+            theme: 'bootstrap3',
             header: {
                 right: 'prev,next today',
                 left: 'title',
@@ -37,12 +38,6 @@ require_once '../template/footer.php'; ?>
             views: {
                 month: {
                     titleFormat: 'YYYY/MM'
-                },
-                week: {
-                    titleFormat: 'YYYY/MM/DD'
-                },
-                day: {
-                    titleFormat: 'YYYY/MM/DD'
                 }
             },
             buttonText: {
@@ -52,7 +47,8 @@ require_once '../template/footer.php'; ?>
                 day: 'day'
             },
             events: function(from, to, timezone, callback) {
-                var cache = eventsCache[from.unix() + "-" + to.unix()];
+                var cacheKey = from.unix() + "-" + to.unix();
+                var cache = eventsCache[cacheKey];
                 if (cache) {
                     callback(cache);
                 } else {
@@ -84,13 +80,13 @@ require_once '../template/footer.php'; ?>
                                 borderColor: 'rgba(0, 166, 90, 1)'
                             });
                         });
-                        eventsCache[from.unix() + "-" + to.unix()] = events;
+                        eventsCache[cacheKey] = events;
                         callback(events);
                     });
                 }
             },
             editable: false,
             droppable: false
-        })
+        });
     })();
 </script>
