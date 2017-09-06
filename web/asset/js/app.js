@@ -19,13 +19,14 @@ var getSize = function(size, fixed) {
 }
 
 var customNetworkTooltips = function(tooltip) {
+    console.log(tooltip);
     // Tooltip Element
     var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
 
     if (!tooltipEl) {
         tooltipEl = document.createElement('div');
-        tooltipEl.classList = 'chartjs-tooltip';
-        tooltipEl.innerHTML = "<table></table>"
+        tooltipEl.classList = 'chartjs-tooltip tooltip top in';
+        tooltipEl.innerHTML = '<div class="tooltip-arrow"></div><div class="tooltip-inner"></div>';
         this._chart.canvas.parentNode.appendChild(tooltipEl);
     }
 
@@ -44,27 +45,28 @@ var customNetworkTooltips = function(tooltip) {
         var bodyLines = tooltip.body.map(getBody);
         var innerHtml = '';
 
-        innerHtml += '<tbody>';
+        innerHtml += '<table><tbody>';
 
         bodyLines.forEach(function(body, i) {
             innerHtml += '<tr><td>' + getSize(body, 2) + '</td></tr>';
         });
-        innerHtml += '</tbody>';
+        innerHtml += '</tbody></table>';
 
-        var tableRoot = tooltipEl.querySelector('table');
+        var tableRoot = tooltipEl.querySelector('.tooltip-inner');
         tableRoot.innerHTML = innerHtml;
     }
 
     var positionY = this._chart.canvas.offsetTop;
     var positionX = this._chart.canvas.offsetLeft;
+    var height = this._chart.canvas.offsetHeight;
 
     // Display, position, and set styles for font
-    tooltipEl.style.opacity = 1;
+    tooltipEl.style.opacity = "";
     tooltipEl.style.left = positionX + tooltip.caretX + 'px';
-    tooltipEl.style.top = positionY + 'px';
+    tooltipEl.style.top = positionY - height + tooltip.y + 'px';
 };
 
-var showUsage = function(elem, from, to, step, data) {
+var showUsage = function(ctx, from, to, step, data) {
     var options = {
         layout: {
             padding: {
@@ -111,7 +113,6 @@ var showUsage = function(elem, from, to, step, data) {
         responsiveAnimationDuration: 0, // animation duration after a resize
     };
 
-    var ctx = $(elem);
     var usage = {};
     var usage_u = [];
     var usage_d = [];

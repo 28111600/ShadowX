@@ -81,7 +81,7 @@
 
 
 /*.table {
-    overflow: hidden;
+overflow: hidden;
 }*/
 
 .log-date {
@@ -113,15 +113,19 @@
 }
 
 .chartjs-tooltip {
-    margin-left: 10px;
-    opacity: 1;
+    margin-top: -30px!important;
     position: absolute;
-    background: rgba(0, 0, 0, .7);
-    color: white;
-    border-radius: 0;
-    transition: opacity .1s ease;
     pointer-events: none;
-    padding: .2em .5em;
-    font-size: 0.875em;
     white-space: nowrap;
+    transition: opacity, top .1s ease;
+}
+
+.chartjs-tooltip>.tooltip-arrow {
+    position: absolute;
+    left: 0%!important;
+}
+
+.chartjs-tooltip>.tooltip-inner {
+    position: relative;
+    left: -50%;
 }
