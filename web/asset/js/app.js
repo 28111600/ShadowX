@@ -19,7 +19,6 @@ var getSize = function(size, fixed) {
 }
 
 var customNetworkTooltips = function(tooltip) {
-    console.log(tooltip);
     // Tooltip Element
     var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
 
