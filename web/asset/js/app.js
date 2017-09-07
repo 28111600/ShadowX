@@ -230,7 +230,7 @@ var showChart = function(ctx, from, to, step, data) {
 
     var usage = getUsage(from, to, step, data);
     var datasets = [{
-        label: "下载",
+        label: "下行",
         lineTension: 0,
         data: usage.d,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -238,7 +238,7 @@ var showChart = function(ctx, from, to, step, data) {
         borderWidth: 1,
         pointRadius: .1
     }, {
-        label: "上传",
+        label: "上行",
         lineTension: 0,
         data: usage.u,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
