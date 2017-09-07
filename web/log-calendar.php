@@ -18,10 +18,9 @@ $url_log = 'log.php';
 <?php
 require_once '../template/footer.php'; ?>
 
-<!-- Moment 2.18.1 -->
-<script src="asset/js/moment.min.js"></script>
 <!-- FullCalendar 3.5.0 -->
 <link rel="stylesheet" href="asset/css/fullcalendar.min.css">
+<link rel="stylesheet" href="asset/css/materialFullCalendar.css">
 <script src="asset/js/fullcalendar.min.js"></script>
 
 <script>
@@ -31,8 +30,8 @@ require_once '../template/footer.php'; ?>
         $('#calendar').fullCalendar({
             theme: 'bootstrap3',
             header: {
-                right: 'prev,next today',
-                left: 'title',
+                left: 'prev,next today',
+                right: 'title',
                 center: ''//'month,agendaWeek,agendaDay'
             },
             views: {
@@ -86,7 +85,8 @@ require_once '../template/footer.php'; ?>
                 }
             },
             editable: false,
-            droppable: false
+            droppable: false,
+            handleWindowResize: true
         });
     })();
 </script>
