@@ -122,7 +122,8 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to
+                    to: to,
+                    type: "20min"
                 }
             }).done(function(text) {
                 var data = JSON.parse(text);
