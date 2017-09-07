@@ -62,7 +62,7 @@ var customNetworkTooltips = function(tooltip) {
     // Display, position, and set styles for font
     tooltipEl.style.opacity = "";
     tooltipEl.style.left = positionX + tooltip.caretX + 'px';
-    tooltipEl.style.top = positionY - height + tooltip.y + 'px';
+    tooltipEl.style.bottom = height - tooltip.caretY + 'px';
 };
 
 var showUsage = function(ctx, from, to, step, data) {
