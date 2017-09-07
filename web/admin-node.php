@@ -30,7 +30,7 @@ require_once '../template/head.php';
             <div class="col-md-6">
                 <div class="nav-tabs-custom box box-primary">
                     <ul class="nav nav-tabs pull-right">
-                        <li><a class="option text-blue" href="admin-node-detail.php?id=<?php echo $row['id']; ?>">编辑</a></li>
+                        <li><a class="option text-blue" href="admin-node-detail.php?id=<?php echo $row['id']; ?>">详情</a></li>
                         <!--<li><a class="option text-red node-delete" data-id="<?php echo $row['id']; ?>" href="#">删除</a></li>-->
                         <li class="pull-left header"><?php echo $row['name']; ?></li>
                     </ul>

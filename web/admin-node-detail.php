@@ -4,6 +4,7 @@ require_once '../template/head.php';
 
 if(!empty($_GET)){
     $id = $_GET['id'];
+    $isEdit = isset($_GET['edit']);
     if ($id === "new") {
         $isNew = true;
         $rs["id"] = "";
@@ -35,14 +36,17 @@ if(!empty($_GET)){
                     <div class="box-header with-border">
                     <?php if ($isNew) { ?>
                         <h3 class="box-title">添加节点</h3>
-                    <?php } else { ?>
+                    <?php } else if ($isEdit) { ?>
                         <h3 class="box-title">编辑节点</h3>
+                    <?php } else { ?>
+                        <h3 class="box-title">节点详情</h3>
                     <?php } ?>
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form role="form">
                         <div class="box-body">
+                        <?php if ($isEdit || $isNew) { ?>
                             <div class="form-group hidden">
                                 <label for="cate_title">id</label>
                                 <input class="form-control" id="id" value="<?php echo $id;?>" >
@@ -71,13 +75,42 @@ if(!empty($_GET)){
                                 <label for="cate_title">节点描述</label>
                                 <input class="form-control" id="info" value="<?php echo $rs['info'];?>" >
                             </div>
+                        <?php } else { ?>
+                            <div class="form-group hidden">
+                                <label for="cate_title">id</label>
+                                <span class="form-control"><?php echo $id;?></span>
+                            </div>
+                            <div class="form-group" >
+                                <label for="cate_title">Node Id</label>
+                                <span class="form-control"><?php echo $rs['node_id'];?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">节点名称</label>
+                                <span class="form-control"><?php echo $rs['name'];?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">地址</label>
+                                <span class="form-control"><?php echo $rs['server'];?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_method">加密方式</label>
+                                <span class="form-control"><?php echo $rs['method'];?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">节点描述</label>
+                                <span class="form-control"><?php echo $rs['info'];?></span>
+                            </div>
+                        <?php } ?>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                         <?php if ($isNew) { ?>
                             <button type="submit" class="btn btn-success">保存</button>
-                        <?php } else { ?>
+                        <?php } else if ($isEdit) { ?>
                             <button type="submit" class="btn btn-success">保存</button>
+                            <a href="?id=<?php echo $id;?>" class="btn btn-default">取消</a>
                             <button type="button" id="node-delete" class="btn btn-danger">删除</button>
+                        <?php } else { ?>
+                            <a href="?id=<?php echo $id;?>&edit" class="btn btn-primary">编辑</a>
                         <?php } ?>
                         </div>
                     </form>
@@ -85,6 +118,22 @@ if(!empty($_GET)){
                 <!-- /.box -->
             </div>
             <!-- /.col -->
+            <?php if (!$isEdit && !$isNew) { ?>
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">流量图表</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <div class="usage-box"><canvas width="16px" height="9px" class="usage"></canvas></div>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <?php } ?>
         </div>
         <!-- /.row -->
     </section>
@@ -96,6 +145,8 @@ require_once '../template/footer.php'; ?>
 
 <!-- Select2 4.0.3 -->
 <script src="asset/js/select2.min.js"></script>
+<!-- Chart 2.6.0 -->
+<script src="asset/js/Chart.bundle.min.js"></script>
 
 <script>
     //Initialize Select2 Elements
@@ -135,7 +186,7 @@ require_once '../template/footer.php'; ?>
         return false;
     })
 
-<?php } else { ?>
+<?php } else if ($isEdit) { ?>
 
     function update() {
         $.ajax({
@@ -170,8 +221,6 @@ require_once '../template/footer.php'; ?>
         return false;
     })
 
-<?php } ?>
-
     $("#node-delete").click(function() {
         if (confirm("确认删除此节点？")) {
             var id = $("#id").val();
@@ -197,5 +246,31 @@ require_once '../template/footer.php'; ?>
             })
         }
         return false;
-    })
+    });
+<?php } else { ?>
+    !(function() {
+        var interval = 3600 * 24;
+        var to = getTimePoint(new Date(), interval);
+        var from = to - 3600 * 24 * 30;
+
+        $(".usage").each(function() {
+            var elem = this;
+            $.ajax({
+                url: "ajax/admin-log.php",
+                cache: false,
+                type: "POST",
+                data: {
+                    action: "getLogRange",
+                    from: from,
+                    to: to,
+                    node_id: <?php echo $rs['node_id'];?>,
+                    type: "days"
+                }
+            }).done(function(text) {
+                var data = JSON.parse(text);
+                showChart(elem, from, to, interval, data.data);
+            });
+        });
+    })();
+<?php } ?>
 </script>
