@@ -84,7 +84,7 @@ require_once '../template/footer.php'; ?>
 <script>
     !(function() {
         var interval = 1200;
-        var to = Math.floor(+new Date() / 1000 / interval ) * interval + getTimeZone() * 3600;
+        var to = getTimePoint(new Date(), interval);
         var from = to - 3600 * 24;
 
         $(".usage").each(function() {

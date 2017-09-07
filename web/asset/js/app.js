@@ -65,6 +65,10 @@ var customNetworkTooltips = function(tooltip) {
     tooltipEl.style.bottom = height - tooltip.caretY + 'px';
 };
 
+var getTimePoint = function(date, interval) {
+    return Math.floor((+new Date() / 1000 + getTimeZone() * 3600) / interval) * interval;
+}
+
 var showUsage = function(ctx, from, to, step, data) {
     var options = {
         layout: {
@@ -115,6 +119,86 @@ var showUsage = function(ctx, from, to, step, data) {
     var usage = {};
     var usage_u = [];
     var usage_d = [];
+    var usage_t = [];
+    var labels = [];
+    for (var i = 0; i < data.length; i++) {
+        usage[data[i].t] = data[i];
+    }
+    var t = 0;
+    for (var i = from; i <= to; i += step) {
+        usage_u.push(usage[i] ? usage[i].u : 0);
+        usage_d.push(usage[i] ? usage[i].d : 0);
+        labels.push(t++);
+    }
+    var datasets = [{
+        lineTension: 0,
+        data: usage_d,
+        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+        borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        pointRadius: .1
+    }];
+    var chart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: datasets
+        },
+        options: options
+    });
+}
+
+var showChart = function(ctx, from, to, step, data) {
+    var options = {
+        layout: {
+            padding: {
+                left: 2,
+                right: 2,
+                top: 2,
+                bottom: 2
+            }
+        },
+        tooltips: {
+            enabled: false,
+            mode: 'index',
+            position: 'nearest',
+            intersect: false,
+            custom: customNetworkTooltips
+        },
+        legend: {
+            display: false
+        },
+        elements: {
+            line: {
+                tension: 0, // disables bezier curves
+            },
+            point: {
+                hoverRadius: 1.5,
+            }
+        },
+        scales: {
+            yAxes: [{
+                display: true
+            }],
+            xAxes: [{
+                display: true
+            }]
+        },
+        responsive: true,
+        animation: {
+            duration: 0, // general animation time
+        },
+        hover: {
+            intersect: false,
+            animationDuration: 0, // duration of animations when hovering an item
+        },
+        responsiveAnimationDuration: 0, // animation duration after a resize
+    };
+
+    var usage = {};
+    var usage_u = [];
+    var usage_d = [];
+    var usage_t = [];
     var labels = [];
     for (var i = 0; i < data.length; i++) {
         usage[data[i].t] = data[i];
