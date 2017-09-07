@@ -129,3 +129,10 @@ overflow: hidden;
     position: relative;
     left: -50%;
 }
+
+.chartjs-tooltip-key {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin-right: 10px;
+}

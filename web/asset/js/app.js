@@ -1,7 +1,7 @@
 var getTimeZone = function() { return -((new Date()).getTimezoneOffset() / 60); };
 
-var getSize = function(size, fixed) {
-    var K = 1024; //1024;
+var getSize = function(size, fixed, k) {
+    var K = k || 1024;
     size = parseInt(size || 0);
     var unit = ["B", "KB", "MB", "GB"];
 
@@ -12,13 +12,13 @@ var getSize = function(size, fixed) {
         }
     }
     var result = (size / Math.pow(K, j));
-    if (fixed) {
-        result = result.toFixed(j === 0 ? 0 : 2);
+    if (fixed !== undefined) {
+        result = result.toFixed(j === 0 ? 0 : fixed);
     }
     return result + " " + unit[j];
 }
 
-var customNetworkTooltips = function(tooltip) {
+var customUsageTooltip = function(tooltip) {
     // Tooltip Element
     var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
 
@@ -36,18 +36,29 @@ var customNetworkTooltips = function(tooltip) {
     }
 
     function getBody(bodyItem) {
-        return bodyItem.lines;
+        return bodyItem.yLabel;
     }
 
     // Set Text
     if (tooltip.body) {
-        var bodyLines = tooltip.body.map(getBody);
+        var bodyLines = tooltip.dataPoints.map(getBody);
+        var titleLines = tooltip.title || [];
         var innerHtml = '';
 
-        innerHtml += '<table><tbody>';
+        innerHtml += '<table><tbody class="text-left">';
+
+        titleLines.forEach(function(title) {
+            innerHtml += '<tr><th>' + moment(parseInt(title)).format("MM/DD HH:mm") + '</th></tr>';
+        });
 
         bodyLines.forEach(function(body, i) {
-            innerHtml += '<tr><td>' + getSize(body, 2) + '</td></tr>';
+            var spanColor = "";
+            if (tooltip.displayColors) {
+                var color = tooltip.labelColors[i];
+                var style = 'background:' + color.borderColor + '; border-color:' + color.borderColor;
+                spanColor = '<span class="chartjs-tooltip-key" style="' + style + '"></span>';
+            }
+            innerHtml += '<tr><td>' + spanColor + (body ? getSize(body, 2) : "-") + '</td></tr>';
         });
         innerHtml += '</tbody></table>';
 
@@ -68,7 +79,28 @@ var customNetworkTooltips = function(tooltip) {
 var getTimePoint = function(date, interval) {
     return Math.floor((+new Date() / 1000 + getTimeZone() * 3600) / interval) * interval;
 }
-
+var getUsage = function(from, to, step, data) {
+    var usage = {};
+    var usage_u = [];
+    var usage_d = [];
+    var usage_t = [];
+    var labels = [];
+    for (var i = 0; i < data.length; i++) {
+        usage[data[i].t] = data[i];
+    }
+    var offset = getTimeZone() * 3600 * 1000;
+    for (var i = from; i <= to; i += step) {
+        usage_u.push(usage[i] ? usage[i].u : 0);
+        usage_d.push(usage[i] ? usage[i].d : 0);
+        labels.push(i * 1000 - offset);
+    }
+    return {
+        labels: labels,
+        u: usage_u,
+        d: usage_d,
+        t: usage_t
+    }
+}
 var showUsage = function(ctx, from, to, step, data) {
     var options = {
         layout: {
@@ -84,7 +116,8 @@ var showUsage = function(ctx, from, to, step, data) {
             mode: 'index',
             position: 'nearest',
             intersect: false,
-            custom: customNetworkTooltips
+            displayColors: false,
+            custom: customUsageTooltip
         },
         legend: {
             display: false
@@ -116,23 +149,10 @@ var showUsage = function(ctx, from, to, step, data) {
         responsiveAnimationDuration: 0, // animation duration after a resize
     };
 
-    var usage = {};
-    var usage_u = [];
-    var usage_d = [];
-    var usage_t = [];
-    var labels = [];
-    for (var i = 0; i < data.length; i++) {
-        usage[data[i].t] = data[i];
-    }
-    var t = 0;
-    for (var i = from; i <= to; i += step) {
-        usage_u.push(usage[i] ? usage[i].u : 0);
-        usage_d.push(usage[i] ? usage[i].d : 0);
-        labels.push(t++);
-    }
+    var usage = getUsage(from, to, step, data);
     var datasets = [{
         lineTension: 0,
-        data: usage_d,
+        data: usage.d,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
         borderWidth: 1,
@@ -141,7 +161,7 @@ var showUsage = function(ctx, from, to, step, data) {
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels,
+            labels: usage.labels,
             datasets: datasets
         },
         options: options
@@ -163,10 +183,11 @@ var showChart = function(ctx, from, to, step, data) {
             mode: 'index',
             position: 'nearest',
             intersect: false,
-            custom: customNetworkTooltips
+            displayColors: true,
+            custom: customUsageTooltip
         },
         legend: {
-            display: false
+            display: true
         },
         elements: {
             line: {
@@ -178,10 +199,22 @@ var showChart = function(ctx, from, to, step, data) {
         },
         scales: {
             yAxes: [{
-                display: true
+                display: true,
+                ticks: {
+                    callback: function(value, index, values) {
+                        return getSize(value, 2, 1000);
+                    }
+                }
             }],
             xAxes: [{
-                display: true
+                display: true,
+                type: 'time',
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value;
+                        return moment(value).format("MM/DD");
+                    }
+                }
             }]
         },
         responsive: true,
@@ -195,32 +228,28 @@ var showChart = function(ctx, from, to, step, data) {
         responsiveAnimationDuration: 0, // animation duration after a resize
     };
 
-    var usage = {};
-    var usage_u = [];
-    var usage_d = [];
-    var usage_t = [];
-    var labels = [];
-    for (var i = 0; i < data.length; i++) {
-        usage[data[i].t] = data[i];
-    }
-    var t = 0;
-    for (var i = from; i <= to; i += step) {
-        usage_u.push(usage[i] ? usage[i].u : 0);
-        usage_d.push(usage[i] ? usage[i].d : 0);
-        labels.push(t++);
-    }
+    var usage = getUsage(from, to, step, data);
     var datasets = [{
+        label: "下载",
         lineTension: 0,
-        data: usage_d,
+        data: usage.d,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
+        borderWidth: 1,
+        pointRadius: .1
+    }, {
+        label: "上传",
+        lineTension: 0,
+        data: usage.u,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1,
         pointRadius: .1
     }];
     var chart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: labels,
+            labels: usage.labels,
             datasets: datasets
         },
         options: options

@@ -23,3 +23,5 @@
 <script src="asset/js/app.js"></script>
 <!-- Messg -->
 <script src="asset/js/messg.min.js"></script>
+<!-- Moment 2.18.1 -->
+<script src="asset/js/moment.min.js"></script>
