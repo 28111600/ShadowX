@@ -124,7 +124,7 @@ var showUsage = function(ctx, from, to, step, data) {
         },
         elements: {
             line: {
-                tension: 0, // disables bezier curves
+                tension: 0,
             },
             point: {
                 hoverRadius: 1.5,
@@ -151,7 +151,6 @@ var showUsage = function(ctx, from, to, step, data) {
 
     var usage = getUsage(from, to, step, data);
     var datasets = [{
-        lineTension: 0,
         data: usage.d,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
@@ -191,7 +190,7 @@ var showChart = function(ctx, from, to, step, data) {
         },
         elements: {
             line: {
-                tension: 0, // disables bezier curves
+                tension: 0,
             },
             point: {
                 hoverRadius: 1.5,
@@ -231,7 +230,6 @@ var showChart = function(ctx, from, to, step, data) {
     var usage = getUsage(from, to, step, data);
     var datasets = [{
         label: "下行",
-        lineTension: 0,
         data: usage.d,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderColor: 'rgba(54, 162, 235, 1)',
@@ -239,7 +237,6 @@ var showChart = function(ctx, from, to, step, data) {
         pointRadius: .1
     }, {
         label: "上行",
-        lineTension: 0,
         data: usage.u,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
