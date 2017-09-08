@@ -117,7 +117,7 @@ overflow: hidden;
     position: absolute;
     pointer-events: none;
     white-space: nowrap;
-    transition: opacity, top .1s ease;
+    transition: opacity .1s ease;
 }
 
 .chartjs-tooltip>.tooltip-arrow {
