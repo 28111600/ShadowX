@@ -15,7 +15,7 @@ ShadowX
 ### Password
 > php pwd.php 'password'
 
-### Install Maingun
+### Install Mailgun
 ```
 $ curl -sS https://getcomposer.org/installer | php
 $ php composer.phar install
