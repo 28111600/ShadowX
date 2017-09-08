@@ -110,13 +110,13 @@
                             <i class="fa fa-users"></i> <span>邀请管理</span>
                         </a>
                     </li>
-                    <?php } ?>
-                    <li class="header"></li>
                     <li>
-                        <a href="server.php">
+                        <a href="system.php">
                             <i class="fa fa-info-circle"></i> <span>系统信息</span>
                         </a>
                     </li>
+                    <?php } ?>
+                    <li class="header"></li>
                     <li>
                         <a href="logout.php">
                             <i class="fa fa-sign-out"></i> <span>退出</span>
