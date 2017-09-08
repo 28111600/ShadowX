@@ -139,4 +139,7 @@ class Utility {
         $html = addslashes($html);
         return $html;
     }
+    static function IsEmailLegal($email){
+        return filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
 }

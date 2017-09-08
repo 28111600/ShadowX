@@ -10,18 +10,18 @@ CREATE TABLE `user` (
   `email` varchar(32) NOT NULL,
   `pass` varchar(64) NOT NULL,
   `passwd` varchar(16) NOT NULL,
-  `t` int(11) NOT NULL DEFAULT '0',
-  `u` bigint(20) NOT NULL,
-  `d` bigint(20) NOT NULL,
-  `transfer_enable` bigint(20) NOT NULL,
+  `t` int(11) NOT NULL DEFAULT 0,
+  `u` bigint(20) NOT NULL DEFAULT 0,
+  `d` bigint(20) NOT NULL DEFAULT 0,
+  `transfer_enable` bigint(20) NOT NULL DEFAULT 0,
   `port` int(11) NOT NULL,
-  `max_speed` int(11) NOT NULL DEFAULT '0',
-  `enable` tinyint(4) NOT NULL DEFAULT '1',
-  `reg_date` int(11) NOT NULL DEFAULT '0',
+  `max_speed` int(11) NOT NULL DEFAULT 0,
+  `enable` int(2) NOT NULL DEFAULT 1,
+  `reg_date` int(11) NOT NULL DEFAULT 0,
   `reg_ip` varchar(128) NOT NULL DEFAULT `unknown`,
   `invite_num` int(8) NOT NULL,
-  `ref_by` int(11) NOT NULL DEFAULT '0',
-  `is_admin` int(2) NOT NULL DEFAULT '0',
+  `ref_by` int(11) NOT NULL DEFAULT 0,
+  `is_admin` int(2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`uid`, `port`),
   INDEX `user_uid` (`uid`) USING BTREE,
   INDEX `user_port` (`port`) USING BTREE
@@ -29,11 +29,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_name`, `email`, `pass`, `passwd`, `t`, `u`, `d`, `transfer_enable`, `port`, `max_speed`, `enable`, `reg_date`, `reg_ip`, `invite_num`, `ref_by`, `is_admin`) VALUES
 ('xiaodong', 'xiaodong@abc.com', 'c5a4e7e6882845ea7bb4d9462868219b', 'ABCDEDG', 1427454468, 0, 0, 1024000, 5000, 0, 1, 1429758822, '127.0.0.1', 0, 0, 1);
-
-SET NAMES utf8;
-SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -52,11 +47,6 @@ CREATE TABLE `log` (
   INDEX `log_uid_t` (`uid`, `t`) USING BTREE
 ) ENGINE = INNODB DEFAULT CHARSET=utf8;
 
-SET NAMES utf8;
-SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
-
 DROP TABLE IF EXISTS `ss_user_admin`;
 CREATE TABLE `ss_user_admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -67,23 +57,14 @@ CREATE TABLE `ss_user_admin` (
 INSERT INTO `ss_user_admin` (`id`, `uid`) VALUES
 (1, 1);
 
-SET NAMES utf8;
-SET time_zone = '+08:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
-
 DROP TABLE IF EXISTS `ss_reset_pwd`;
 CREATE TABLE `ss_reset_pwd` (
-  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uid` int(11) NOT NULL,
   `expire` int(11) NOT NULL,
-  `code` varchar(64) NOT NULL
+  `code` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-SET NAMES utf8;
-SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `ss_node`;
 CREATE TABLE `ss_node` (
@@ -102,12 +83,12 @@ CREATE TABLE `ss_node` (
 INSERT INTO `ss_node` (`node_id`, `name`, `server`, `method`, `info`, `loadavg`, `uptime`, 'checktime') VALUES
 (1, '第一个节点', 'node.url.io', 'aes-256-cfb', 'node描述', 0, '0.00,0.00,0.00', '0', '0');
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-DROP TABLE IF EXISTS `ss_invite_code`;
-CREATE TABLE `ss_invite_code` (
-  `id` int(32) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+DROP TABLE IF EXISTS `ss_invite`;
+CREATE TABLE `ss_invite` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uid` int(11) NOT NULL,
   `code` varchar(128) NOT NULL,
-  `user` int(32) NOT NULL
+  `status` int(2) NOT NULL DEFAULT 1,
+  `used_uid` int(11) NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

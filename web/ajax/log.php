@@ -19,12 +19,14 @@ if(!empty($_POST)){
                 $d['d'] = $log['d'];
                 $rows[] = $d;
             }
-            $result['code'] = '1';
-            $result['ok'] = '1';
+            $result['code'] = 1;
+            $result['ok'] = 1;
             $result['data'] = $rows;
             echo json_encode($result);
         } else {
-            $result['code'] = '0';
+            $result['ok'] = 0;
+            $result['code'] = 0;
+            echo json_encode($result);
         }
     }
 }

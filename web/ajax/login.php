@@ -7,8 +7,8 @@ $passwd = ShadowX\Utility::getPwdHash(urldecode($_POST['passwd']));
 $rem = $_POST['remember_me'];
 
 if (ShadowX\User::isEmailLogin($email, $passwd)) {
-    $result['code'] = '1';
-    $result['ok'] = '1';
+    $result['code'] = 1;
+    $result['ok'] = 1;
 
     if($rem == "week"){
         $expire = 3600 * 24 * 7;
@@ -23,7 +23,9 @@ if (ShadowX\User::isEmailLogin($email, $passwd)) {
     setcookie("uid", $uid, $t, "/");
     setcookie("user_pwd", $passwd_cookie, $t, "/");
     setcookie("user_email", $email, $t, "/");
+    echo json_encode($result);
 } else {
-    $result['code'] = '0';
+    $result['ok'] = 0;
+    $result['code'] = 0;
+    echo json_encode($result);
 }
-echo json_encode($result);

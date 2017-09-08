@@ -1,6 +1,7 @@
 <?php
 $url = parse_url($_SERVER['REQUEST_URI']);
 $isPageLogin = ($url['path'] === '/login.php');
+$isPageRegister = ($url['path'] === '/register.php');
 
 //检测是否登录，若没登录则转向登录界面
 if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
@@ -21,13 +22,13 @@ if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
         header("Location: login.php");
         exit();
     } else {
-        if ($isPageLogin) {
+        if ($isPageLogin && $isPageRegister) {
             header("Location: ./");
             exit();
         }
     }
 } else {
-    if (!$isPageLogin) {
+    if (!$isPageLogin && !$isPageRegister) {
         header("Location: login.php");
         exit();
     }
