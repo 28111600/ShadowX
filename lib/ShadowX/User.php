@@ -17,11 +17,11 @@ class User {
 
     static function getAllUsers(){
         global $db;
-        return $db->select(self::$table,"*");
+        return $db->select(static::$table,"*");
     }
 
     function getUser(){
-        $datas = $this->db->select(self::$table,"*",[
+        $datas = $this->db->select(static::$table,"*",[
             "uid" => $this->uid,
             "LIMIT" => "1"
         ]);
@@ -78,7 +78,7 @@ class User {
 
     function addTransfer($transfer=0){
         $transfer = $this->getTransferEnable() + $transfer;
-        $this->db->update(self::$table,[
+        $this->db->update(static::$table,[
             "transfer_enable" => $transfer
         ],[
             "uid" => $this->uid
@@ -86,7 +86,7 @@ class User {
     }
 
     function setSsPass($pass){
-        $this->db->update(self::$table,[
+        $this->db->update(static::$table,[
             "passwd" => $pass
         ],[
             "uid" => $this->uid
@@ -95,21 +95,21 @@ class User {
 
     static function IsUsernameUsed($username){
         global $db;
-        return $db->has(self::$table,[
+        return $db->has(static::$table,[
             "user_name" => $username
         ]);
     }
 
     static function IsEmailUsed($email){
         global $db;
-        return $db->has(self::$table,[
+        return $db->has(static::$table,[
             "email" => $email
         ]);
     }
 
     static function isEmailLogin($email,$passwd){
         global $db;
-        return $db->has(self::$table,[
+        return $db->has(static::$table,[
             "AND" => [
                 "email" => $email,
                 "pass" => $passwd
@@ -119,7 +119,7 @@ class User {
 
     static function getUidByEmail($email){
         global $db;
-        $datas = $db->select(self::$table,"*",[
+        $datas = $db->select(static::$table,"*",[
             "email" => $email,
             "LIMIT" => 1
         ]);
@@ -128,7 +128,7 @@ class User {
     
     static function GetLastPort(){
         global $db;
-        $datas = $db->select(self::$table,"*",[
+        $datas = $db->select(static::$table,"*",[
             "ORDER" => "port DESC",
             "LIMIT" => 1
         ]);
@@ -139,7 +139,7 @@ class User {
         $sspass = Utility::getRandomChar(8);
 
         global $db;
-        $datas = $db->insert(self::$table,[
+        $db->insert(static::$table,[
             "user_name" => $username,
             "email" => $email,
             "pass" => $pass,
@@ -148,7 +148,7 @@ class User {
             "u" => '0',
             "d" => '0',
             "transfer_enable" => $transfer,
-            "port" => self::GetLastPort() + 1,
+            "port" => static::GetLastPort() + 1,
             "invite_num" => $invite_num,
             "reg_date" => time(),
             "ref_by" => $ref_by

@@ -16,7 +16,7 @@ class Node {
     }
 
     function getNode(){
-        $datas = $this->db->select(self::$table,"*",[
+        $datas = $this->db->select(static::$table,"*",[
             "id" => $this->id,
             "LIMIT" => "1"
         ]);
@@ -25,14 +25,14 @@ class Node {
 
     static function getAllNodes(){
         global $db;
-        return $db->select(self::$table,"*",[
+        return $db->select(static::$table,"*",[
             "ORDER" => "node_id"
         ]);
     }
 
     static function addNode($name,$server,$method,$info,$node_id){
         global $db;
-        $db->insert(self::$table, [
+        $db->insert(static::$table, [
             "name" => $name,
             "server" => $server,
             "method" => $method,
@@ -43,7 +43,7 @@ class Node {
     }
     
     function updateNode($name,$server,$method,$info,$node_id){
-        $this->db->update(self::$table, [
+        $this->db->update(static::$table, [
             "name" => $name,
             "server" => $server,
             "method" => $method,
@@ -56,7 +56,7 @@ class Node {
     }
 
     function deleteNode(){
-        $this->db->delete(self::$table,[
+        $this->db->delete(static::$table,[
             "id" => $this->id
         ]);
     }

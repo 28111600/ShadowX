@@ -14,14 +14,14 @@ class Invite {
     }
 
     function getInviteCodes(){
-        return $this->db->select(self::$table,"*",[
+        return $this->db->select(static::$table,"*",[
             "uid" => $this->uid
         ]);
     }
 
     static function isInviteCodeOk($invitecode){
         global $db;
-        return $db->has(self::$table,[
+        return $db->has(static::$table,[
             "AND" => [
                 "code" => $invitecode,
                 "status" => 1
@@ -31,7 +31,7 @@ class Invite {
 
     static function getInviteRef($invitecode){
         global $db;
-        $datas = $db->select(self::$table,"*",[
+        $datas = $db->select(static::$table,"*",[
             "AND" => [
                 "code" => $invitecode
             ]
@@ -41,7 +41,7 @@ class Invite {
 
     static function setInviteCodeUsed($invitecode,$uid){
         global $db;
-        $db->update(self::$table,[
+        $db->update(static::$table,[
             "status" => 0,
             "used_uid" => $uid
         ],[
