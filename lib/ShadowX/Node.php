@@ -25,10 +25,9 @@ class Node {
 
     static function getAllNodes(){
         global $db;
-        $datas = $db->select(self::$table,"*",[
+        return $db->select(self::$table,"*",[
             "ORDER" => "node_id"
         ]);
-        return $datas;
     }
 
     static function addNode($name,$server,$method,$info,$node_id){

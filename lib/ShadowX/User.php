@@ -17,8 +17,7 @@ class User {
 
     static function getAllUsers(){
         global $db;
-        $datas = $db->select(self::$table,"*");
-        return $datas;
+        return $db->select(self::$table,"*");
     }
 
     function getUser(){

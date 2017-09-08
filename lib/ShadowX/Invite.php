@@ -14,10 +14,9 @@ class Invite {
     }
 
     function getInviteCodes(){
-        $datas = $this->db->select(self::$table,"*",[
+        return $this->db->select(self::$table,"*",[
             "uid" => $this->uid
         ]);
-        return $datas;
     }
 
     static function isInviteCodeOk($invitecode){
