@@ -11,7 +11,7 @@ spl_autoload_register(function ($class) {
 });
 
 require_once 'Medoo.php';
-$db = new medoo([
+$db = new Medoo\medoo([
     // required
     'database_type' => $DB_TYPE,
     'database_name' => $DB_DBNAME,
