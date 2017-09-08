@@ -199,6 +199,9 @@ var showChart = function(ctx, from, to, step, data) {
         scales: {
             yAxes: [{
                 display: true,
+                gridLines: {
+                    drawBorder: false
+                },
                 ticks: {
                     callback: function(value, index, values) {
                         return getSize(value, 2, 1000);
@@ -207,6 +210,10 @@ var showChart = function(ctx, from, to, step, data) {
             }],
             xAxes: [{
                 display: true,
+                gridLines: {
+                    drawBorder: false,
+                    display: false,
+                },
                 type: 'time',
                 ticks: {
                     callback: function(value, index, values) {
