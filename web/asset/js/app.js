@@ -102,6 +102,8 @@ var getUsage = function(from, to, step, data) {
     }
 }
 var showUsage = function(ctx, from, to, step, data) {
+    var usage = getUsage(from, to, step, data);
+
     var options = {
         layout: {
             padding: {
@@ -149,7 +151,6 @@ var showUsage = function(ctx, from, to, step, data) {
         responsiveAnimationDuration: 0, // animation duration after a resize
     };
 
-    var usage = getUsage(from, to, step, data);
     var datasets = [{
         data: usage.d,
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
@@ -166,8 +167,32 @@ var showUsage = function(ctx, from, to, step, data) {
         options: options
     });
 }
+var getChartYAxis = function(from, to, data) {
+    var K = 1024;
+    var m = Math.max.apply(null, data);
+    var i = 0;
+    while (m > K) {
+        m = m / K;
+        i++;
+    }
 
+    var unit = Math.pow(10, (parseInt(m)).toString().length - 1);
+    var maxNum = parseInt(m / unit) + 1;
+    var max = maxNum * unit * Math.pow(K, i);
+    var min = 0;
+    split = [0, 4, 4, 6, 4, 5, 4, 5, 4, 5, 5, 5][maxNum];
+    stepSize = max / split;
+
+    return {
+        max: max,
+        min: min,
+        stepSize: stepSize
+    }
+}
 var showChart = function(ctx, from, to, step, data) {
+    var usage = getUsage(from, to, step, data);
+    var chartYAxis = getChartYAxis(from, to, usage.u.concat(usage.d));
+
     var options = {
         layout: {
             padding: {
@@ -203,22 +228,23 @@ var showChart = function(ctx, from, to, step, data) {
                     drawBorder: false
                 },
                 ticks: {
+                    max: chartYAxis.max,
+                    min: chartYAxis.min,
+                    stepSize: chartYAxis.stepSize,
                     callback: function(value, index, values) {
-                        return getSize(value, 2, 1000);
+                        return getSize(value, 2);
                     }
                 }
             }],
             xAxes: [{
-                display: true,
+                display: false,
                 gridLines: {
                     drawBorder: false,
                     display: false,
                 },
-                type: 'time',
                 ticks: {
                     callback: function(value, index, values) {
                         return value;
-                        return moment(value).format("MM/DD");
                     }
                 }
             }]
@@ -234,7 +260,6 @@ var showChart = function(ctx, from, to, step, data) {
         responsiveAnimationDuration: 0, // animation duration after a resize
     };
 
-    var usage = getUsage(from, to, step, data);
     var datasets = [{
         label: "下行",
         data: usage.d,
