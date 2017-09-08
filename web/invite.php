@@ -15,7 +15,7 @@ require_once '../template/head.php';
         <div class="row">
             <div class="col-xs-12 col-lg-6">
                 <div class="btn-group">
-                    <button type="button" id="addInviteCode" <?php echo ($User->getInviteNum() == 0 ? 'disabled="disabled"' : ''); ?> class="btn btn-success">生成邀请码</button>
+                    <button type="button" id="addInviteCode" <?php echo $User->getInviteNum() == 0 ? 'disabled="disabled"' : ''; ?> class="btn btn-success">生成邀请码</button>
                 </div>
             </div>
         </div>

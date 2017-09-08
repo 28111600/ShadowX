@@ -23,20 +23,21 @@ class Utility {
     }
 
     static function getSize($value){
-        $kb = 1024; $mb = 1024 * 1024; $gb = 1024 * 1024 * 1024;
+        $kb = 1024;
+        $mb = 1024 * 1024;
+        $gb = 1024 * 1024 * 1024;
         $sign = ($value >=0) ? 1 : -1;
         $value = abs($value);
         if ($value > $gb) {
-            return round($sign*$value/$gb, 2)." GB";
-        }
-        else if ($value > $mb) {
-            return round($sign*$value/$mb, 2)." MB";
-        }
-        else if ($value > $kb) {
-            return round($sign*$value/$kb, 2)." KB";
+            $result = round($sign*$value/$gb, 2)." GB";
+        } else if ($value > $mb) {
+            $result = round($sign*$value/$mb, 2)." MB";
+        } else if ($value > $kb) {
+            $result = round($sign*$value/$kb, 2)." KB";
         } else {
-            return round($sign*$value, 2)." B";
+            $result = round($sign*$value, 2)." B";
         }
+        return $result;
     }
 
     static function renderTpl($tpl,$data=[]) {
@@ -57,18 +58,18 @@ class Utility {
 
     static function geoIP(){
         $ip = "Unknown";
-        if (getenv("HTTP_X_FORWARDED_FOR")){
+        if (getenv("HTTP_X_FORWARDED_FOR")) {
             $ip = getenv("HTTP_X_FORWARDED_FOR");
-        } elseif (getenv("HTTP_CLIENT_IP")){
+        } else if (getenv("HTTP_CLIENT_IP")) {
             $ip = getenv("HTTP_CLIENT_IP");
-        } elseif (getenv("REMOTE_ADDR")){
+        } else if (getenv("REMOTE_ADDR")) {
             $ip = getenv("REMOTE_ADDR");
-        } elseif($HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"]){
-            $ip = $HTTP_SERVER_VARS["HTTP_X_FORWARDED_FOR"];
-        } elseif($HTTP_SERVER_VARS["HTTP_CLIENT_IP"]){
-            $ip = $HTTP_SERVER_VARS["HTTP_CLIENT_IP"];
-        } elseif ($HTTP_SERVER_VARS["REMOTE_ADDR"]){
-            $ip = $HTTP_SERVER_VARS["REMOTE_ADDR"];
+        } else if ($_SERVER["HTTP_X_FORWARDED_FOR"]) {
+            $ip = $_SERVER["HTTP_X_FORWARDED_FOR"];
+        } else if ($_SERVER["HTTP_CLIENT_IP"]) {
+            $ip = $_SERVER["HTTP_CLIENT_IP"];
+        } else if ($_SERVER["REMOTE_ADDR"]) {
+            $ip = $_SERVER["REMOTE_ADDR"];
         }
         return $ip;
     }
@@ -134,10 +135,7 @@ class Utility {
                 $replaces[] = empty($value)?'':"<".str_replace('"', '"', $value).">";
             }
         }
-        $html = str_replace($searchs, $replaces, $html);
-
-        $html = addslashes($html);
-        return $html;
+        return addslashes(str_replace($searchs, $replaces, $html));
     }
     static function IsEmailLegal($email){
         return filter_var($email, FILTER_VALIDATE_EMAIL);
