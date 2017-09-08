@@ -122,7 +122,7 @@ if(!empty($_GET)){
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - Month</h3>
+                        <h3 class="box-title">流量图表 - 30 Days</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -136,7 +136,7 @@ if(!empty($_GET)){
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - Day</h3>
+                        <h3 class="box-title">流量图表 - 24 Hours</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -289,7 +289,7 @@ require_once '../template/footer.php'; ?>
     })();
 
     !(function() {
-        var interval = 1200;
+        var interval = 3600;
         var to = getTimePoint(new Date(), interval);
         var from = to - 3600 * 24;
 
@@ -304,7 +304,7 @@ require_once '../template/footer.php'; ?>
                     from: from,
                     to: to,
                     node_id: node_id,
-                    type: "20min"
+                    type: "hours"
                 }
             }).done(function(text) {
                 var data = JSON.parse(text);
