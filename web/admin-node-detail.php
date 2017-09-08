@@ -277,7 +277,7 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to,
+                    to: to + interval -1,
                     node_id: node_id,
                     type: "days"
                 }
@@ -302,7 +302,7 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to,
+                    to: to + interval -1,
                     node_id: node_id,
                     type: "hours"
                 }
