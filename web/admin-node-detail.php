@@ -201,7 +201,7 @@ require_once '../template/footer.php'; ?>
     })
 
 <?php } else if ($isEdit) { ?>
-
+    var id = <?php echo $id;?>;
     function update() {
         $.ajax({
             type: "POST",
@@ -219,7 +219,7 @@ require_once '../template/footer.php'; ?>
             success: function(data) {
                 if (data.ok) {
                     new Message("操作成功！", "success", 1000);
-                    setTimeout(function() { location.reload(); }, 1000);
+                    setTimeout(function() { location.href = "admin-node-detail.php?id=" + id; }, 1000);
                 } else {
                     new Message("操作失败！", "error", 1000);
                 }
