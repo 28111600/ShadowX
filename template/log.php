@@ -57,7 +57,7 @@ $pagelast  = min($pagelast,$pagemax);
             <div class="btn-group">
                 <div class="dropdown btn-group">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <?php echo $typename;?>
+                        <?php echo $typename; ?>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
@@ -68,15 +68,15 @@ $pagelast  = min($pagelast,$pagemax);
                 </div>
                 <div class="dropdown btn-group">
                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                        <?php echo $name;?>
+                        <?php echo $name; ?>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="?type=<?php echo $type;?>&id=all">All</a></li>
+                        <li><a href="?type=<?php echo $type; ?>&id=all">All</a></li>
                     <?php
                     $nodes = ShadowX\Node::getAllNodes();
                     foreach ($nodes as $rs) { ?>
-                        <li><a href="?type=<?php echo $type;?>&id=<?php echo $rs['node_id'];?>"><?php echo $rs['name']; ?></a></li>
+                        <li><a href="?type=<?php echo $type; ?>&id=<?php echo $rs['node_id']; ?>"><?php echo $rs['name']; ?></a></li>
                     <?php } ?>
                     </ul>
                 </div>
@@ -100,23 +100,23 @@ $pagelast  = min($pagelast,$pagemax);
                     </li>
                 <?php } else { ?>
                     <li class="paginate_button previous">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $page - 1;?>">Previous</a>
+                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $page - 1; ?>">Previous</a>
                     </li>
                 <?php } ?>
                 
                 <?php for ($i = $pagefirst;$i < $page;$i++){ ?>
                         <li class="paginate_button">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $i;?>"><?php echo $i;?></a>
+                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
                         </li>
                 <?php } ?>
                 
                     <li class="paginate_button active">
-                        <span><?php echo $i;?></span>
+                        <span><?php echo $i; ?></span>
                     </li>
                     
                 <?php for ($i = $page + 1;$i < $pagelast + 1;$i++){ ?>
                         <li class="paginate_button">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $i;?>"><?php echo $i;?></a>
+                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
                         </li>
                 <?php } ?>
                 
@@ -126,7 +126,7 @@ $pagelast  = min($pagelast,$pagemax);
                     </li>
                 <?php } else { ?>
                     <li class="paginate_button next">
-                        <a href="?type=<?php echo $type;?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all');?>&page=<?php echo $page + 1;?>">Next</a>
+                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $page + 1; ?>">Next</a>
                     </li>
                 <?php } ?>
                 </ul>

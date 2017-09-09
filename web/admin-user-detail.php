@@ -8,6 +8,7 @@ if(!empty($_GET)){
     $user = new ShadowX\User($uid);
     $rs = $user->getUser();
 }
+$gb = 1024 * 1024 * 1024;
 ?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -46,27 +47,59 @@ if(!empty($_GET)){
                                 <label for="cate_title">邮箱</label>
                                 <input class="form-control" id="server" required="required" value="<?php echo $rs['email']; ?>">
                             </div>
-                        <?php } else { ?>
-                            <div class="form-group hidden">
-                                <label for="cate_title">id</label>
-                                <span class="form-control"><?php echo $rs['uid'];?></span>
+                            <div class="form-group">
+                                <label for="cate_title">连接密码</label>
+                                <input class="form-control" id="passwd" placeholder="留空则自动生成" value="<?php echo $rs['passwd']; ?>">
                             </div>
-                            <div class="form-group" >
+                            <div class="form-group">
+                                <label for="cate_title">限速(Kbps)</label>
+                                <input class="form-control" id="passwd" placeholder="0则不限速" value="<?php echo $rs['max_speed']; ?>">
+                            </div>
+                        <?php } else { ?>
+                            <div class="form-group">
                                 <label for="cate_title">用户名</label>
-                                <span class="form-control"><?php echo $rs['user_name'];?></span>
+                                <span class="form-control"><?php echo $rs['user_name']; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">邮箱</label>
-                                <span class="form-control"><?php echo $rs['email'];?></span>
+                                <span class="form-control"><?php echo $rs['email']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">连接密码</label>
+                                <span class="form-control"><?php echo $rs['passwd']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">流量(GByte)</label>
+                                <span class="form-control"><?php echo $rs['transfer_enable'] / $gb; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">限速(Kbps)</label>
+                                <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">可用邀请码</label>
+                                <span class="form-control"><?php echo $rs['invite_num']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">注册时间</label>
+                                <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['reg_date'] + $timeoffset); ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">注册IP</label>
+                                <span class="form-control"><?php echo $rs['reg_ip']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">最后使用时间</label>
+                                <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
                             </div>
                         <?php } ?>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                         <?php if ($isEdit) { ?>
                             <button type="submit" class="btn btn-success">保存</button>
-                            <a href="?uid=<?php echo $rs['uid'];?>" class="btn btn-default">取消</a>
+                            <a href="?uid=<?php echo $rs['uid']; ?>" class="btn btn-default">取消</a>
                         <?php } else { ?>
-                            <a href="?uid=<?php echo $rs['uid'];?>&edit" class="btn btn-primary">编辑</a>
+                            <a href="?uid=<?php echo $rs['uid']; ?>&edit" class="btn btn-primary">编辑</a>
                         <?php } ?>
                         </div>
                     </form>
@@ -155,7 +188,7 @@ require_once '../template/footer.php'; ?>
     });
 
 <?php } else { ?>
-    var uid = <?php echo $rs['uid'];?>;
+    var uid = <?php echo $rs['uid']; ?>;
     !(function() {
         var interval = 3600 * 24;
         var to = getTimePoint(new Date(), interval);

@@ -20,7 +20,7 @@ if ($node_id !== "" && $node_id !== 'all') {
         <div class="col-xs-12 col-lg-6">
             <div class="dropdown btn-group">
                 <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    <?php echo $name;?>
+                    <?php echo $name; ?>
                     <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
@@ -28,7 +28,7 @@ if ($node_id !== "" && $node_id !== 'all') {
                 <?php
                 $nodes = ShadowX\Node::getAllNodes();
                 foreach ($nodes as $rs) { ?>
-                    <li><a href="?id=<?php echo $rs['node_id'];?>"><?php echo $rs['name']; ?></a></li>
+                    <li><a href="?id=<?php echo $rs['node_id']; ?>"><?php echo $rs['name']; ?></a></li>
                 <?php } ?>
                 </ul>
             </div>

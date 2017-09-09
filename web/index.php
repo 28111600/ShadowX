@@ -80,7 +80,7 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                                 </tr>
                                 <tr>
                                     <td>最后使用时间</td>
-                                    <td><code><?php echo date('Y-m-d H:i:s',$User->getLastUseTime() + $timeoffset); ?></code></td>
+                                    <td><code><?php echo date('Y-m-d H:i:s', $User->getLastUseTime() + $timeoffset); ?></code></td>
                                 </tr>
                             </tbody>
                         </table>

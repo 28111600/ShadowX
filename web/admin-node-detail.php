@@ -51,7 +51,7 @@ if(!empty($_GET)){
                                 <label for="cate_title">id</label>
                                 <input class="form-control" id="id" value="<?php echo $rs['id']; ?>">
                             </div>
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <label for="cate_title">Node Id</label>
                                 <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id']; ?>">
                             </div>
@@ -76,11 +76,7 @@ if(!empty($_GET)){
                                 <input class="form-control" id="info" value="<?php echo $rs['info']; ?>">
                             </div>
                         <?php } else { ?>
-                            <div class="form-group hidden">
-                                <label for="cate_title">id</label>
-                                <span class="form-control"><?php echo $rs['id']; ?></span>
-                            </div>
-                            <div class="form-group" >
+                            <div class="form-group">
                                 <label for="cate_title">Node Id</label>
                                 <span class="form-control"><?php echo $rs['node_id']; ?></span>
                             </div>
