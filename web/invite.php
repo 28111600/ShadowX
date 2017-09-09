@@ -55,7 +55,9 @@ require_once '../template/head.php';
                                                 echo "已用";
                                                 if (!empty($row['used_uid'])) {
                                                     $used_user = new ShadowX\User($row['used_uid']);
-                                                    echo " / ".$used_user->getUserName();
+                                                    if ($used_user->isExists()) {
+                                                        echo " / ".$used_user->getUserName();
+                                                    }
                                                 }
                                             } ?>
                                      </td>
