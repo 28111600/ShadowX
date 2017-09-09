@@ -61,7 +61,7 @@ require_once '../template/head.php';
                                     </td>
                                     <td><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></td>
                                     <td>
-                                        <a class="no-break" href="#">编辑</a>
+                                        <a class="no-break" href="admin-user-detail.php?uid=<?php echo $rs['uid']; ?>">详情</a>
                                     </td>
                                 </tr>
                             <?php } ?>
