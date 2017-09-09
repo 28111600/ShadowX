@@ -49,19 +49,19 @@ if(!empty($_GET)){
                         <?php if ($isEdit || $isNew) { ?>
                             <div class="form-group hidden">
                                 <label for="cate_title">id</label>
-                                <input class="form-control" id="id" value="<?php echo $id;?>" >
+                                <input class="form-control" id="id" value="<?php echo $rs['id']; ?>">
                             </div>
                             <div class="form-group" >
                                 <label for="cate_title">Node Id</label>
-                                <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id'];?>" >
+                                <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id']; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">节点名称</label>
-                                <input class="form-control" id="name" required="required" value="<?php echo $rs['name'];?>" >
+                                <input class="form-control" id="name" required="required" value="<?php echo $rs['name']; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">地址</label>
-                                <input class="form-control" id="server" required="required" value="<?php echo $rs['server'];?>" >
+                                <input class="form-control" id="server" required="required" value="<?php echo $rs['server']; ?>">
                             </div>
                             <div class="form-group">
                                 <label for="cate_method">加密方式</label>
@@ -73,32 +73,32 @@ if(!empty($_GET)){
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">节点描述</label>
-                                <input class="form-control" id="info" value="<?php echo $rs['info'];?>" >
+                                <input class="form-control" id="info" value="<?php echo $rs['info']; ?>">
                             </div>
                         <?php } else { ?>
                             <div class="form-group hidden">
                                 <label for="cate_title">id</label>
-                                <span class="form-control"><?php echo $id;?></span>
+                                <span class="form-control"><?php echo $rs['id']; ?></span>
                             </div>
                             <div class="form-group" >
                                 <label for="cate_title">Node Id</label>
-                                <span class="form-control"><?php echo $rs['node_id'];?></span>
+                                <span class="form-control"><?php echo $rs['node_id']; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">节点名称</label>
-                                <span class="form-control"><?php echo $rs['name'];?></span>
+                                <span class="form-control"><?php echo $rs['name']; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">地址</label>
-                                <span class="form-control"><?php echo $rs['server'];?></span>
+                                <span class="form-control"><?php echo $rs['server']; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_method">加密方式</label>
-                                <span class="form-control"><?php echo $rs['method'];?></span>
+                                <span class="form-control"><?php echo $rs['method']; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">节点描述</label>
-                                <span class="form-control"><?php echo $rs['info'];?></span>
+                                <span class="form-control"><?php echo $rs['info']; ?></span>
                             </div>
                         <?php } ?>
                         </div><!-- /.box-body -->
@@ -107,10 +107,10 @@ if(!empty($_GET)){
                             <button type="submit" class="btn btn-success">保存</button>
                         <?php } else if ($isEdit) { ?>
                             <button type="submit" class="btn btn-success">保存</button>
-                            <a href="?id=<?php echo $id;?>" class="btn btn-default">取消</a>
+                            <a href="?id=<?php echo $rs['id']; ?>" class="btn btn-default">取消</a>
                             <button type="button" id="node-delete" class="btn btn-danger">删除</button>
                         <?php } else { ?>
-                            <a href="?id=<?php echo $id;?>&edit" class="btn btn-primary">编辑</a>
+                            <a href="?id=<?php echo $rs['id']; ?>&edit" class="btn btn-primary">编辑</a>
                         <?php } ?>
                         </div>
                     </form>
@@ -198,10 +198,10 @@ require_once '../template/footer.php'; ?>
     $("form").submit(function() {
         add();
         return false;
-    })
+    });
 
 <?php } else if ($isEdit) { ?>
-    var id = <?php echo $id;?>;
+    var id = <?php echo $rs['id']; ?>;
     function update() {
         $.ajax({
             type: "POST",
@@ -233,11 +233,10 @@ require_once '../template/footer.php'; ?>
     $("form").submit(function() {
         update();
         return false;
-    })
+    });
 
     $("#node-delete").click(function() {
         if (confirm("确认删除此节点？")) {
-            var id = $("#id").val();
             $.ajax({
                 type: "POST",
                 url: "ajax/admin-node.php",
@@ -262,7 +261,7 @@ require_once '../template/footer.php'; ?>
         return false;
     });
 <?php } else { ?>
-    var node_id = <?php echo $rs['node_id'];?>;
+    var node_id = <?php echo $rs['node_id']; ?>;
     !(function() {
         var interval = 3600 * 24;
         var to = getTimePoint(new Date(), interval);
