@@ -175,13 +175,19 @@ var getChartYAxis = function(from, to, data) {
         m = m / K;
         i++;
     }
+    if (m === 0) {
+        var max = 10 * K;
+        var min = 0;
+        var maxNum = 10;
+    } else {
+        var unit = Math.pow(10, (parseInt(m)).toString().length - 1);
+        var maxNum = parseInt(m / unit) + 1;
+        var max = maxNum * unit * Math.pow(K, i);
+        var min = 0;
 
-    var unit = Math.pow(10, (parseInt(m)).toString().length - 1);
-    var maxNum = parseInt(m / unit) + 1;
-    var max = maxNum * unit * Math.pow(K, i);
-    var min = 0;
-    split = [0, 4, 4, 6, 4, 5, 4, 5, 4, 5, 5, 5][maxNum];
-    stepSize = max / split;
+    }
+    var split = [0, 4, 4, 6, 4, 5, 4, 5, 4, 5, 5, 5][maxNum];
+    var stepSize = max / split;
 
     return {
         max: max,
