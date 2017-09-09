@@ -16,6 +16,9 @@
     <link rel="stylesheet" href="asset/css/font-awesome.min.css">
     <!-- Select2 4.0.3 -->
     <link rel="stylesheet" href="asset/css/select2.min.css">
+    <!-- FullCalendar 3.5.0 -->
+    <link rel="stylesheet" href="asset/css/fullcalendar.min.css">
+    <link rel="stylesheet" href="asset/css/materialFullCalendar.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="asset/css/adminlte.min.css">
     <!-- AdminLTE Skins -->

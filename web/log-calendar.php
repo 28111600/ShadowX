@@ -19,8 +19,6 @@ $url_log = 'log.php';
 require_once '../template/footer.php'; ?>
 
 <!-- FullCalendar 3.5.0 -->
-<link rel="stylesheet" href="asset/css/fullcalendar.min.css">
-<link rel="stylesheet" href="asset/css/materialFullCalendar.css">
 <script src="asset/js/fullcalendar.min.js"></script>
 
 <script>
@@ -28,7 +26,6 @@ require_once '../template/footer.php'; ?>
         /* initialize the calendar */
         var eventsCache = {};
         $('#calendar').fullCalendar({
-            theme: 'bootstrap3',
             header: {
                 left: 'prev,next today',
                 right: 'title',
