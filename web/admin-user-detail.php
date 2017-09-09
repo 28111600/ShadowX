@@ -69,12 +69,20 @@ $gb = 1024 * 1024 * 1024;
                                 <span class="form-control"><?php echo $rs['passwd']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">流量(GByte)</label>
-                                <span class="form-control"><?php echo $rs['transfer_enable'] / $gb; ?></span>
+                                <label for="cate_title">流量</label>
+                                <span class="form-control"><?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">限速(Kbps)</label>
-                                <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']; ?></span>
+                                <div class="progress-usage">
+                                    <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($rs['transfer_enable'] - ($rs['u'] + $rs['d'])); ?> / <?php echo ShadowX\Utility::getSize($rs['u'] + $rs['d']); ?> / <?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?>'>
+                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($rs['u'] + $rs['d']) * 100 / $rs['transfer_enable'], 0), 100); ?>%"> <span class="sr-only">Transfer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">限速</label>
+                                <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kpbs"; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">可用邀请码</label>
