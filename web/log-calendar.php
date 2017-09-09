@@ -67,13 +67,13 @@ require_once '../template/footer.php'; ?>
                                 title: '↑ ' + getSize(item.u, 2),
                                 start: t,
                                 backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                                borderColor: 'rgba(54, 162, 235, 1)'
+                                borderColor: 'rgba(0, 0, 0, 0)'
                             });
                             parseInt(item.d) && events.push({
                                 title: '↓ ' + getSize(item.d, 2),
                                 start: t,
                                 backgroundColor: 'rgba(0, 166, 90, 0.7)',
-                                borderColor: 'rgba(0, 166, 90, 1)'
+                                borderColor: 'rgba(0, 0, 0, 0)'
                             });
                         });
                         eventsCache[cacheKey] = events;
