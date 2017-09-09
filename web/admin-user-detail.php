@@ -85,8 +85,27 @@ $gb = 1024 * 1024 * 1024;
                                 <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kpbs"; ?></span>
                             </div>
                             <div class="form-group">
+                                <label for="cate_title">最后使用时间</label>
+                                <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
+                            </div>
+                            <div class="form-group">
                                 <label for="cate_title">可用邀请码</label>
                                 <span class="form-control"><?php echo $rs['invite_num']; ?></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">邀请人</label>
+                                <span class="form-control"><?php
+                                    if (!empty($rs['ref_by'])) {
+                                        $used_user = new ShadowX\User($rs['ref_by']);
+                                        if ($used_user->isExists()) {
+                                            echo $used_user->getUserName();
+                                        } else {
+                                            echo "未知";
+                                        }
+                                    } else {
+                                        echo "无";
+                                    }
+                                ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">注册时间</label>
@@ -95,10 +114,6 @@ $gb = 1024 * 1024 * 1024;
                             <div class="form-group">
                                 <label for="cate_title">注册IP</label>
                                 <span class="form-control"><?php echo $rs['reg_ip']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="cate_title">最后使用时间</label>
-                                <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
                             </div>
                         <?php } ?>
                         </div><!-- /.box-body -->
