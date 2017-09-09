@@ -27,7 +27,7 @@ require_once '../template/head.php';
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>#</th>
                                     <th>用户名</th>
                                     <th>邮箱</th>
                                     <th>端口</th>
@@ -42,7 +42,7 @@ require_once '../template/head.php';
                             $users = ShadowX\User::getAllUsers();
                             foreach ($users as $rs){ ?>
                                 <tr>
-                                    <td>#<?php echo $rs['uid']; ?></td>
+                                    <td><?php echo $rs['uid']; ?></td>
                                     <td><?php echo $rs['user_name']; ?></td>
                                     <td><?php echo $rs['email']; ?></td>
                                     <td><?php echo $rs['port']; ?></td>
