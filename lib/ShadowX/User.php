@@ -32,6 +32,10 @@ class User {
         return $this->data['uid'];
     }
 
+    function isExists(){
+        return count($this->data) > 0;
+    }
+
     function getEmail(){
         return $this->data['email'];
     }
@@ -123,16 +127,16 @@ class User {
             "email" => $email,
             "LIMIT" => 1
         ]);
-        return $datas['0']['uid'];
+        return $datas[0]['uid'];
     }
     
     static function GetLastPort(){
         global $db;
         $datas = $db->select(static::$table,"*",[
-            "ORDER" => "port DESC",
+            "ORDER" => ["port" => "DESC"],
             "LIMIT" => 1
         ]);
-        return $datas['0']['port'];
+        return $datas[0]['port'];
     }
 
     static function Register($username,$email,$pass,$transfer,$invite_num,$ref_by,$ip){
