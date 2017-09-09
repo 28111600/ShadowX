@@ -193,10 +193,10 @@ require_once '../template/footer.php'; ?>
             },
             success: function(data) {
                 if (data.ok) {
-                    new Message("操作成功！", "success", 1000);
+                    new Message("操作成功", "success", 1000);
                     setTimeout(function() { location.href = "admin-user-detail.php?uid=" + uid; }, 1000);
                 } else {
-                    new Message("操作失败！", "error", 1000);
+                    new Message("操作失败", "error", 1000);
                 }
             },
             error: function(jqXHR) {

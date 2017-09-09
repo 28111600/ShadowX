@@ -97,6 +97,19 @@ class User {
         ]);
     }
 
+    function addResetCode(){
+        $t = time();
+        $expire = $t + 3600 * 24;
+        $code = md5($t).md5($this->uid);
+        $code = sha1($code);
+        $this->db->insert("ss_reset_pwd",[
+            "expire" => $expire,
+            "uid" => $this->uid,
+            "code" => $code
+        ]);
+        return $code;
+    }
+
     static function IsUsernameUsed($username){
         global $db;
         return $db->has(static::$table,[
@@ -127,7 +140,7 @@ class User {
             "email" => $email,
             "LIMIT" => 1
         ]);
-        return $datas[0]['uid'];
+        return count($datas) > 0 ? $datas[0]['uid'] : [];
     }
     
     static function GetLastPort(){

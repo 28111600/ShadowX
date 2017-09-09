@@ -1,7 +1,5 @@
 <?php
 $url = parse_url($_SERVER['REQUEST_URI']);
-$isPageLogin = ($url['path'] === '/login.php');
-$isPageRegister = ($url['path'] === '/register.php');
 
 if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
     $uid        = $_COOKIE['uid'];
@@ -21,13 +19,13 @@ if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
         header("Location: login.php");
         exit();
     } else {
-        if ($isPageLogin && $isPageRegister) {
+        if (isset($guest)) {
             header("Location: ./");
             exit();
         }
     }
 } else {
-    if (!$isPageLogin && !$isPageRegister) {
+    if (!isset($guest)) {
         header("Location: login.php");
         exit();
     }

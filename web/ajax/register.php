@@ -41,6 +41,8 @@ if (!ShadowX\Utility::IsEmailLegal($email)) {
     $uid = ShadowX\User::getUidByEmail($email);
     ShadowX\Invite::setInviteCodeUsed($invitecode,$uid);
 
+    $user = new ShadowX\User($uid);
+
     $result['ok'] = 1;
     $result['code'] = 1;
 
@@ -49,12 +51,12 @@ if (!ShadowX\Utility::IsEmailLegal($email)) {
         $mailgun = new Mailgun\Mailgun($mailgun_key);
 
         $content = ShadowX\Utility::renderTpl("../../template/mail.tpl", [
-            "content" => '<p>你好 '.$name.'!</p>'.
+            "content" => '<p>你好 '.$user->getUserName().'!</p>'.
                         '<p>你已成功注册 <a href="'.$site_url.'">'.$site_name.'</a> 。</p>']);
 
         $mailgun->sendMessage($mailgun_domain, [
             'from'    => $mail_sender,
-            'to'      => $email,
+            'to'      => $user->getEmail(),
             'subject' => $site_name." 注册成功",
             'html'    => $content]);
     }

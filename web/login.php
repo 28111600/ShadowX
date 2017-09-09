@@ -1,11 +1,6 @@
 <?php
-require_once '../template/main.php';
-
-if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
-    header("Location: ./");
-    exit();
-}
-?>
+$guest = true;
+require_once '../template/main.php'; ?>
 <!DOCTYPE html>
 <html>
 
@@ -64,7 +59,7 @@ if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
                 </div>
             </form>
             <a href="register.php" class="text-center">注册</a>
-            <a href="#" class="pull-right">忘记密码</a>
+            <a href="resetpwd.php" class="pull-right">忘记密码</a>
             
         </div>
         <!-- /.login-box-body -->
@@ -104,11 +99,11 @@ if(isset($_COOKIE['uid']) && $_COOKIE['uid'] != '') {
                 },
                 success: function(data) {
                     if (data.ok) {
-                        new Message("登录成功！", "success", 1000);
+                        new Message("登录成功", "success", 1000);
                         setTimeout(function() { location.reload(); }, 1000);
                     } else {
                         $("#login").attr("disabled", false);
-                        new Message("登录失败！", "error", 1000);
+                        new Message("登录失败", "error", 1000);
                     }
                 },
                 error: function(jqXHR) {

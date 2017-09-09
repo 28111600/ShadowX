@@ -1,6 +1,9 @@
 <?php
 $guest = true;
-require_once '../template/main.php'; ?>
+require_once '../template/main.php';
+
+$code = isset($_GET['code']) ? $_GET['code'] : '';
+?>
 <!DOCTYPE html>
 <html>
 
@@ -35,29 +38,27 @@ require_once '../template/main.php'; ?>
 <body class="hold-transition login-page">
     <div class="login-box">
         <div class="login-box-body">
-            <h2 class="login-box-msg">注册</h2>
-            <form id="form-register">
+            <h2 class="login-box-msg">重置密码</h2>
+            <form id="form-resetpwd">
                 <div class="form-group has-feedback">
-                    <input type="text" id="name" required="required" class="form-control" placeholder="用户名"/>
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="text" id="email" required="required" class="form-control" placeholder="邮箱"/>
+                    <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
+            <?php if ($code =='') { ?>
                 <div class="form-group has-feedback">
-                    <input type="password" id="passwd" required="required" class="form-control" placeholder="密码"/>
+                    <button type="submit" id="request" class="btn btn-primary btn-block btn-flat">发送重置邮件</button>
+                </div>
+            <?php } else { ?>
+                <div class="form-group has-feedback">
+                    <input type="password" id="password" class="form-control" placeholder="新密码"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" id="invitecode" required="required" class="form-control" placeholder="邀请码"/>
-                    <span class="glyphicon glyphicon-send form-control-feedback"></span>
+                    <button type="submit" id="resetpwd" class="btn btn-primary btn-block btn-flat">确认重置</button>
                 </div>
-                <div class="form-group has-feedback">
-                    <button type="submit" id="register" class="btn btn-primary btn-block btn-flat">注册</button>
-                </div>
+            <?php } ?>
             </form>
-            <a href="login.php" class="text-center">登录</a>
+            <a href="login.php" class="text-center">返回登录</a>
         </div>
         <!-- /.login-box-body -->
     </div>
@@ -83,37 +84,39 @@ require_once '../template/main.php'; ?>
 <script src="asset/js/messg.min.js"></script>
 
 <script>
-    (function() {
-        function register() {
+    !(function() {
+    <?php if ($code == '') { ?>
+        function resetpwd() {
             $.ajax({
                 type: "POST",
-                url: "ajax/register.php",
+                url: "ajax/resetpwd.php",
                 dataType: "json",
                 data: {
-                    name: $("#name").val(),
+                    action: "request",
                     email: $("#email").val(),
-                    passwd: encodeURIComponent($("#passwd").val()),
-                    invitecode: $("#invitecode").val()
                 },
                 success: function(data) {
                     if (data.ok) {
-                        new Message("注册成功", "success", 1000);
-                        setTimeout(function() { location.href = "login.php"; }, 1000);
+                        new Message("已发送重置邮件", "success", 1000);
+                        setTimeout(function() { location.href = "index.php"; }, 1000);
                     } else {
-                        $("#register").attr("disabled", false);
+                        $("#request").attr("disabled", false);
                         new Message(data.msg, "error", 1000);
                     }
                 },
                 error: function(jqXHR) {
-                    $("#register").attr("disabled", false);
+                    $("#request").attr("disabled", false);
                     new Message("发生错误：" + jqXHR.status, "error", 1000);
                 }
             });
         }
-        $("#form-register").submit(function() {
-            register();
-            $("#register").attr("disabled", true);
+        $("#form-resetpwd").submit(function() {
+            resetpwd();
+            $("#request").attr("disabled", true);
             return false;
         });
+    <?php } else { ?>
+
+    <?php } ?>
     })();
 </script>

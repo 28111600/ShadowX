@@ -23,7 +23,7 @@ $default_transfer = 1024 * 1024 * 1024 * 1;
 
 //站点名称
 $site_name = "ShadowX";
-$site_url  = "https://yourdomain.com/";
+$site_url  = "https://yourdomain.com";
 
 //密码Salt
 $salt = "";
