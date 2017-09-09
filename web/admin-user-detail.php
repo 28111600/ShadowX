@@ -82,7 +82,7 @@ $gb = 1024 * 1024 * 1024;
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">限速</label>
-                                <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kpbs"; ?></span>
+                                <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kbps"; ?></span>
                             </div>
                             <div class="form-group">
                                 <label for="cate_title">最后使用时间</label>
