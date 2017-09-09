@@ -36,7 +36,8 @@ if (!ShadowX\Utility::IsEmailLegal($email)) {
     $passwd = ShadowX\Utility::getPwdHash($passwd);
     $ref_by = ShadowX\Invite::getInviteRef($invitecode);
     $invite_num = 0;
-    ShadowX\User::Register($name,$email,$passwd,$default_transfer,$invite_num,$ref_by);
+    $ip = ShadowX\Utility::geoIP();
+    ShadowX\User::Register($name,$email,$passwd,$default_transfer,$invite_num,$ref_by,$ip);
     $uid = ShadowX\User::getUidByEmail($email);
     ShadowX\Invite::setInviteCodeUsed($invitecode,$uid);
 

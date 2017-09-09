@@ -18,7 +18,7 @@ class Node {
     function getNode(){
         $datas = $this->db->select(static::$table,"*",[
             "id" => $this->id,
-            "LIMIT" => "1"
+            "LIMIT" => 1
         ]);
         return count($datas) > 0 ? $datas[0] : [];
     }
@@ -37,7 +37,7 @@ class Node {
             "server" => $server,
             "method" => $method,
             "info" => $info,
-            "node_id" =>  $node_id
+            "node_id" => $node_id
         ]);
         return 1;
     }
@@ -48,7 +48,7 @@ class Node {
             "server" => $server,
             "method" => $method,
             "info" => $info,
-            "node_id" =>  $node_id
+            "node_id" => $node_id
         ],[
             "id[=]"  => $this->id
         ]);

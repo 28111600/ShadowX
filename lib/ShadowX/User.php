@@ -23,7 +23,7 @@ class User {
     function getUser(){
         $datas = $this->db->select(static::$table,"*",[
             "uid" => $this->uid,
-            "LIMIT" => "1"
+            "LIMIT" => 1
         ]);
         return count($datas) > 0 ? $datas[0] : [];
     }
@@ -135,7 +135,7 @@ class User {
         return $datas['0']['port'];
     }
 
-    static function Register($username,$email,$pass,$transfer,$invite_num,$ref_by){
+    static function Register($username,$email,$pass,$transfer,$invite_num,$ref_by,$ip){
         $sspass = Utility::getRandomChar(8);
 
         global $db;
@@ -144,13 +144,14 @@ class User {
             "email" => $email,
             "pass" => $pass,
             "passwd" => $sspass,
-            "t" => '0',
-            "u" => '0',
-            "d" => '0',
+            "t" => 0,
+            "u" => 0,
+            "d" => 0,
             "transfer_enable" => $transfer,
             "port" => static::GetLastPort() + 1,
             "invite_num" => $invite_num,
             "reg_date" => time(),
+            "reg_ip" => $ip,
             "ref_by" => $ref_by
         ]);
     }
