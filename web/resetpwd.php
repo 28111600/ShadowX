@@ -50,7 +50,10 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
                 </div>
             <?php } else { ?>
                 <div class="form-group has-feedback">
-                    <input type="password" id="password" class="form-control" placeholder="新密码"/>
+                    <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>"/>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" id="passwd" class="form-control" placeholder="新密码"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -86,7 +89,7 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
 <script>
     !(function() {
     <?php if ($code == '') { ?>
-        function resetpwd() {
+        function request() {
             $.ajax({
                 type: "POST",
                 url: "ajax/resetpwd.php",
@@ -111,12 +114,42 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
             });
         }
         $("#form-resetpwd").submit(function() {
-            resetpwd();
+            request();
             $("#request").attr("disabled", true);
             return false;
         });
     <?php } else { ?>
-
+        function resetpwd() {
+            $.ajax({
+                type: "POST",
+                url: "ajax/resetpwd.php",
+                dataType: "json",
+                data: {
+                    action: "resetpwd",
+                    code: $("#code").val(),
+                    email: $("#email").val(),
+                    passwd: $("#passwd").val(),
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("密码已重置", "success", 1000);
+                        setTimeout(function() { location.href = "index.php"; }, 1000);
+                    } else {
+                        $("#resetpwd").attr("disabled", false);
+                        new Message(data.msg, "error", 1000);
+                    }
+                },
+                error: function(jqXHR) {
+                    $("#resetpwd").attr("disabled", false);
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                }
+            });
+        }
+        $("#form-resetpwd").submit(function() {
+            resetpwd();
+            $("#resetpwd").attr("disabled", true);
+            return false;
+        });
     <?php } ?>
     })();
 </script>

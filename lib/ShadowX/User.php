@@ -97,6 +97,14 @@ class User {
         ]);
     }
 
+    function setPasswd($passwd){
+        $this->db->update(static::$table,[
+            "pass" => $passwd
+        ],[
+            "uid" => $this->uid
+        ]);
+    }
+
     function addResetCode(){
         $t = time();
         $expire = $t + 3600 * 24;
@@ -108,6 +116,13 @@ class User {
             "code" => $code
         ]);
         return $code;
+    }
+
+    static function isResetCodeValid($code){
+        global $db;
+        return $db->has("ss_reset_pwd",[
+            "user_name" => $username
+        ]);
     }
 
     static function IsUsernameUsed($username){

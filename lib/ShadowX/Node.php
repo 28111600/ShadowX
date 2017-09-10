@@ -50,7 +50,7 @@ class Node {
             "info" => $info,
             "node_id" => $node_id
         ],[
-            "id[=]"  => $this->id
+            "id"  => $this->id
         ]);
         return 1;
     }

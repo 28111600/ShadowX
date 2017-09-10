@@ -3,6 +3,9 @@
 //Version
 $version = "0.2.0";
 
+//密码最小长度
+$PWD_MIN = 6;
+
 //Set timezone
 date_default_timezone_set('UTC');
 

@@ -3,34 +3,34 @@ require_once '../../config.php';
 require_once '../../lib/init.php';
 
 $email = strtolower($_POST['email']);
-$name = strtolower($_POST['name']);
+$name = $_POST['name'];
 $passwd = urldecode($_POST['passwd']);
 $invitecode = $_POST['invitecode'];
 
 if (!ShadowX\Utility::IsEmailLegal($email)) {
+    $result['ok'] = 0;
+    $result['code'] = 0;
     $result['msg'] = "邮箱无效";
-    $result['ok'] = 0;
-    $result['code'] = 0;
 } else if (ShadowX\User::IsEmailUsed($email)) {
+    $result['ok'] = 0;
+    $result['code'] = 0;
     $result['msg'] = "邮箱已被使用";
-    $result['ok'] = 0;
-    $result['code'] = 0;
 } else if (ShadowX\User::IsUsernameUsed($name)){
+    $result['ok'] = 0;
+    $result['code'] = 0;
     $result['msg'] = "用户名已经被使用";
+} else if (strlen($passwd) < $PWD_MIN) {
     $result['ok'] = 0;
     $result['code'] = 0;
-} else if (strlen($passwd) < 6) {
-    $result['msg'] = "密码太短";
-    $result['ok'] = 0;
-    $result['code'] = 0;
+    $result['msg'] = "密码长度过短";
 } else if (strlen($name) < 5){
+    $result['ok'] = 0;
+    $result['code'] = 0;
     $result['msg'] = "用户名太短";
-    $result['ok'] = 0;
-    $result['code'] = 0;
 } else if (!ShadowX\Invite::isInviteCodeOk($invitecode)) {
-    $result['msg'] = "邀请码有误";
     $result['ok'] = 0;
     $result['code'] = 0;
+    $result['msg'] = "邀请码有误";
 } else {
 
     $passwd = ShadowX\Utility::getPwdHash($passwd);
