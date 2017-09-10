@@ -61,6 +61,10 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
+                    <input type="password" id="repasswd" class="form-control" autocomplete="new-password" placeholder="确认密码"/>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
                     <button type="submit" id="resetpwd" class="btn btn-primary btn-block btn-flat">确认重置</button>
                 </div>
             <?php } ?>
@@ -150,8 +154,12 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
             });
         }
         $("#form-resetpwd").submit(function() {
-            resetpwd();
-            $("#resetpwd").attr("disabled", true);
+            if ($("#passwd").val() !== $("#repasswd").val()) {
+                new Message("两次填写的密码不一致", "error", 1000);
+            } else {
+                resetpwd();
+                $("#resetpwd").attr("disabled", true);
+            }
             return false;
         });
     <?php } ?>

@@ -50,6 +50,10 @@ require_once '../template/main.php'; ?>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
+                    <input type="password" id="repasswd" required="required" class="form-control" autocomplete="new-password" placeholder="确认密码"/>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
                     <input type="text" id="invitecode" required="required" class="form-control" placeholder="邀请码"/>
                     <span class="glyphicon glyphicon-send form-control-feedback"></span>
                 </div>
@@ -111,8 +115,12 @@ require_once '../template/main.php'; ?>
             });
         }
         $("#form-register").submit(function() {
-            register();
-            $("#register").attr("disabled", true);
+            if ($("#passwd").val() !== $("#repasswd").val()) {
+                new Message("两次填写的密码不一致", "error", 1000);
+            } else {
+                register();
+                $("#register").attr("disabled", true);
+            }
             return false;
         });
     })();
