@@ -46,7 +46,7 @@ require_once '../template/main.php'; ?>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="passwd" required="required" class="form-control" placeholder="密码"/>
+                    <input type="password" id="passwd" required="required" class="form-control" autocomplete="new-password" placeholder="密码"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">

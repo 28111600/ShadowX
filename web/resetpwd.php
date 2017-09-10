@@ -40,11 +40,11 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
         <div class="login-box-body">
             <h2 class="login-box-msg">重置密码</h2>
             <form id="form-resetpwd">
+            <?php if ($code =='') { ?>
                 <div class="form-group has-feedback">
                     <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
-            <?php if ($code =='') { ?>
                 <div class="form-group has-feedback">
                     <button type="submit" id="request" class="btn btn-primary btn-block btn-flat">发送重置邮件</button>
                 </div>
@@ -53,7 +53,11 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
                     <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>"/>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="passwd" class="form-control" placeholder="新密码"/>
+                    <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" id="passwd" class="form-control" autocomplete="new-password" placeholder="新密码"/>
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
