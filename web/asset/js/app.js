@@ -175,7 +175,9 @@ var showUsage = function(ctx, from, to, step, data) {
         options: options
     });
 }
-var getChartYAxis = function(from, to, data) {
+
+var getChartYAxis = function(data) {
+    if (data.length === 0) { data = [0]; }
     var K = 1024;
     var m = Math.max.apply(null, data);
     var i = 0;
@@ -203,9 +205,10 @@ var getChartYAxis = function(from, to, data) {
         stepSize: stepSize
     }
 }
+
 var showChart = function(ctx, from, to, step, data) {
     var usage = getUsage(from, to, step, data);
-    var chartYAxis = getChartYAxis(from, to, usage.u.concat(usage.d));
+    var chartYAxis = getChartYAxis([].concat(usage.u).concat(usage.d));
 
     var options = {
         layout: {
@@ -233,6 +236,31 @@ var showChart = function(ctx, from, to, step, data) {
             },
             point: {
                 hoverRadius: 1.5,
+            }
+        },
+        legend: {
+            onClick: function(e, legendItem) {
+                var index = legendItem.datasetIndex;
+                var ci = this.chart;
+                var meta = ci.getDatasetMeta(index);
+
+                meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+
+                var data = [];
+                $.each(ci.data.datasets, function(index, item) {
+                    if (ci.isDatasetVisible(index)) {
+                        data = item.data.concat(data);
+                    }
+
+                });
+
+                if (data.length !== 0) {
+                    var chartYAxis = getChartYAxis(data);
+                    ci.options.scales.yAxes[0].ticks.max = chartYAxis.max;
+                    ci.options.scales.yAxes[0].ticks.min = chartYAxis.min;
+                    ci.options.scales.yAxes[0].ticks.stepSize = chartYAxis.stepSize;
+                }
+                ci.update();
             }
         },
         scales: {
