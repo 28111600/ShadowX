@@ -101,6 +101,14 @@ var getUsage = function(from, to, step, data) {
         t: usage_t
     }
 }
+
+var color = {
+    primary: ["rgba(53, 124, 165, 1)", "rgba(53, 124, 165, 0.2)"],
+    info: ["rgba(0, 167, 208, 1)", "rgba(0, 167, 208, 0.2)"],
+    success: ["rgba(0, 141, 76, 1)", "rgba(0, 141, 76, 0.2)"],
+    danger: ["rgba(211, 55, 36, 1)", "rgba(211, 55, 36, 0.2)"]
+}
+
 var showUsage = function(ctx, from, to, step, data) {
     var usage = getUsage(from, to, step, data);
 
@@ -153,8 +161,8 @@ var showUsage = function(ctx, from, to, step, data) {
 
     var datasets = [{
         data: usage.d,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        borderColor: color.info[0],
+        backgroundColor: color.info[1],
         borderWidth: 1,
         pointRadius: .1
     }];
@@ -269,15 +277,15 @@ var showChart = function(ctx, from, to, step, data) {
     var datasets = [{
         label: "下行",
         data: usage.d,
-        backgroundColor: 'rgba(54, 162, 235, 0.2)',
-        borderColor: 'rgba(54, 162, 235, 1)',
+        borderColor: color.info[0],
+        backgroundColor: color.info[1],
         borderWidth: 1,
         pointRadius: .1
     }, {
         label: "上行",
         data: usage.u,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        borderColor: color.danger[0],
+        backgroundColor: color.danger[1],
         borderWidth: 1,
         pointRadius: .1
     }];
