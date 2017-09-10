@@ -43,7 +43,7 @@ if(!empty($_POST)){
             $result['ok'] = 1;
             $result['code'] = 1;
         }
-        echo json_encode($result);
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     } else if ($action == 'resetpwd') {
         $code = $_POST['code'];
         $email = strtolower($_POST['email']);
@@ -89,6 +89,6 @@ if(!empty($_POST)){
             $result['ok'] = 1;
             $result['code'] = 1;
         }
-        echo json_encode($result);
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
 }

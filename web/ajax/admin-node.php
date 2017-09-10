@@ -10,7 +10,7 @@ if(!empty($_POST)){
         $node->deleteNode();
         $result['code'] = 1;
         $result['ok'] = 1;
-        echo json_encode($result);
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     } else if ($action == 'update') {
         $node_id = $_POST['node_id'];
         $id = $_POST['id'];
@@ -22,7 +22,7 @@ if(!empty($_POST)){
         $node->updateNode($name,$server,$method,$info,$node_id);
         $result['code'] = 1;
         $result['ok'] = 1;
-        echo json_encode($result);
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     } else if ($action == 'add') {
         $node_id = $_POST['node_id'];
         $name = $_POST['name'];
@@ -32,10 +32,10 @@ if(!empty($_POST)){
         ShadowX\Node::addNode($name,$server,$method,$info,$node_id);
         $result['code'] = 1;
         $result['ok'] = 1;
-        echo json_encode($result);
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
 } else {
     $result['ok'] = 0;
     $result['code'] = 0;
-    echo json_encode($result);
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }

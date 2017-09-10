@@ -23,9 +23,9 @@ if (ShadowX\User::isEmailLogin($email, $passwd)) {
     setcookie("uid", $uid, $t, "/");
     setcookie("user_pwd", $passwd_cookie, $t, "/");
     setcookie("user_email", $email, $t, "/");
-    echo json_encode($result);
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
 } else {
     $result['ok'] = 0;
     $result['code'] = 0;
-    echo json_encode($result);
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }

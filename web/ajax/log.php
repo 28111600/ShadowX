@@ -22,11 +22,11 @@ if(!empty($_POST)){
             $result['code'] = 1;
             $result['ok'] = 1;
             $result['data'] = $rows;
-            echo json_encode($result);
+            echo json_encode($result, JSON_UNESCAPED_UNICODE);
         } else {
             $result['ok'] = 0;
             $result['code'] = 0;
-            echo json_encode($result);
+            echo json_encode($result, JSON_UNESCAPED_UNICODE);
         }
     }
 }
