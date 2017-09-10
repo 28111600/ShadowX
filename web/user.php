@@ -83,7 +83,7 @@ require_once '../template/head.php';
                             </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" id="user-passwd" class="btn user-success">保存</button>
+                            <button type="submit" id="user-passwd" class="btn btn-success">保存</button>
                         </div>
                     </form>
                 </div>
@@ -105,7 +105,7 @@ require_once '../template/head.php';
                             </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" id="user-sspasswd" class="btn user-success">保存</button>
+                            <button type="submit" id="user-sspasswd" class="btn btn-success">保存</button>
                         </div>
                     </form>
                 </div>
