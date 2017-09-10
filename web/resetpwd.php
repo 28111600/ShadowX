@@ -122,8 +122,8 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
             });
         }
         $("#form-resetpwd").submit(function() {
-            request();
             $("#request").attr("disabled", true);
+            request();
             return false;
         });
     <?php } else { ?>
@@ -157,8 +157,8 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
             if ($("#passwd").val() !== $("#repasswd").val()) {
                 new Message("两次填写的密码不一致", "error", 1000);
             } else {
-                resetpwd();
                 $("#resetpwd").attr("disabled", true);
+                resetpwd();
             }
             return false;
         });

@@ -19,56 +19,102 @@ require_once '../template/head.php';
                         <h3 class="box-title">用户详情</h3>
                     </div>
                     <!-- /.box-header -->
-                    <!-- form start -->
-                    <form role="form">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label for="cate_title">用户名</label>
-                                <span class="form-control"><?php echo $User->getUserName(); ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="cate_title">邮箱</label>
-                                <span class="form-control"><?php echo $User->getEmail(); ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="cate_title">连接密码</label>
-                                <span class="form-control"><?php echo $User->getSsPasswd(); ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="cate_title">流量</label>
-                                <span class="form-control"><?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?></span>
-                            </div>
-                            <div class="form-group">
-                                <div class="progress-usage">
-                                    <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($User->getUnusedTransfer()); ?> / <?php echo ShadowX\Utility::getSize($User->getTransfer()); ?> / <?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?>'>
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($User->getTransfer()) * 100 / $User->getTransferEnable(), 0), 100); ?>%"> <span class="sr-only">Transfer</span>
-                                        </div>
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="cate_title">用户名</label>
+                            <span class="form-control"><?php echo $User->getUserName(); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="cate_title">邮箱</label>
+                            <span class="form-control"><?php echo $User->getEmail(); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="cate_title">连接密码</label>
+                            <span class="form-control"><?php echo $User->getSsPasswd(); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="cate_title">流量</label>
+                            <span class="form-control"><?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="progress-usage">
+                                <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($User->getUnusedTransfer()); ?> / <?php echo ShadowX\Utility::getSize($User->getTransfer()); ?> / <?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?>'>
+                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($User->getTransfer()) * 100 / $User->getTransferEnable(), 0), 100); ?>%"> <span class="sr-only">Transfer</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="cate_title">邀请人</label>
-                                <span class="form-control"><?php
-                                    if (!empty($User->getRefBy())) {
-                                        $used_user = new ShadowX\User($User->getRefBy());
-                                        if ($used_user->isExists()) {
-                                            echo $used_user->getUserName();
-                                        } else {
-                                            echo "未知";
-                                        }
+                        </div>
+                        <div class="form-group">
+                            <label for="cate_title">邀请人</label>
+                            <span class="form-control"><?php
+                                if (!empty($User->getRefBy())) {
+                                    $used_user = new ShadowX\User($User->getRefBy());
+                                    if ($used_user->isExists()) {
+                                        echo $used_user->getUserName();
                                     } else {
-                                        echo "无";
+                                        echo "未知";
                                     }
-                                ?></span>
+                                } else {
+                                    echo "无";
+                                }
+                            ?></span>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">修改登录密码</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form id="form-passwd">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="cate_title">密码</label>
+                                <input class="form-control" id="passwd" type="password" autocomplete="new-password">
+                            </div>
+                            <div class="form-group">
+                                <label for="cate_title">确认密码</label>
+                                <input class="form-control" id="repasswd" type="password" autocomplete="new-password">
                             </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
+                            <button type="submit" id="user-passwd" class="btn user-success">保存</button>
                         </div>
                     </form>
                 </div>
                 <!-- /.box -->
             </div>
             <!-- /.col -->
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">修改连接密码</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form id="form-sspasswd">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label for="cate_title">密码</label>
+                                <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
+                            </div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" id="user-sspasswd" class="btn user-success">保存</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+        <div class="row">
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
@@ -112,7 +158,40 @@ require_once '../template/footer.php'; ?>
 <script src="asset/js/Chart.bundle.min.js"></script>
 
 <script>
+    !(function() {
+        function sspasswd() {
+            $.ajax({
+                type: "POST",
+                url: "ajax/user.php",
+                dataType: "json",
+                data: {
+                    action:"update_sspasswd",
+                    passwd: encodeURIComponent($("#sspasswd").val()),
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() { location.href = "user.php"; }, 1000);
+                    } else {
+                        $("#user-sspasswd").attr("disabled", false);
+                        new Message(data.msg, "error", 1000);
+                    }
+                },
+                error: function(jqXHR) {
+                    $("#user-sspasswd").attr("disabled", false);
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                }
+            });
+        }
+        $("#form-sspasswd").submit(function() {
+            $("#user-sspasswd").attr("disabled", true);
+            register();
+            return false;
+        });
+    })();
+
     var uid = <?php echo $User->getUid(); ?>;
+
     !(function() {
         var interval = 3600 * 24;
         var to = getTimePoint(new Date(), interval);

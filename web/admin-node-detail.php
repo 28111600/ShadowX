@@ -44,7 +44,7 @@ if(!empty($_GET)){
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form>
                         <div class="box-body">
                         <?php if ($isEdit || $isNew) { ?>
                             <div class="form-group hidden">
@@ -100,9 +100,9 @@ if(!empty($_GET)){
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                         <?php if ($isNew) { ?>
-                            <button type="submit" class="btn btn-success">保存</button>
+                            <button type="submit" id="node-add" class="btn btn-success">保存</button>
                         <?php } else if ($isEdit) { ?>
-                            <button type="submit" class="btn btn-success">保存</button>
+                            <button type="submit" id="node-update" class="btn btn-success">保存</button>
                             <a href="?id=<?php echo $rs['id']; ?>" class="btn btn-default">取消</a>
                             <button type="button" id="node-delete" class="btn btn-danger">删除</button>
                         <?php } else { ?>
@@ -182,22 +182,26 @@ require_once '../template/footer.php'; ?>
                     new Message("操作成功", "success", 1000);
                     setTimeout(function() { location.href = "admin-node.php"; }, 1000);
                 } else {
+                    $("#node-add").attr("disabled", false);
                     new Message("操作失败", "error", 1000);
                 }
             },
             error: function(jqXHR) {
                 new Message("发生错误：" + jqXHR.status, "error", 1000);
+                $("#node-add").attr("disabled", false);
             }
         });
     }
 
     $("form").submit(function() {
+        $("#node-add").attr("disabled", true);
         add();
         return false;
     });
 
 <?php } else if ($isEdit) { ?>
     var id = <?php echo $rs['id']; ?>;
+
     function update() {
         $.ajax({
             type: "POST",
@@ -218,20 +222,24 @@ require_once '../template/footer.php'; ?>
                     setTimeout(function() { location.href = "admin-node-detail.php?id=" + id; }, 1000);
                 } else {
                     new Message("操作失败", "error", 1000);
+                    $("#node-update").attr("disabled", false);
                 }
             },
             error: function(jqXHR) {
                 new Message("发生错误：" + jqXHR.status, "error", 1000);
+                $("#node-update").attr("disabled", false);
             }
         });
     }
 
     $("form").submit(function() {
+        $("#node-update").attr("disabled", true);
         update();
         return false;
     });
 
     $("#node-delete").click(function() {
+        $("#node-delete").attr("disabled", true);
         if (confirm("确认删除此节点？")) {
             $.ajax({
                 type: "POST",
@@ -247,10 +255,12 @@ require_once '../template/footer.php'; ?>
                         setTimeout(function() { location.href = "admin-node.php"; }, 1000);
                     } else {
                         new Message("操作失败", "error", 1000);
+                        $("#node-delete").attr("disabled", false);
                     }
                 },
                 error: function(jqXHR) {
                     new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    $("#node-delete").attr("disabled", false);
                 }
             })
         }

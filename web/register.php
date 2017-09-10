@@ -87,7 +87,7 @@ require_once '../template/main.php'; ?>
 <script src="asset/js/messg.min.js"></script>
 
 <script>
-    (function() {
+    !(function() {
         function register() {
             $.ajax({
                 type: "POST",
@@ -118,8 +118,8 @@ require_once '../template/main.php'; ?>
             if ($("#passwd").val() !== $("#repasswd").val()) {
                 new Message("两次填写的密码不一致", "error", 1000);
             } else {
-                register();
                 $("#register").attr("disabled", true);
+                register();
             }
             return false;
         });

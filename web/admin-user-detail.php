@@ -33,7 +33,7 @@ $gb = 1024 * 1024 * 1024;
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form>
                         <div class="box-body">
                         <?php if ($isEdit) { ?>
                             <div class="form-group hidden">
@@ -120,7 +120,7 @@ $gb = 1024 * 1024 * 1024;
                         </div><!-- /.box-body -->
                         <div class="box-footer">
                         <?php if ($isEdit) { ?>
-                            <button type="submit" class="btn btn-success">保存</button>
+                            <button type="submit" id="update" class="btn btn-success">保存</button>
                             <a href="?uid=<?php echo $rs['uid']; ?>" class="btn btn-default">取消</a>
                         <?php } else { ?>
                             <a href="?uid=<?php echo $rs['uid']; ?>&edit" class="btn btn-primary">编辑</a>
@@ -195,21 +195,25 @@ require_once '../template/footer.php'; ?>
                     setTimeout(function() { location.href = "admin-user-detail.php?uid=" + uid; }, 1000);
                 } else {
                     new Message("操作失败", "error", 1000);
+                    $("#user-update").attr("disabled", false);
                 }
             },
             error: function(jqXHR) {
                 new Message("发生错误：" + jqXHR.status, "error", 1000);
+                $("#user-update").attr("disabled", false);
             }
         });
     }
 
     $("form").submit(function() {
+        $("#user-update").attr("disabled", true);
         update();
         return false;
     });
 
 <?php } else { ?>
     var uid = <?php echo $rs['uid']; ?>;
+
     !(function() {
         var interval = 3600 * 24;
         var to = getTimePoint(new Date(), interval);

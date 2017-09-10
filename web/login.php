@@ -86,7 +86,7 @@ require_once '../template/main.php'; ?>
 <script src="asset/js/messg.min.js"></script>
 
 <script>
-    (function() {
+   !(function() {
         function login() {
             $.ajax({
                 type: "POST",
@@ -113,8 +113,8 @@ require_once '../template/main.php'; ?>
             });
         }
         $("#form-login").submit(function() {
-            login();
             $("#login").attr("disabled", true);
+            login();
             return false;
         });
     })();

@@ -23,7 +23,7 @@ require_once '../template/footer.php'; ?>
 <script src="asset/js/fullcalendar.min.js"></script>
 
 <script>
-    (function() {
+   !(function() {
         /* initialize the calendar */
         var eventsCache = {};
         $('#calendar').fullCalendar({
