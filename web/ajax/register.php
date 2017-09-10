@@ -7,7 +7,15 @@ $name = $_POST['name'];
 $passwd = urldecode($_POST['passwd']);
 $invitecode = $_POST['invitecode'];
 
-if (!ShadowX\Utility::IsEmailLegal($email)) {
+ if (strlen($name) < 5){
+    $result['ok'] = 0;
+    $result['code'] = 0;
+    $result['msg'] = "用户名太短";
+} else if (ShadowX\User::IsUsernameUsed($name)){
+    $result['ok'] = 0;
+    $result['code'] = 0;
+    $result['msg'] = "用户名已经被使用";
+} else if (!ShadowX\Utility::IsEmailLegal($email)) {
     $result['ok'] = 0;
     $result['code'] = 0;
     $result['msg'] = "邮箱无效";
@@ -15,18 +23,10 @@ if (!ShadowX\Utility::IsEmailLegal($email)) {
     $result['ok'] = 0;
     $result['code'] = 0;
     $result['msg'] = "邮箱已被使用";
-} else if (ShadowX\User::IsUsernameUsed($name)){
-    $result['ok'] = 0;
-    $result['code'] = 0;
-    $result['msg'] = "用户名已经被使用";
 } else if (strlen($passwd) < $PWD_MIN) {
     $result['ok'] = 0;
     $result['code'] = 0;
     $result['msg'] = "密码长度过短";
-} else if (strlen($name) < 5){
-    $result['ok'] = 0;
-    $result['code'] = 0;
-    $result['msg'] = "用户名太短";
 } else if (!ShadowX\Invite::isInviteCodeOk($invitecode)) {
     $result['ok'] = 0;
     $result['code'] = 0;
