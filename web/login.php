@@ -38,11 +38,11 @@ require_once '../template/main.php'; ?>
             <h2 class="login-box-msg">登录</h2>
             <form id="form-login">
                 <div class="form-group has-feedback">
-                    <input id="email" type="email" required="required" class="form-control" placeholder="Email">
+                    <input id="email" type="email" required="required" class="form-control" placeholder="邮箱">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input id="passwd" type="password" required="required" class="form-control" placeholder="Password">
+                    <input id="passwd" type="password" required="required" class="form-control" placeholder="密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">

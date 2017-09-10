@@ -42,7 +42,7 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
             <form id="form-resetpwd">
             <?php if ($code =='') { ?>
                 <div class="form-group has-feedback">
-                    <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
+                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -53,7 +53,7 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
                     <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>"/>
                 </div>
                 <div class="form-group has-feedback">
-                    <input id="email" name="Email" type="text" class="form-control" placeholder="Email"/>
+                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
