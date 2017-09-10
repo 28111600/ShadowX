@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="my.php">
+                        <a href="user.php">
                             <i class="fa fa-user"></i> <span>用户信息</span>
                         </a>
                     </li>

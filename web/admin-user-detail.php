@@ -1,5 +1,6 @@
 <?php
 require_once '../template/main.php';
+require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
 if(!empty($_GET)){
@@ -175,9 +176,6 @@ require_once '../template/footer.php'; ?>
 <script src="asset/js/Chart.bundle.min.js"></script>
 
 <script>
-    //Initialize Select2 Elements
-    $('.select2').select2();
-
 <?php if ($isEdit) { ?>
     var uid = <?php echo $rs['uid']; ?>;
     function update() {

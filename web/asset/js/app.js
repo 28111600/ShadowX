@@ -179,29 +179,30 @@ var showUsage = function(ctx, from, to, step, data) {
 var getChartYAxis = function(data) {
     if (data.length === 0) { data = [0]; }
     var K = 1024;
-    var m = Math.max.apply(null, data);
+    var max = Math.max.apply(null, data);
+    var m = max;
     var i = 0;
     while (m > K) {
         m = m / K;
         i++;
     }
-    if (m === 0) {
-        var max = 10 * K;
-        var min = 0;
+    if (max < 10 * K) {
+        var maxY = 10 * K;
+        var minY = 0;
         var maxNum = 10;
     } else {
         var unit = Math.pow(10, (parseInt(m)).toString().length - 1);
         var maxNum = parseInt(m / unit) + 1;
-        var max = maxNum * unit * Math.pow(K, i);
-        var min = 0;
+        var maxY = maxNum * unit * Math.pow(K, i);
+        var minY = 0;
 
     }
     var split = [0, 4, 4, 6, 4, 5, 4, 5, 4, 5, 5, 5][maxNum];
-    var stepSize = max / split;
+    var stepSize = maxY / split;
 
     return {
-        max: max,
-        min: min,
+        max: maxY,
+        min: minY,
         stepSize: stepSize
     }
 }

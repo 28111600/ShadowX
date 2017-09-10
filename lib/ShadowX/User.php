@@ -72,6 +72,10 @@ class User {
         return $this->getTransferEnable() - $this->getTransfer();
     }
 
+    function getRefBy(){
+        return $this->data['ref_by'];
+    }
+
     function getLastUseTime(){
         return $this->data['t'];
     }
