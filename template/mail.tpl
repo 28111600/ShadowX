@@ -22,10 +22,6 @@
             -webkit-text-size-adjust: 100%;
             width: 100% !important;
         }
-                
-        body, .body {
-            background-color: #f6f6f6;
-        }
         
         .body {
             border-spacing: 0;
@@ -51,14 +47,16 @@
         
         .main {
             background: #fff;
-            border: 1px solid #e9e9e9;
-            border-radius: 3px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            border-radius: 2px;
             border-spacing: 0;
             width: 100%;
         }
         
         .wrapper {
             padding: 30px;
+            min-height: 15em;
         }
         
         .content-block {
@@ -234,14 +232,13 @@
             text-decoration: none !important;
         }
         
-        .noreply{
+        .noreply {
             font-size: .8em;
             color: gray;
             margin: .5em;
         }
         
-        @media only screen and (max-width: 500px) {
-        }
+        @media only screen and (max-width: 500px) {}
         
         @media only screen and (max-width: 500px) {
             .content {
