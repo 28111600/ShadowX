@@ -108,11 +108,6 @@
                         </a>
                     </li>
                     <li>
-                        <a href="admin_invite.php">
-                            <i class="fa fa-users"></i> <span>邀请管理</span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="system.php">
                             <i class="fa fa-info-circle"></i> <span>系统信息</span>
                         </a>
