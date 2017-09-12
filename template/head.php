@@ -2,37 +2,8 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?php echo $site_name; ?></title>
-    <link href="asset/favicon.ico" rel="shortcut icon">
-    <!-- Tell the browser to be responsive to screen width -->
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
-    <!-- Bootstrap Align -->
-    <link rel="stylesheet" href="asset/css/bootstrap-align.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="asset/css/font-awesome.min.css">
-    <!-- Select2 4.0.3 -->
-    <link rel="stylesheet" href="asset/css/select2.min.css">
-    <!-- FullCalendar 3.5.0 -->
-    <link rel="stylesheet" href="asset/css/fullcalendar.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="asset/css/adminlte.min.css">
-    <!-- AdminLTE Skins -->
-    <link rel="stylesheet" href="asset/css/skins/skin-black.min.css">
-    <!-- App -->
-    <link rel="stylesheet" href="asset/css/app.css">
-    <!-- Messg -->
-    <link rel="stylesheet" href="asset/css/messg.min.css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="asset/js/html5shiv.min.js"></script>
-    <script src="asset/js/respond.min.js"></script>
-    <![endif]-->
+    <?php include "head-meta.php"; ?>
 </head>
 
 <body class="hold-transition skin-black">
