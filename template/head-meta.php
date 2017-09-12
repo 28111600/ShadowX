@@ -10,8 +10,14 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+<!-- Bootstrap Align -->
+<link rel="stylesheet" href="asset/css/bootstrap-align.css">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+<!-- Select2 4.0.3 -->
+<link rel="stylesheet" href="asset/css/select2.min.css">
+<!-- FullCalendar 3.5.0 -->
+<link rel="stylesheet" href="asset/css/fullcalendar.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="asset/css/adminlte.min.css">
 <!-- AdminLTE Skins -->
