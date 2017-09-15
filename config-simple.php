@@ -28,6 +28,6 @@ $site_url  = "https://yourdomain.com";
 //密码Salt
 $salt = "";
 
-$mail_sender    = "noreply@xxx.xx";
+$mail_sender    = "noreply <noreply@xxx.xx>";
 $mailgun_key    = "";
 $mailgun_domain = "";
