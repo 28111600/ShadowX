@@ -70,6 +70,7 @@ require_once '../template/main.php'; ?>
                 url: "ajax/login.php",
                 dataType: "json",
                 data: {
+                    action: "login",
                     email: $("#email").val(),
                     passwd: encodeURIComponent($("#passwd").val()),
                     remember_me: $("#remember_me").val()
@@ -80,7 +81,7 @@ require_once '../template/main.php'; ?>
                         setTimeout(function() { location.reload(); }, 1000);
                     } else {
                         $("#login").attr("disabled", false);
-                        new Message("登录失败", "error", 1000);
+                        new Message(data.msg, "error", 1000);
                     }
                 },
                 error: function(jqXHR) {

@@ -2,7 +2,6 @@
 require_once '../../config.php';
 require_once '../../lib/init.php';
 
-
 if(!empty($_POST)){
     $action = $_POST['action'];
     if ($action == 'request') {
@@ -90,5 +89,13 @@ if(!empty($_POST)){
             $result['code'] = 1;
         }
         echo json_encode($result, JSON_UNESCAPED_UNICODE);
+    } else {
+        $result['ok'] = 0;
+        $result['code'] = 0;
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
+} else {
+    $result['ok'] = 0;
+    $result['code'] = 0;
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }

@@ -28,5 +28,13 @@ if(!empty($_POST)){
             $result['code'] = 0;
             echo json_encode($result, JSON_UNESCAPED_UNICODE);
         }
+    } else {
+        $result['ok'] = 0;
+        $result['code'] = 0;
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     }
+} else {
+    $result['ok'] = 0;
+    $result['code'] = 0;
+    echo json_encode($result, JSON_UNESCAPED_UNICODE);
 }

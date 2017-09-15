@@ -71,6 +71,7 @@ require_once '../template/main.php'; ?>
                 url: "ajax/register.php",
                 dataType: "json",
                 data: {
+                    action: "register",
                     name: $("#name").val(),
                     email: $("#email").val(),
                     passwd: encodeURIComponent($("#passwd").val()),
