@@ -140,3 +140,7 @@ overflow: hidden;
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset !important;
 }
+
+.mce-panel {
+    box-sizing: border-box!important;
+}
