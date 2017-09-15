@@ -48,19 +48,19 @@ if(!empty($_GET)){
                         <div class="box-body">
                         <?php if ($isEdit || $isNew) { ?>
                             <div class="form-group hidden">
-                                <label for="cate_title">id</label>
+                                <label>id</label>
                                 <input class="form-control" id="id" value="<?php echo $rs['id']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">Node Id</label>
+                                <label>Node Id</label>
                                 <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">节点名称</label>
+                                <label>节点名称</label>
                                 <input class="form-control" id="name" required="required" value="<?php echo $rs['name']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">地址</label>
+                                <label>地址</label>
                                 <input class="form-control" id="server" required="required" value="<?php echo $rs['server']; ?>">
                             </div>
                             <div class="form-group">
@@ -72,20 +72,20 @@ if(!empty($_GET)){
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">节点描述</label>
+                                <label>节点描述</label>
                                 <input class="form-control" id="info" value="<?php echo $rs['info']; ?>">
                             </div>
                         <?php } else { ?>
                             <div class="form-group">
-                                <label for="cate_title">Node Id</label>
+                                <label>Node Id</label>
                                 <span class="form-control"><?php echo $rs['node_id']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">节点名称</label>
+                                <label>节点名称</label>
                                 <span class="form-control"><?php echo $rs['name']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">地址</label>
+                                <label>地址</label>
                                 <span class="form-control"><?php echo $rs['server']; ?></span>
                             </div>
                             <div class="form-group">
@@ -93,7 +93,7 @@ if(!empty($_GET)){
                                 <span class="form-control"><?php echo $rs['method']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">节点描述</label>
+                                <label>节点描述</label>
                                 <span class="form-control"><?php echo $rs['info']; ?></span>
                             </div>
                         <?php } ?>

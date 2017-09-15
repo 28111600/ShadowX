@@ -37,40 +37,40 @@ $gb = 1024 * 1024 * 1024;
                         <div class="box-body">
                         <?php if ($isEdit) { ?>
                             <div class="form-group hidden">
-                                <label for="cate_title">id</label>
+                                <label>id</label>
                                 <input class="form-control" id="uid" value="<?php echo $rs['uid']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">用户名</label>
+                                <label>用户名</label>
                                 <input class="form-control" id="name" required="required" value="<?php echo $rs['user_name']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">邮箱</label>
+                                <label>邮箱</label>
                                 <input class="form-control" id="server" required="required" value="<?php echo $rs['email']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">连接密码</label>
+                                <label>连接密码</label>
                                 <input class="form-control" id="passwd" placeholder="留空则自动生成" value="<?php echo $rs['passwd']; ?>">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">限速(Kbps)</label>
+                                <label>限速(Kbps)</label>
                                 <input class="form-control" id="passwd" placeholder="0则不限速" value="<?php echo $rs['max_speed']; ?>">
                             </div>
                         <?php } else { ?>
                             <div class="form-group">
-                                <label for="cate_title">用户名</label>
+                                <label>用户名</label>
                                 <span class="form-control"><?php echo $rs['user_name']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">邮箱</label>
+                                <label>邮箱</label>
                                 <span class="form-control"><?php echo $rs['email']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">连接密码</label>
+                                <label>连接密码</label>
                                 <span class="form-control"><?php echo $rs['passwd']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">流量</label>
+                                <label>流量</label>
                                 <span class="form-control"><?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?></span>
                             </div>
                             <div class="form-group">
@@ -82,19 +82,19 @@ $gb = 1024 * 1024 * 1024;
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">限速</label>
+                                <label>限速</label>
                                 <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kbps"; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">最后使用时间</label>
+                                <label>最后使用时间</label>
                                 <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">可用邀请码</label>
+                                <label>可用邀请码</label>
                                 <span class="form-control"><?php echo $rs['invite_num']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">邀请人</label>
+                                <label>邀请人</label>
                                 <span class="form-control"><?php
                                     if (!empty($rs['ref_by'])) {
                                         $used_user = new ShadowX\User($rs['ref_by']);
@@ -109,11 +109,11 @@ $gb = 1024 * 1024 * 1024;
                                 ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">注册时间</label>
+                                <label>注册时间</label>
                                 <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['reg_date'] + $timeoffset); ?></span>
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">注册IP</label>
+                                <label>注册IP</label>
                                 <span class="form-control"><?php echo $rs['reg_ip']; ?></span>
                             </div>
                         <?php } ?>

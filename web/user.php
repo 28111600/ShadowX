@@ -21,19 +21,19 @@ require_once '../template/head.php';
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="form-group">
-                            <label for="cate_title">用户名</label>
+                            <label>用户名</label>
                             <span class="form-control"><?php echo $User->getUserName(); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="cate_title">邮箱</label>
+                            <label>邮箱</label>
                             <span class="form-control"><?php echo $User->getEmail(); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="cate_title">连接密码</label>
+                            <label>连接密码</label>
                             <span class="form-control"><?php echo $User->getSsPasswd(); ?></span>
                         </div>
                         <div class="form-group">
-                            <label for="cate_title">流量</label>
+                            <label>流量</label>
                             <span class="form-control"><?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?></span>
                         </div>
                         <div class="form-group">
@@ -45,7 +45,7 @@ require_once '../template/head.php';
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="cate_title">邀请人</label>
+                            <label>邀请人</label>
                             <span class="form-control"><?php
                                 if (!empty($User->getRefBy())) {
                                     $used_user = new ShadowX\User($User->getRefBy());
@@ -74,11 +74,11 @@ require_once '../template/head.php';
                     <form id="form-passwd">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="cate_title">密码</label>
+                                <label>密码</label>
                                 <input class="form-control" id="passwd" type="password" autocomplete="new-password">
                             </div>
                             <div class="form-group">
-                                <label for="cate_title">确认密码</label>
+                                <label>确认密码</label>
                                 <input class="form-control" id="repasswd" type="password" autocomplete="new-password">
                             </div>
                         </div><!-- /.box-body -->
@@ -100,7 +100,7 @@ require_once '../template/head.php';
                     <form id="form-sspasswd">
                         <div class="box-body">
                             <div class="form-group">
-                                <label for="cate_title">密码</label>
+                                <label>密码</label>
                                 <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
                             </div>
                         </div><!-- /.box-body -->
