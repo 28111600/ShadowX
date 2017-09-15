@@ -165,7 +165,7 @@ require_once '../template/footer.php'; ?>
                 url: "ajax/user.php",
                 dataType: "json",
                 data: {
-                    action:"update_sspasswd",
+                    action:"sspasswd",
                     passwd: encodeURIComponent($("#sspasswd").val()),
                 },
                 success: function(data) {
@@ -185,7 +185,43 @@ require_once '../template/footer.php'; ?>
         }
         $("#form-sspasswd").submit(function() {
             $("#user-sspasswd").attr("disabled", true);
-            register();
+            sspasswd();
+            return false;
+        });
+    })();
+
+    !(function() {
+        function passwd() {
+            $.ajax({
+                type: "POST",
+                url: "ajax/user.php",
+                dataType: "json",
+                data: {
+                    action: "passwd",
+                    passwd: $("#passwd").val(),
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("密码已重置，需重新登录", "success", 1000);
+                        setTimeout(function() { location.href = "user.php"; }, 1000);
+                    } else {
+                        $("#resetpwd").attr("disabled", false);
+                        new Message(data.msg, "error", 1000);
+                    }
+                },
+                error: function(jqXHR) {
+                    $("#resetpwd").attr("disabled", false);
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                }
+            });
+        }
+        $("#form-passwd").submit(function() {
+            if ($("#passwd").val() !== $("#repasswd").val()) {
+                new Message("两次填写的密码不一致", "error", 1000);
+            } else {
+                $("#resetpwd").attr("disabled", true);
+                passwd();
+            }
             return false;
         });
     })();
