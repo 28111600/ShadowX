@@ -10,13 +10,13 @@ $DB_CHARSET = 'utf8';
 $DB_TYPE    = 'mysql';
 
 //可用加密方式
-$ss_methods = array(
+$ss_methods = [
     "aes-128-cfb",
     "aes-256-cfb",
     "chacha20",
     "rc4",
     "rc4-md5",
-);
+];
 
 //新用户初始流量
 $default_transfer = 1024 * 1024 * 1024 * 1;
