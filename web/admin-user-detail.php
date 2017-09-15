@@ -33,7 +33,7 @@ $gb = 1024 * 1024 * 1024;
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form>
+                    <form id="form-user">
                         <div class="box-body">
                         <?php if ($isEdit) { ?>
                             <div class="form-group hidden">
@@ -205,7 +205,7 @@ require_once '../template/footer.php'; ?>
         });
     }
 
-    $("form").submit(function() {
+    $("#form-user").submit(function() {
         $("#user-update").attr("disabled", true);
         update();
         return false;

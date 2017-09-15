@@ -44,7 +44,7 @@ if(!empty($_GET)){
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form>
+                    <form id="form-node">
                         <div class="box-body">
                         <?php if ($isEdit || $isNew) { ?>
                             <div class="form-group hidden">
@@ -193,7 +193,7 @@ require_once '../template/footer.php'; ?>
         });
     }
 
-    $("form").submit(function() {
+    $("#form-node").submit(function() {
         $("#node-add").attr("disabled", true);
         add();
         return false;
@@ -223,49 +223,60 @@ require_once '../template/footer.php'; ?>
                 } else {
                     new Message("操作失败", "error", 1000);
                     $("#node-update").attr("disabled", false);
+                    $("#node-delete").attr("disabled", false);
                 }
             },
             error: function(jqXHR) {
                 new Message("发生错误：" + jqXHR.status, "error", 1000);
                 $("#node-update").attr("disabled", false);
+                $("#node-delete").attr("disabled", false);
             }
         });
     }
 
-    $("form").submit(function() {
+    $("#form-node").submit(function() {
         $("#node-update").attr("disabled", true);
+        $("#node-delete").attr("disabled", true);
         update();
         return false;
     });
 
-    $("#node-delete").click(function() {
-        $("#node-delete").attr("disabled", true);
-        if (confirm("确认删除此节点？")) {
-            $.ajax({
-                type: "POST",
-                url: "ajax/admin-node.php",
-                dataType: "json",
-                data: {
-                    action: "delete",
-                    id: id
-                },
-                success: function(data) {
-                    if (data.ok) {
-                        new Message("操作成功", "success");
-                        setTimeout(function() { location.href = "admin-node.php"; }, 1000);
-                    } else {
-                        new Message("操作失败", "error", 1000);
-                        $("#node-delete").attr("disabled", false);
-                    }
-                },
-                error: function(jqXHR) {
-                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+    function del() {
+        $.ajax({
+            type: "POST",
+            url: "ajax/admin-node.php",
+            dataType: "json",
+            data: {
+                action: "delete",
+                id: id
+            },
+            success: function(data) {
+                if (data.ok) {
+                    new Message("操作成功", "success");
+                    setTimeout(function() { location.href = "admin-node.php"; }, 1000);
+                } else {
+                    new Message("操作失败", "error", 1000);
                     $("#node-delete").attr("disabled", false);
+                    $("#node-update").attr("disabled", false);
                 }
-            })
+            },
+            error: function(jqXHR) {
+                new Message("发生错误：" + jqXHR.status, "error", 1000);
+                $("#node-delete").attr("disabled", false);
+                $("#node-update").attr("disabled", false);
+            }
+        });
+    }
+
+    $("#node-delete").click(function() {
+        if (confirm("确认删除此节点？")) {
+            $("#node-delete").attr("disabled", true);
+            $("#node-update").attr("disabled", true);
+            del();
         }
         return false;
     });
+
 <?php } else { ?>
     var node_id = <?php echo $rs['node_id']; ?>;
     !(function() {
