@@ -75,11 +75,11 @@ require_once '../template/head.php';
                         <div class="box-body">
                             <div class="form-group">
                                 <label>密码</label>
-                                <input class="form-control" id="passwd" type="password" autocomplete="new-password">
+                                <input class="form-control" id="passwd" type="password" required="required" autocomplete="new-password">
                             </div>
                             <div class="form-group">
                                 <label>确认密码</label>
-                                <input class="form-control" id="repasswd" type="password" autocomplete="new-password">
+                                <input class="form-control" id="repasswd" type="password" required="required" autocomplete="new-password">
                             </div>
                         </div><!-- /.box-body -->
                         <div class="box-footer">
