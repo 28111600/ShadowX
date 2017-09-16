@@ -49,10 +49,6 @@ $gb = 1024 * 1024 * 1024;
                                 <input class="form-control" id="server" required="required" value="<?php echo $rs['email']; ?>">
                             </div>
                             <div class="form-group">
-                                <label>连接密码</label>
-                                <input class="form-control" id="passwd" placeholder="留空则自动生成" value="<?php echo $rs['passwd']; ?>">
-                            </div>
-                            <div class="form-group">
                                 <label>限速(Kbps)</label>
                                 <input class="form-control" id="passwd" placeholder="0则不限速" value="<?php echo $rs['max_speed']; ?>">
                             </div>
