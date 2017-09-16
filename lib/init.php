@@ -22,7 +22,7 @@ $db = new Medoo\medoo([
     'port' => $DB_PORT,
     'username' => $DB_USER,
     'password' => $DB_PWD,
-    'charset' => $DB_CHARSET,
+    'charset' => "utf8",
 
     // driver_option for connection, read more from http://www.php.net/manual/en/pdo.setattribute.php
     'option' => [

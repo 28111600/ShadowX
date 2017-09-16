@@ -6,7 +6,6 @@ $DB_PORT    = 3306;
 $DB_USER    = 'user';
 $DB_PWD     = 'password';
 $DB_DBNAME  = 'db';
-$DB_CHARSET = 'utf8';
 $DB_TYPE    = 'mysql';
 
 //可用加密方式
