@@ -179,7 +179,7 @@ var showUsage = function(ctx, from, to, step, data) {
 var getChartYAxis = function(data) {
     if (data.length === 0) { data = [0]; }
     var K = 1024;
-    var max = Math.max.apply(null, data) * 1.2;
+    var max = Math.max.apply(null, data) * 1.1;
     var m = max;
     var i = 0;
     while (m > K) {
