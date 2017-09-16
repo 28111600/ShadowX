@@ -179,7 +179,7 @@ var showUsage = function(ctx, from, to, step, data) {
 var getChartYAxis = function(data) {
     if (data.length === 0) { data = [0]; }
     var K = 1024;
-    var max = Math.max.apply(null, data);
+    var max = Math.max.apply(null, data) * 1.2;
     var m = max;
     var i = 0;
     while (m > K) {
@@ -309,14 +309,14 @@ var showChart = function(ctx, from, to, step, data) {
         borderColor: color.info[0],
         backgroundColor: color.info[1],
         borderWidth: 1,
-        pointRadius: .1
+        pointRadius: 0
     }, {
         label: "上行",
         data: usage.u,
         borderColor: color.danger[0],
         backgroundColor: color.danger[1],
         borderWidth: 1,
-        pointRadius: .1
+        pointRadius: 0
     }];
     var chart = new Chart(ctx, {
         type: 'line',
