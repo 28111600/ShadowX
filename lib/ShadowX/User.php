@@ -93,6 +93,15 @@ class User {
         ]);
     }
 
+    function addInviteNum($num=0){
+        $num = max($this->getInviteNum() + $num, 0);
+        $this->db->update(static::$table,[
+            "invite_num" => $num
+        ],[
+            "uid" => $this->uid
+        ]);
+    }
+
     function setSsPass($pass){
         $this->db->update(static::$table,[
             "passwd" => $pass

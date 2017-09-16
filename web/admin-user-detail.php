@@ -66,30 +66,6 @@ $gb = 1024 * 1024 * 1024;
                                 <span class="form-control"><?php echo $rs['email']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label>连接密码</label>
-                                <span class="form-control"><?php echo $rs['passwd']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label>流量</label>
-                                <span class="form-control"><?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?></span>
-                            </div>
-                            <div class="form-group">
-                                <div class="progress-usage">
-                                    <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($rs['transfer_enable'] - ($rs['u'] + $rs['d'])); ?> / <?php echo ShadowX\Utility::getSize($rs['u'] + $rs['d']); ?> / <?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?>'>
-                                        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($rs['u'] + $rs['d']) * 100 / $rs['transfer_enable'], 0), 100); ?>%"> <span class="sr-only">Transfer</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>限速</label>
-                                <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kbps"; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label>最后使用时间</label>
-                                <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
-                            </div>
-                            <div class="form-group">
                                 <label>可用邀请码</label>
                                 <span class="form-control"><?php echo $rs['invite_num']; ?></span>
                             </div>
@@ -135,6 +111,93 @@ $gb = 1024 * 1024 * 1024;
             <div class="col-md-6">
                 <div class="box box-primary">
                     <div class="box-header with-border">
+                        <h3 class="box-title">流量使用</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label>连接密码</label>
+                            <span class="form-control"><?php echo $rs['passwd']; ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>流量</label>
+                            <span class="form-control"><?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?></span>
+                        </div>
+                        <div class="form-group">
+                            <div class="progress-usage">
+                                <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($rs['transfer_enable'] - ($rs['u'] + $rs['d'])); ?> / <?php echo ShadowX\Utility::getSize($rs['u'] + $rs['d']); ?> / <?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?>'>
+                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($rs['u'] + $rs['d']) * 100 / $rs['transfer_enable'], 0), 100); ?>%"> <span class="sr-only">Transfer</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>限速</label>
+                            <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kbps"; ?></span>
+                        </div>
+                        <div class="form-group">
+                            <label>最后使用时间</label>
+                            <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
+                        </div>
+                    </div><!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <?php } ?>
+        </div>
+        <?php if (!$isEdit) { ?>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">添加流量</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form id="form-transfer">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>流量(GByte)</label>
+                                <input class="form-control" id="transfer" required="required" placeholder="小于0则扣除流量">
+                            </div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" id="user-addtransfer" class="btn btn-success">确定</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">添加邀请码</h3>
+                    </div>
+                    <!-- /.box-header -->
+                    <!-- form start -->
+                    <form id="form-invitenum">
+                        <div class="box-body">
+                            <div class="form-group">
+                                <label>数量</label>
+                                <input class="form-control" id="invitenum" required="required" placeholder="小于0则减少邀请码数量">
+                            </div>
+                        </div><!-- /.box-body -->
+                        <div class="box-footer">
+                            <button type="submit" id="user-addinvitenum" class="btn btn-success">确定</button>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="box box-primary">
+                    <div class="box-header with-border">
                         <h3 class="box-title">流量图表 - 30 Days</h3>
                     </div>
                     <!-- /.box-header -->
@@ -160,9 +223,9 @@ $gb = 1024 * 1024 * 1024;
                 <!-- /.box -->
             </div>
             <!-- /.col -->
-            <?php } ?>
         </div>
         <!-- /.row -->
+        <?php } ?>
     </section>
     <!-- /.content -->
 </div>
@@ -261,6 +324,80 @@ require_once '../template/footer.php'; ?>
                 var data = JSON.parse(text);
                 showChart(elem, from, to, interval, data.data);
             });
+        });
+    })();
+
+    !(function() {
+        function addTransfer(transfer) {
+            $.ajax({
+                type: "POST",
+                url: "ajax/admin-user.php",
+                dataType: "json",
+                data: {
+                    action: "addtransfer",
+                    uid: uid,
+                    transfer: transfer * 1024 * 1024 * 1024
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() { location.href = "admin-user-detail.php?uid=" + uid; }, 1000);
+                    } else {
+                        new Message(data.msg, "error", 1000);
+                        $("#user-addtransfer").attr("disabled", false);
+                    }
+                },
+                error: function(jqXHR) {
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    $("#user-addtransfer").attr("disabled", false);
+                }
+            });
+        }
+
+        $("#form-transfer").submit(function() {
+            var transfer = parseInt($("#transfer").val());
+            if (transfer > 0 || transfer < 0) {
+                $("#user-addtransfer").attr("disabled", true);
+                addTransfer(transfer);
+            }
+            return false;
+        });
+    })();
+
+    !(function() {
+        function addInviteNum(num) {
+            $.ajax({
+                type: "POST",
+                url: "ajax/admin-user.php",
+                dataType: "json",
+                data: {
+                    action: "addinvitenum",
+                    uid: uid,
+                    num: num
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() { location.href = "admin-user-detail.php?uid=" + uid; }, 1000);
+                    } else {
+                        new Message(data.msg, "error", 1000);
+                        $("#user-addinvitenum").attr("disabled", false);
+                    }
+                },
+                error: function(jqXHR) {
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    $("#user-addinvitenum").attr("disabled", false);
+                }
+            });
+        }
+
+        $("#form-invitenum").submit(function() {
+            var num = parseInt($("#invitenum").val());
+            if (num > 0 || num < 0) {
+                $("#user-addinvitenum").attr("disabled", true);
+                addInviteNum(num);
+            }
+            return false;
         });
     })();
 <?php } ?>
