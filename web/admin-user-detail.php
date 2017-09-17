@@ -241,7 +241,7 @@ require_once '../template/footer.php'; ?>
 
 <script>
     var speeds = [
-        { value:  512, label: "512 KPbs" },
+        { value:  512, label: "512 Kbps" },
         { value: 1024, label: "1 Mbps" },
         { value: 2048, label: "2 Mbps" },
         { value: 4096, label: "4 Mbps" },
