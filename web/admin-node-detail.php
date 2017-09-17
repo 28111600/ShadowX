@@ -293,7 +293,7 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to + interval -1,
+                    to: to + interval - 1,
                     node_id: node_id,
                     type: "days"
                 }
@@ -305,7 +305,7 @@ require_once '../template/footer.php'; ?>
     })();
 
     !(function() {
-        var interval = 3600;
+        var interval = 1200;
         var to = getTimePoint(new Date(), interval);
         var from = to - 3600 * 24;
 
@@ -318,9 +318,9 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to + interval -1,
+                    to: to + interval - 1,
                     node_id: node_id,
-                    type: "hours"
+                    type: "20min"
                 }
             }).done(function(text) {
                 var data = JSON.parse(text);

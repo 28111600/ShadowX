@@ -82,7 +82,7 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to + interval -1,
+                    to: to + interval - 1,
                     type: "days"
                 }
             }).done(function(text) {
@@ -106,7 +106,7 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to + interval -1,
+                    to: to + interval - 1,
                     type: "days"
                 }
             }).done(function(text) {

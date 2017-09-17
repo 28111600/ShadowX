@@ -83,7 +83,7 @@ require_once '../template/footer.php'; ?>
                 data: {
                     action: "getLogRange",
                     from: from,
-                    to: to + interval -1,
+                    to: to + interval - 1,
                     type: "20min",
                     node_id: node_id
                 }
