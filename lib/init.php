@@ -17,7 +17,7 @@ spl_autoload_register(function ($class) {
 });
 
 require '../vendor/autoload.php';
-$db = new Medoo\medoo([
+$db = new Medoo\Medoo([
     // required
     'database_type' => $DB_TYPE,
     'database_name' => $DB_DBNAME,
