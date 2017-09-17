@@ -21,10 +21,9 @@ var getSize = function(size, fixed, k) {
 var customUsageTooltip = function(tooltip) {
     // Tooltip Element
     var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
-
     if (!tooltipEl) {
         tooltipEl = document.createElement('div');
-        tooltipEl.classList = 'chartjs-tooltip tooltip top in';
+        $(tooltipEl).addClass('chartjs-tooltip tooltip top in');
         tooltipEl.innerHTML = '<div class="tooltip-arrow"></div><div class="tooltip-inner"></div>';
         this._chart.canvas.parentNode.appendChild(tooltipEl);
     }
