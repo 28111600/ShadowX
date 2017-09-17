@@ -46,7 +46,7 @@ require_once '../template/head.php';
                                                 <tbody>
                                                     <tr>
                                                         <td>配置地址</td>
-                                                        <td class="text-left"><input readonly="readonly" class="option-url form-control" /></td>
+                                                        <td class="text-left"><input readonly="readonly" class="option-url form-control"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>配置Json</td>

@@ -15,23 +15,23 @@ require_once '../template/main.php'; ?>
             <h2 class="login-box-msg">注册</h2>
             <form id="form-register">
                 <div class="form-group has-feedback">
-                    <input type="text" id="name" required="required" class="form-control" placeholder="用户名"/>
+                    <input type="text" id="name" required="required" class="form-control" placeholder="用户名">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" id="email" required="required" class="form-control" placeholder="邮箱"/>
+                    <input type="text" id="email" required="required" class="form-control" placeholder="邮箱">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="passwd" required="required" class="form-control" autocomplete="new-password" placeholder="密码"/>
+                    <input type="password" id="passwd" required="required" class="form-control" autocomplete="new-password" placeholder="密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="repasswd" required="required" class="form-control" autocomplete="new-password" placeholder="确认密码"/>
+                    <input type="password" id="repasswd" required="required" class="form-control" autocomplete="new-password" placeholder="确认密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="text" id="invitecode" required="required" class="form-control" placeholder="邀请码"/>
+                    <input type="text" id="invitecode" required="required" class="form-control" placeholder="邀请码">
                     <span class="glyphicon glyphicon-send form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">

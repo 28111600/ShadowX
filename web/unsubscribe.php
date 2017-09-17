@@ -37,7 +37,7 @@ if ($unsubscribe && !empty($email)) {
                 <div class="main">
                     <div class="wrapper">
                         <h2 class="mt0">退订邮件</h2>
-                        <br />
+                        <br>
                         <?php if ($unsubscribe) { ?>
                         <p>邮件已退订</p>
                         <?php } else { ?>

@@ -19,7 +19,7 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
             <form id="form-resetpwd">
             <?php if ($code =='') { ?>
                 <div class="form-group has-feedback">
-                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
+                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -27,18 +27,18 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
                 </div>
             <?php } else { ?>
                 <div class="form-group has-feedback">
-                    <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>"/>
+                    <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>">
                 </div>
                 <div class="form-group has-feedback">
-                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱"/>
+                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱">
                     <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="passwd" class="form-control" autocomplete="new-password" placeholder="新密码"/>
+                    <input type="password" id="passwd" class="form-control" autocomplete="new-password" placeholder="新密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <input type="password" id="repasswd" class="form-control" autocomplete="new-password" placeholder="确认密码"/>
+                    <input type="password" id="repasswd" class="form-control" autocomplete="new-password" placeholder="确认密码">
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
