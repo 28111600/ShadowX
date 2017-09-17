@@ -49,7 +49,7 @@ $gb = 1024 * 1024 * 1024;
                                 <input class="form-control" id="email" required="required" value="<?php echo $rs['email']; ?>">
                             </div>
                             <div class="form-group">
-                                <label>限速(Kbps)</label>
+                                <label>限速</label>
                                 <div class="form-control">
                                     <input id="max-speed" type="text" value="<?php echo $rs['max_speed']; ?>">
                                 </div>
