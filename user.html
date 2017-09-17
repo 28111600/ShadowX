@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Shadow</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="asset/favicon.ico">
+    <!-- iOS -->
+    <link rel="apple-touch-icon-precomposed" href="asset/app.bg.png">
+    <!-- Android -->
+    <link rel="shortcut icon" href="asset/app.png">
+    <link rel="icon" sizes="512x512" href="asset/app.png">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <!-- Bootstrap Align -->
+    <link rel="stylesheet" href="asset/css/bootstrap-align.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+    <!-- Select2 4.0.3 -->
+    <link rel="stylesheet" href="asset/css/select2.min.css">
+    <!-- FullCalendar 3.5.0 -->
+    <link rel="stylesheet" href="asset/css/fullcalendar.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="asset/css/adminlte.min.css">
+    <!-- AdminLTE Skins -->
+    <link rel="stylesheet" href="asset/css/skins/skin-black.min.css">
+    <!-- App -->
+    <link rel="stylesheet" href="asset/css/app.css">
+    <!-- Messg -->
+    <link rel="stylesheet" href="asset/css/messg.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="asset/js/html5shiv.min.js"></script>
+<script src="asset/js/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="hold-transition skin-black">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <!--<div class="pull-left">
+                        <i class="fa fa-user user-image" aria-hidden="true"></i></div>-->
+                    <div class="pull-left info">
+                        <p>xiaodong</p>
+                        <small class="user-email">user@mail.com</small>
+                    </div>
+                </div>
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">用户</li>
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-dashboard"></i> <span>用户中心</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="node.html">
+                            <i class="fa fa-server"></i> <span>节点列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="user.html">
+                            <i class="fa fa-user"></i> <span>用户信息</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="log.html">
+                            <i class="fa fa-bar-chart"></i> <span>流量日志</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="invite.html">
+                            <i class="fa fa-users"></i> <span>邀请好友</span>
+                        </a>
+                    </li>
+                    <li class="header">管理</li>
+                    <li>
+                        <a href="admin-node.html">
+                            <i class="fa fa-server"></i> <span>节点列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-user.html">
+                            <i class="fa fa-user"></i> <span>用户列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-log.html">
+                            <i class="fa fa-bar-chart"></i> <span>流量日志</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system.html">
+                            <i class="fa fa-info-circle"></i> <span>系统信息</span>
+                        </a>
+                    </li>
+                    <li class="header"></li>
+                    <li>
+                        <a href="logout.html">
+                            <i class="fa fa-sign-out"></i> <span>退出</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>用户详情
+                    <small>User Profile</small>
+                </h1>
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">用户详情</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <label>用户名</label>
+                                    <span class="form-control">xiaodong</span>
+                                </div>
+                                <div class="form-group">
+                                    <label>邮箱</label>
+                                    <span class="form-control">user@mail.com</span>
+                                </div>
+                                <div class="form-group">
+                                    <label>连接密码</label>
+                                    <span class="form-control">JkwTDDuh</span>
+                                </div>
+                                <div class="form-group">
+                                    <label>流量</label>
+                                    <span class="form-control">1000 GB</span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="progress-usage">
+                                        <div class="progress" data-toggle="tooltip" title='974.79 GB / 25.21 GB / 1000 GB'>
+                                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 2.5213538999669%"> <span class="sr-only">Transfer</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>邀请人</label>
+                                    <span class="form-control">无</span>
+                                </div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">修改登录密码</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <form id="form-passwd">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>密码</label>
+                                        <input class="form-control" id="passwd" type="password" required="required" autocomplete="new-password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>确认密码</label>
+                                        <input class="form-control" id="repasswd" type="password" required="required" autocomplete="new-password">
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" id="user-passwd" class="btn btn-success">保存</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">修改连接密码</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <form id="form-sspasswd">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>密码</label>
+                                        <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
+
+                                    </div>
+                                    <div class="callout callout-danger mb0">
+                                        <span>连接密码需明文存储</span>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <button type="submit" id="user-sspasswd" class="btn btn-success">保存</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">流量图表 - 30 Days</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">流量图表 - 24 Hours</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <div class="box-body">
+                                <div class="usage-box"><canvas width="16px" height="9px" class="usage-day"></canvas></div>
+                            </div>
+                            <!-- /.box-body -->
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer text-right">
+            <span class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><strong>Copyright &copy; 2014-2017 <a href="#">Shadow</a> </strong> All rights reserved.</span>
+            <span class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">Powered by <b>ShadowX</b> 1.0.0 <a href="tos.html" target="_tos">服务条款</a></span>
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+</body>
+
+</html>
+<!-- jQuery 3.2.1 -->
+<script src="asset/js/jquery.min.js"></script>
+<!-- jQuery Cookit 1.4.1 -->
+<script src="asset/js/jquery.cookie.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="asset/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="asset/js/fastclick.js"></script>
+<!-- AdminLTE -->
+<script src="asset/js/adminlte.min.js"></script>
+<!-- AdminLTE App -->
+<script src="asset/js/adminlte.app.min.js"></script>
+<!-- App -->
+<script src="asset/js/app.js"></script>
+<!-- Messg -->
+<script src="asset/js/messg.min.js"></script>
+<!-- Moment 2.18.1 -->
+<script src="asset/js/moment.min.js"></script>
+<!-- Select2 4.0.3 -->
+<script src="asset/js/select2.min.js"></script>
+<!-- Chart 2.6.0 -->
+<script src="asset/js/Chart.bundle.min.js"></script>
+
+<script>
+    !(function() {
+        function sspasswd() {
+            $.ajax({
+                url: "ajax/ok.json",
+                dataType: "json",
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() {
+                            location.href = "user.html";
+                        }, 1000);
+                    } else {
+                        $("#user-sspasswd").attr("disabled", false);
+                        new Message(data.msg, "error", 1000);
+                    }
+                },
+                error: function(jqXHR) {
+                    $("#user-sspasswd").attr("disabled", false);
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                }
+            });
+        }
+        $("#form-sspasswd").submit(function() {
+            $("#user-sspasswd").attr("disabled", true);
+            sspasswd();
+            return false;
+        });
+    })();
+
+    !(function() {
+        function passwd() {
+            $.ajax({
+                url: "ajax/ok.json",
+                dataType: "json",
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("密码已重置，需重新登录", "success", 1000);
+                        setTimeout(function() {
+                            location.href = "user.html";
+                        }, 1000);
+                    } else {
+                        $("#resetpwd").attr("disabled", false);
+                        new Message(data.msg, "error", 1000);
+                    }
+                },
+                error: function(jqXHR) {
+                    $("#resetpwd").attr("disabled", false);
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                }
+            });
+        }
+        $("#form-passwd").submit(function() {
+            if ($("#passwd").val() !== $("#repasswd").val()) {
+                new Message("两次填写的密码不一致", "error", 1000);
+            } else {
+                $("#resetpwd").attr("disabled", true);
+                passwd();
+            }
+            return false;
+        });
+    })();
+
+    var uid = 1;
+
+    !(function() {
+        var interval = 3600 * 24;
+        var to = 1505606400;
+        var from = to - 3600 * 24 * 30;
+
+        $(".usage-month").each(function() {
+            var elem = this;
+            $.ajax({
+                url: "ajax/getLogRange-day.json",
+                cache: false
+            }).done(function(data) {
+                showChart(elem, from, to, interval, data.data);
+            });
+        });
+    })();
+
+    !(function() {
+        var interval = 1200;
+        var to = 1505691600;
+        var from = to - 3600 * 24;
+
+        $(".usage-day").each(function() {
+            var elem = this;
+            $.ajax({
+                url: "ajax/getLogRange.json",
+                cache: false
+            }).done(function(data) {
+                showChart(elem, from, to, interval, data.data);
+            });
+        });
+    })();
+</script>
