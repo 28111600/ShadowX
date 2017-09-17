@@ -22,6 +22,18 @@ if(!empty($_POST)){
             $result['code'] = 1;
         }
         echo json_encode($result, JSON_UNESCAPED_UNICODE);
+    } else if ($action == 'addinvitecode') {
+        if ($User->getInviteNum() <= 0) {
+            $result['ok'] = 0;
+            $result['code'] = 0;
+            $result['msg'] = "操作有误";
+        } else {
+            ShadowX\Invite::addInviteCode($User->getUid());
+            $User->addInviteNum(-1);
+            $result['ok'] = 1;
+            $result['code'] = 1;
+        }
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     } else {
         $result['ok'] = 0;
         $result['code'] = 0;

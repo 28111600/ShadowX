@@ -48,4 +48,14 @@ class Invite {
             "code" => $invitecode
         ]);
     }
+
+    static function addInviteCode($uid){
+        global $db;
+        $code = Utility::getGUID();
+        $db->insert(static::$table,[
+            "uid" => $uid,
+            "code" => $code,
+            "status" => 1
+        ]);
+    }
 }

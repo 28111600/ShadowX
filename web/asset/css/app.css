@@ -152,3 +152,7 @@ input:-webkit-autofill {
 .mb0 {
     margin-bottom: 0!important;
 }
+
+.delete-line {
+    text-decoration: line-through;
+}

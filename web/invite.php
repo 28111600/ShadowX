@@ -15,7 +15,7 @@ require_once '../template/head.php';
         <div class="row">
             <div class="col-xs-12 col-lg-6">
                 <div class="btn-group">
-                    <button type="button" id="addInviteCode" <?php echo $User->getInviteNum() == 0 ? 'disabled="disabled"' : ''; ?> class="btn btn-success">生成邀请码</button>
+                    <button type="button" id="user-addinvitecode" <?php echo $User->getInviteNum() == 0 ? 'disabled="disabled"' : ''; ?> class="btn btn-success">生成邀请码</button>
                 </div>
             </div>
         </div>
@@ -33,20 +33,17 @@ require_once '../template/head.php';
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th>邀请码</th>
                                     <th>状态</th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php
-                            $index = 1;
                             $invite = new ShadowX\Invite($User->getUid());
                             $codes = $invite->getInviteCodes();
                             foreach ($codes as $row) { ?>
                                 <tr>
-                                    <td><?php echo $index; $index++; ?></td>
-                                    <td><?php echo $row['code']; ?></td>
+                                    <td><code class="<?php echo $row['status'] != 1 ? 'delete-line' : ''; ?>"><?php echo $row['code']; ?></code></td>
                                     <td>
                                         <?php
                                             if ($row['status'] == 1) {
@@ -59,7 +56,7 @@ require_once '../template/head.php';
                                                         echo " / ".$used_user->getUserName();
                                                     }
                                                 }
-                                            } ?>
+                                        } ?>
                                      </td>
                                 </tr>
                             <?php } ?>
@@ -79,3 +76,37 @@ require_once '../template/head.php';
 <!-- /.content-wrapper -->
 <?php
 require_once '../template/footer.php'; ?>
+
+<script>
+    !(function() {
+        function addInviteCode() {
+            $.ajax({
+                type: "POST",
+                url: "ajax/user.php",
+                dataType: "json",
+                data: {
+                    action: "addinvitecode"
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() { location.href = "invite.php"; }, 1000);
+                    } else {
+                        new Message(data.msg, "error", 1000);
+                        $("#user-addinvitecode").attr("disabled", false);
+                    }
+                },
+                error: function(jqXHR) {
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    $("#user-addinvitecode").attr("disabled", false);
+                }
+            });
+        }
+
+        $("#user-addinvitecode").click(function() {
+            $("#user-addinvitecode").attr("disabled", true);
+            addInviteCode();
+            return false;
+        });
+    })();
+</script>
