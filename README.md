@@ -9,8 +9,8 @@ ShadowX
 * Import sql/db.sql to your MySQL Database.
 * Copy config-sample.php to config.php and edit it.
 * Run
- > curl -sS https://getcomposer.org/installer | php
- > php composer.phar install 
+ > curl -sS https://getcomposer.org/installer | php  
+ > php composer.phar install  
 
 ### Admin
 * The user who's is_admin is 1.
