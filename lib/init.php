@@ -1,5 +1,8 @@
 <?php
 
+$dir = getcwd();
+chdir(dirname(__FILE__));
+
 //Version
 $version = "0.4.0";
 
@@ -32,3 +35,5 @@ $db = new Medoo\medoo([
 
 $db->query("SET NAMES utf8;");
 $db->query("SET time_zone = '+00:00';");
+
+chdir($dir);
