@@ -35,10 +35,12 @@ require_once '../template/main.php'; ?>
                     <span class="glyphicon glyphicon-send form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
-                    <button type="submit" id="register" class="btn btn-primary btn-block btn-flat">注册</button>
+                    <button type="submit" id="register" class="btn btn-primary btn-block btn-flat">同意服务条款并注册</button>
                 </div>
             </form>
             <a href="login.php" class="text-center">登录</a>
+            <a href="tos.php" target="_tos" class="pull-right">服务条款</a>
+            
         </div>
         <!-- /.login-box-body -->
     </div>
