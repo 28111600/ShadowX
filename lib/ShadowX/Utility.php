@@ -61,7 +61,6 @@ class Utility {
     }
 
     static function geoIP(){
-        $ip = "Unknown";
         if (getenv("HTTP_X_FORWARDED_FOR")) {
             $ip = getenv("HTTP_X_FORWARDED_FOR");
         } else if (getenv("HTTP_CLIENT_IP")) {
@@ -74,6 +73,8 @@ class Utility {
             $ip = $_SERVER["HTTP_CLIENT_IP"];
         } else if ($_SERVER["REMOTE_ADDR"]) {
             $ip = $_SERVER["REMOTE_ADDR"];
+        } else {
+            $ip = "Unknown";
         }
         return $ip;
     }
