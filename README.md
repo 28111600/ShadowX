@@ -22,3 +22,4 @@ ShadowX
 * [Bootstrap](https://getbootstrap.com/)
 * [AdminLTE](https://adminlte.io/)
 * [Medoo](https://medoo.in/)
+* [orvice/ss-panel](https://github.com/orvice/ss-panel/)
