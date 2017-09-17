@@ -13,7 +13,7 @@ spl_autoload_register(function ($class) {
     require_once str_replace('\\', '/', $class).'.php';
 });
 
-require_once 'Medoo.php';
+require '../vendor/autoload.php';
 $db = new Medoo\medoo([
     // required
     'database_type' => $DB_TYPE,
