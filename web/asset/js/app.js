@@ -267,7 +267,8 @@ var showChart = function(ctx, from, to, step, data) {
             yAxes: [{
                 display: true,
                 gridLines: {
-                    drawBorder: false
+                    drawBorder: false,
+                    lineWidth: .5
                 },
                 ticks: {
                     max: chartYAxis.max,
@@ -279,14 +280,14 @@ var showChart = function(ctx, from, to, step, data) {
                 }
             }],
             xAxes: [{
-                display: false,
+                display: true,
                 gridLines: {
                     drawBorder: false,
                     display: false,
                 },
                 ticks: {
                     callback: function(value, index, values) {
-                        return value;
+                        return null;
                     }
                 }
             }]
