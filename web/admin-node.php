@@ -40,8 +40,6 @@ require_once '../template/head.php';
                                 <tr><td>节点地址</td> <td class="text-right"><?php echo $row['server']; ?></td></tr>
                             </thead>
                             <tbody>
-                                <tr><td>加密方式</td> <td class="text-right"><?php echo $row['method']; ?></td></tr>
-                                <tr><td>说明</td> <td class="text-right"><?php echo $row['info']; ?></td></tr>
                                 <tr><td>Uptime</td> <td class="text-right"><?php echo ShadowX\Utility::getUptime($row['uptime']); ?></td></tr>
                                 <tr><td>负载</td> <td class="text-right"><?php echo $row['loadavg']; ?></td></tr>
                                 <tr><td>刷新时间</td> <td class="text-right"><?php echo date('Y-m-d H:i:s', $row['checktime'] + $timeoffset); ?></td></tr>
