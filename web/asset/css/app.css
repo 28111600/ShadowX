@@ -156,3 +156,12 @@ input:-webkit-autofill {
 .delete-line {
     text-decoration: line-through;
 }
+
+div.form-control {
+    height: auto;
+    border: none;
+}
+
+.slider.slider-horizontal {
+    width: 100%!important;
+}

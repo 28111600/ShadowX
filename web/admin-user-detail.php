@@ -46,11 +46,13 @@ $gb = 1024 * 1024 * 1024;
                             </div>
                             <div class="form-group">
                                 <label>邮箱</label>
-                                <input class="form-control" id="server" required="required" value="<?php echo $rs['email']; ?>">
+                                <input class="form-control" id="email" required="required" value="<?php echo $rs['email']; ?>">
                             </div>
                             <div class="form-group">
                                 <label>限速(Kbps)</label>
-                                <input class="form-control" id="passwd" placeholder="0则不限速" value="<?php echo $rs['max_speed']; ?>">
+                                <div class="form-control">
+                                    <input id="max-speed" type="text" value="<?php echo $rs['max_speed']; ?>">
+                                </div>
                             </div>
                         <?php } else { ?>
                             <div class="form-group">
@@ -130,7 +132,7 @@ $gb = 1024 * 1024 * 1024;
                         </div>
                         <div class="form-group">
                             <label>限速</label>
-                            <span class="form-control"><?php echo $rs['max_speed'] == 0 ? "不限速" : $rs['max_speed']." Kbps"; ?></span>
+                            <span class="form-control" id="max-speed"><?php echo $rs['max_speed']; ?></span>
                         </div>
                         <div class="form-group">
                             <label>最后使用时间</label>
@@ -233,9 +235,44 @@ require_once '../template/footer.php'; ?>
 <script src="asset/js/select2.min.js"></script>
 <!-- Chart 2.6.0 -->
 <script src="asset/js/Chart.bundle.min.js"></script>
+<!-- Messg -->
+<link rel="stylesheet" href="asset/css/bootstrap-slider.min.css">
+<script src="asset/js/bootstrap-slider.min.js"></script>
 
 <script>
+    var speeds = [
+        { value:  512, label: "512 KPbs" },
+        { value: 1024, label: "1 Mbps" },
+        { value: 2048, label: "2 Mbps" },
+        { value: 4096, label: "4 Mbps" },
+        { value: 8192, label: "8 Mbps" },
+        { value:    0, label: "不限速" }
+    ];
+
+    function getSpeed(value) {
+        var result = {};
+        $.each(speeds, function(index, item){
+            if (value === item.value) {
+                result.index = index;
+                result.value = item.value;
+                result.label = item.label;
+            }
+        });
+        return result;
+    }
 <?php if ($isEdit) { ?>
+    !(function() {
+        var max_speed = parseInt($("#max-speed").val());
+        var speed = getSpeed(max_speed);
+        $("#max-speed").slider({
+            value: speed.index,
+            ticks: [1, 2, 3, 4, 5, 0],
+            formatter: function(value) {
+                return speeds[value].label;
+            }
+        });
+    })();
+
     var uid = <?php echo $rs['uid']; ?>;
     function update() {
         $.ajax({
@@ -245,8 +282,9 @@ require_once '../template/footer.php'; ?>
             data: {
                 action: "update",
                 uid: $("#uid").val(),
-                user_name: $("#name").val(),
-                email: $("#email").val()
+                username: $("#name").val(),
+                email: $("#email").val(),
+                max_speed: speeds[parseInt($("#max-speed").val())].value
             },
             success: function(data) {
                 if (data.ok) {
@@ -395,6 +433,12 @@ require_once '../template/footer.php'; ?>
             }
             return false;
         });
+
+        !(function() {
+            var speed = getSpeed(parseInt($("#max-speed").text()));
+            $("#max-speed").text(speed.label);
+            console.log(speed);
+        })();
     })();
 <?php } ?>
 </script>

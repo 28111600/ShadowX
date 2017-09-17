@@ -40,6 +40,22 @@ if(!empty($_POST)){
             $result['code'] = 1;
         }
         echo json_encode($result, JSON_UNESCAPED_UNICODE);
+     } else if ($action == 'update') {
+        $uid = $_POST['uid'];
+        $user = new ShadowX\User($uid);
+        if (!$user->isExists()) {
+            $result['ok'] = 0;
+            $result['code'] = 0;
+            $result['msg'] = "该用户不存在";
+        } else {
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $max_speed = $_POST['max_speed'];
+            $user->update($username,$email,$max_speed);
+            $result['ok'] = 1;
+            $result['code'] = 1;
+        }
+        echo json_encode($result, JSON_UNESCAPED_UNICODE);
     } else {
         $result['ok'] = 0;
         $result['code'] = 0;

@@ -84,6 +84,16 @@ class User {
         return $this->data['invite_num'];
     }
 
+    function update($username,$email,$max_speed){
+        $this->db->update(static::$table,[
+            "user_name" => $username,
+            "email" => $email,
+            "max_speed" => $max_speed
+        ],[
+            "uid" => $this->uid
+        ]);
+    }
+
     function addTransfer($transfer=0){
         $transfer = $this->getTransferEnable() + $transfer;
         $this->db->update(static::$table,[
