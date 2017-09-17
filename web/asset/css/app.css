@@ -178,3 +178,7 @@ canvas {
     -ms-user-select: none;
     user-select: none;
 }
+
+.login-box {
+    max-width: 360px;
+}
