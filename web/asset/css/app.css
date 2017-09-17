@@ -167,7 +167,9 @@ div.form-control {
 }
 
 .progress,
+.tooltip,
 slider,
+button,
 canvas {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
