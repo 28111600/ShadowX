@@ -265,16 +265,8 @@
             var elem = this;
             $.ajax({
                 url: "ajax/getLogRange.json",
-                cache: false,
-                type: "POST",
-                data: {
-                    action: "getLogRange",
-                    from: from,
-                    to: to + interval - 1,
-                    type: "20min"
-                }
-            }).done(function(text) {
-                var data = JSON.parse(text);
+                cache: false
+            }).done(function(data) {
                 showUsage(elem, from, to, interval, data.data);
             });
         });

@@ -358,9 +358,7 @@
         $.ajax({
             url: "ajax/node-url.json",
             cache: false
-        }).done(function(text) {
-            var data = JSON.parse(text);
-
+        }).done(function(data) {
             var ssurl = data.method + ":" + data.password + "@" + data.server + ":" + data.server_port;
             var ssurl_encode = "ss://" + $.base64.btoa(ssurl);
             that.parent().find(".option-qrcode").empty().qrcode({
