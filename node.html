@@ -369,7 +369,7 @@
             that.parent().find(".option-url").val(ssurl_encode).focus(function() {
                 this.select();
             });
-            that.parent().find(".option-json").val(text).focus(function() {
+            that.parent().find(".option-json").val(JSON.stringify(data)).focus(function() {
                 this.select();
             });
         });
