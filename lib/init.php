@@ -4,7 +4,7 @@ $dir = getcwd();
 chdir(dirname(__FILE__));
 
 //Version
-$version = "0.4.0";
+$version = "1.0.0";
 
 //密码最小长度
 $PWD_MIN = 6;
