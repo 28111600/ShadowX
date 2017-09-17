@@ -437,7 +437,6 @@ require_once '../template/footer.php'; ?>
         !(function() {
             var speed = getSpeed(parseInt($("#max-speed").text()));
             $("#max-speed").text(speed.label);
-            console.log(speed);
         })();
     })();
 <?php } ?>
