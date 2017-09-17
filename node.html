@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ShadowX</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="asset/favicon.ico">
+    <!-- iOS -->
+    <link rel="apple-touch-icon-precomposed" href="asset/app.bg.png">
+    <!-- Android -->
+    <link rel="shortcut icon" href="asset/app.png">
+    <link rel="icon" sizes="512x512" href="asset/app.png">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <!-- Bootstrap Align -->
+    <link rel="stylesheet" href="asset/css/bootstrap-align.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="asset/css/font-awesome.min.css">
+    <!-- Select2 4.0.3 -->
+    <link rel="stylesheet" href="asset/css/select2.min.css">
+    <!-- FullCalendar 3.5.0 -->
+    <link rel="stylesheet" href="asset/css/fullcalendar.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="asset/css/adminlte.min.css">
+    <!-- AdminLTE Skins -->
+    <link rel="stylesheet" href="asset/css/skins/skin-black.min.css">
+    <!-- App -->
+    <link rel="stylesheet" href="asset/css/app.css">
+    <!-- Messg -->
+    <link rel="stylesheet" href="asset/css/messg.min.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="asset/js/html5shiv.min.js"></script>
+<script src="asset/js/respond.min.js"></script>
+<![endif]-->
+</head>
+
+<body class="hold-transition skin-black">
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <!--<div class="pull-left">
+                        <i class="fa fa-user user-image" aria-hidden="true"></i></div>-->
+                    <div class="pull-left info">
+                        <p>xiaodong</p>
+                        <small class="user-email">user@email.com</small>
+                    </div>
+                </div>
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">用户</li>
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-dashboard"></i> <span>用户中心</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="node.html">
+                            <i class="fa fa-server"></i> <span>节点列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="user.php">
+                            <i class="fa fa-user"></i> <span>用户信息</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="log.php">
+                            <i class="fa fa-bar-chart"></i> <span>流量日志</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="invite.php">
+                            <i class="fa fa-users"></i> <span>邀请好友</span>
+                        </a>
+                    </li>
+                    <li class="header">管理</li>
+                    <li>
+                        <a href="admin-node.html">
+                            <i class="fa fa-server"></i> <span>节点列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-user.php">
+                            <i class="fa fa-user"></i> <span>用户列表</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="admin-log.php">
+                            <i class="fa fa-bar-chart"></i> <span>流量日志</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="system.php">
+                            <i class="fa fa-info-circle"></i> <span>系统信息</span>
+                        </a>
+                    </li>
+                    <li class="header"></li>
+                    <li>
+                        <a href="logout.php">
+                            <i class="fa fa-sign-out"></i> <span>退出</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>节点列表
+                    <small>Node List</small>
+                </h1>
+            </section>
+            <!-- Main content -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="nav-tabs-custom box box-primary">
+                            <ul class="nav nav-tabs pull-right">
+                                <li class="dropdown">
+                                    <a class="option text-blue" href="#" data-id="4">配置</a>
+                                    <div class="modal fade" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">Los Angeles </h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <td>节点地址</td>
+                                                                <td class="text-left">exam.domain.com</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>配置地址</td>
+                                                                <td class="text-left"><input readonly="readonly" class="option-url form-control"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>配置Json</td>
+                                                                <td class="text-left"><textarea readonly="readonly" rows="8" class="option-json form-control"></textarea></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-center" colspan="2"> <span class="option-qrcode"></span></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="pull-left header">Los Angeles </li>
+                            </ul>
+                            <div class="tab-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <td>节点地址</td>
+                                            <td class="text-right">exam.domain.com</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>加密方式</td>
+                                            <td class="text-right">chacha20</td>
+                                        </tr>
+                                        <tr>
+                                            <td>说明</td>
+                                            <td class="text-right">Node - Los Angeles </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Uptime</td>
+                                            <td class="text-right">6天16小时38分钟</td>
+                                        </tr>
+                                        <tr>
+                                            <td>负载</td>
+                                            <td class="text-right">0.0, 0.0, 0.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>刷新时间</td>
+                                            <td class="text-right">2017-09-17 17:39:20</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                        <!-- nav-tabs-custom -->
+                    </div>
+                    <div class="col-md-6">
+                        <div class="nav-tabs-custom box box-primary">
+                            <ul class="nav nav-tabs pull-right">
+                                <li class="dropdown">
+                                    <a class="option text-blue" href="#" data-id="1">配置</a>
+                                    <div class="modal fade" tabindex="-1" role="dialog">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title">Singapore</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <table class="table">
+                                                        <thead>
+                                                            <tr>
+                                                                <td>节点地址</td>
+                                                                <td class="text-left">exam2.domain.com</td>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>配置地址</td>
+                                                                <td class="text-left"><input readonly="readonly" class="option-url form-control"></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>配置Json</td>
+                                                                <td class="text-left"><textarea readonly="readonly" rows="8" class="option-json form-control"></textarea></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-center" colspan="2"> <span class="option-qrcode"></span></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="pull-left header">Singapore</li>
+                            </ul>
+                            <div class="tab-content">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <td>节点地址</td>
+                                            <td class="text-right">exam2.domain.com</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>加密方式</td>
+                                            <td class="text-right">aes-256-cfb</td>
+                                        </tr>
+                                        <tr>
+                                            <td>说明</td>
+                                            <td class="text-right">Node - Singapore</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Uptime</td>
+                                            <td class="text-right">13天17小时57分钟</td>
+                                        </tr>
+                                        <tr>
+                                            <td>负载</td>
+                                            <td class="text-right">0.0, 0.0, 0.0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>刷新时间</td>
+                                            <td class="text-right">2017-09-17 17:39:58</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.tab-content -->
+                        </div>
+                        <!-- nav-tabs-custom -->
+                    </div>
+                </div>
+                <!-- /.row -->
+            </section>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer text-right">
+            <span class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><strong>Copyright &copy; 2014-2017 <a href="http://127.0.0.1:81">ShadowX</a> </strong> All rights reserved.</span>
+            <span class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">Powered by <b>ShadowX</b> 1.0.0</span>
+        </footer>
+    </div>
+    <!-- ./wrapper -->
+</body>
+
+</html>
+<!-- jQuery 3.2.1 -->
+<script src="asset/js/jquery.min.js"></script>
+<!-- jQuery Cookit 1.4.1 -->
+<script src="asset/js/jquery.cookie.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="asset/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="asset/js/fastclick.js"></script>
+<!-- AdminLTE -->
+<script src="asset/js/adminlte.min.js"></script>
+<!-- AdminLTE App -->
+<script src="asset/js/adminlte.app.min.js"></script>
+<!-- App -->
+<script src="asset/js/app.js"></script>
+<!-- Messg -->
+<script src="asset/js/messg.min.js"></script>
+<!-- Moment 2.18.1 -->
+<script src="asset/js/moment.min.js"></script>
+<!-- Chart 2.6.0 -->
+<script src="asset/js/Chart.bundle.min.js"></script>
+<!-- jQuery QRCode -->
+<script src="asset/js/jquery.qrcode.min.js"></script>
+<!-- jQuery Base64 -->
+<script src="asset/js/jquery.base64.min.js"></script>
+
+<script>
+    $(".option").click(function() {
+        var that = $(this);
+        that.parent().find(".modal").modal();
+        return false;
+    });
+
+    $(".option").each(function(index, item) {
+        var that = $(item);
+        var id = that.data("id");
+
+        $.ajax({
+            url: "ajax/node-url.json",
+            cache: false
+        }).done(function(text) {
+            var data = JSON.parse(text);
+
+            var ssurl = data.method + ":" + data.password + "@" + data.server + ":" + data.server_port;
+            var ssurl_encode = "ss://" + $.base64.btoa(ssurl);
+            that.parent().find(".option-qrcode").empty().qrcode({
+                text: ssurl_encode,
+                height: 256,
+                width: 256
+            });
+            that.parent().find(".option-url").val(ssurl_encode).focus(function() {
+                this.select();
+            });
+            that.parent().find(".option-json").val(text).focus(function() {
+                this.select();
+            });
+        });
+    });
+</script>

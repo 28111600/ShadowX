@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"> 
+   <g> 
+    <g> 
+     <polygon style="fill: #8B8996;" points="0,28.912 331.169,448.395 360.607,348.517" /> 
+     <polygon style="fill: #5C546A;" points="331.169,448.395 300.681,373.749 0,28.912 267.039,395.827" /> 
+     <polygon style="fill: #B9BBC1;" points="300.681,373.749 128.262,483.087 0,28.912" /> 
+     <polygon style="fill: #B9BBC1;" points="360.607,348.517 0,28.912 512,282.283" /> 
+    </g> 
+   </g> 
+  </svg>

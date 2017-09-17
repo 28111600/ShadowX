@@ -1,0 +1,6 @@
+{
+    "server": "exam.domain.com",
+    "server_port": "5001",
+    "password": "JkwTDDuh",
+    "method": "chacha20"
+}
