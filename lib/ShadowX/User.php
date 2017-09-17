@@ -118,26 +118,6 @@ class User {
         ]);
     }
 
-    function addResetCode(){
-        $t = time();
-        $expire = $t + 3600 * 24;
-        $code = md5($t).md5($this->uid);
-        $code = sha1($code);
-        $this->db->insert("ss_reset_pwd",[
-            "expire" => $expire,
-            "uid" => $this->uid,
-            "code" => $code
-        ]);
-        return $code;
-    }
-
-    static function isResetCodeValid($code){
-        global $db;
-        return $db->has("ss_reset_pwd",[
-            "user_name" => $username
-        ]);
-    }
-
     static function IsUsernameUsed($username){
         global $db;
         return $db->has(static::$table,[
