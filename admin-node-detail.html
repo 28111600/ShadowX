@@ -64,7 +64,7 @@
                         <i class="fa fa-user user-image" aria-hidden="true"></i></div>-->
                     <div class="pull-left info">
                         <p>ouye</p>
-                        <small class="user-email">user@email.com</small>
+                        <small class="user-email">user@mail.com</small>
                     </div>
                 </div>
                 <!-- sidebar menu: : style can be found in sidebar.less -->
@@ -130,8 +130,8 @@
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <section class="content-header">
-                <h1>用户中心
-                    <small>User Center</small>
+                <h1>节点信息
+                    <small>Node Information</small>
                 </h1>
             </section>
             <!-- Main content -->
@@ -140,43 +140,50 @@
                     <div class="col-md-6">
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">流量使用情况</h3>
+                                <h3 class="box-title">节点详情</h3>
+                            </div>
+                            <!-- /.box-header -->
+                            <!-- form start -->
+                            <form id="form-node">
+                                <div class="box-body">
+                                    <div class="form-group">
+                                        <label>Node Id</label>
+                                        <span class="form-control">2</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>节点名称</label>
+                                        <span class="form-control">Singapore</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>地址</label>
+                                        <span class="form-control">exam2.domain.com</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cate_method">加密方式</label>
+                                        <span class="form-control">aes-256-cfb</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>节点描述</label>
+                                        <span class="form-control">Node - Singapore</span>
+                                    </div>
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer">
+                                    <a href="?id=1&edit" class="btn btn-primary">编辑</a>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.box -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-6">
+                        <div class="box box-primary">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">流量图表 - 30 Days</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <td>已用流量</td>
-                                            <td>24.98 GB</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>剩余流量</td>
-                                            <td>975.02 GB</td>
-                                        </tr>
-                                        <tr>
-                                            <td>总流量</td>
-                                            <td>1000 GB</td>
-                                        </tr>
-                                        <tr>
-                                            <td>24小时流量</td>
-                                            <td>
-                                                <div class="usage-box"><canvas height="20px" width="144px" class="usage"></canvas></div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="2">
-                                                <div class="progress-group">
-                                                    <div class="progress sm" data-toggle="tooltip" data-placement="top" title='2%'>
-                                                        <div class="progress-bar progress-bar-primary" style="width: 2%"></div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -186,28 +193,11 @@
                     <div class="col-md-6">
                         <div class="box box-primary">
                             <div class="box-header with-border">
-                                <h3 class="box-title">连接信息</h3>
+                                <h3 class="box-title">流量图表 - 24 Hours</h3>
                             </div>
                             <!-- /.box-header -->
                             <div class="box-body">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <td>端口</td>
-                                            <td><code>5001</code></td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>密码</td>
-                                            <td><code class="ss-pwd-toggle" data-value="JkwTDDuh">点击查看</code></td>
-                                        </tr>
-                                        <tr>
-                                            <td>最后使用时间</td>
-                                            <td><code>2017-09-17 19:49:56</code></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <div class="usage-box"><canvas width="16px" height="9px" class="usage-day"></canvas></div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -221,7 +211,7 @@
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer text-right">
-            <span class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><strong>Copyright &copy; 2014-2017 <a href="#">Shadow</a> </strong> All rights reserved.</span>
+            <span class="visible-sm-inline-block visible-md-inline-block visible-lg-inline-block"><strong>Copyright &copy; 2014-2017 <a href="https://#">Shadow</a> </strong> All rights reserved.</span>
             <span class="visible-xs-inline-block visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">Powered by <b>ShadowX</b> 1.0.0 <a href="tos.html" target="_tos">服务条款</a></span>
         </footer>
     </div>
@@ -247,27 +237,44 @@
 <script src="asset/js/messg.min.js"></script>
 <!-- Moment 2.18.1 -->
 <script src="asset/js/moment.min.js"></script>
+<!-- Select2 4.0.3 -->
+<script src="asset/js/select2.min.js"></script>
 <!-- Chart 2.6.0 -->
 <script src="asset/js/Chart.bundle.min.js"></script>
 
 <script>
-    $(".ss-pwd-toggle").one("click", function() {
-        var that = $(this);
-        that.html(that.data("value")).removeClass("ss-pwd-toggle");
-    });
+    //Initialize Select2 Elements
+    $('.select2').select2();
+
+    var node_id = 2;
+    !(function() {
+        var interval = 3600 * 24;
+        var to = 1505606400;
+        var from = to - 3600 * 24 * 30;
+
+        $(".usage-month").each(function() {
+            var elem = this;
+            $.ajax({
+                url: "ajax/getLogRange-day.json",
+                cache: false,
+            }).done(function(data) {
+                showChart(elem, from, to, interval, data.data);
+            });
+        });
+    })();
 
     !(function() {
         var interval = 1200;
         var to = 1505691600;
         var from = to - 3600 * 24;
 
-        $(".usage").each(function() {
+        $(".usage-day").each(function() {
             var elem = this;
             $.ajax({
                 url: "ajax/getLogRange.json",
-                cache: false
+                cache: false,
             }).done(function(data) {
-                showUsage(elem, from, to, interval, data.data);
+                showChart(elem, from, to, interval, data.data);
             });
         });
     })();
