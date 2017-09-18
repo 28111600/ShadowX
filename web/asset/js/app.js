@@ -21,6 +21,9 @@ var getSize = function(size, fixed, k) {
 var customUsageTooltip = function(tooltip) {
     // Tooltip Element
     var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
+
+    if (tooltip.opacity !== 0) { $(".chartjs-tooltip").each(function() { if (this !== tooltipEl) { this.style.opacity = 0; } }); }
+
     if (!tooltipEl) {
         tooltipEl = document.createElement('div');
         $(tooltipEl).addClass('chartjs-tooltip tooltip top in');
