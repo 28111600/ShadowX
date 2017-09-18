@@ -64,8 +64,6 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
 <script src="asset/js/fastclick.js"></script>
 <!-- AdminLTE -->
 <script src="asset/js/adminlte.min.js"></script>
-<!-- AdminLTE App -->
-<script src="asset/js/adminlte.app.min.js"></script>
 <!-- App -->
 <script src="asset/js/app.js"></script>
 <!-- Messg -->
