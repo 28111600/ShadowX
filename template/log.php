@@ -53,7 +53,7 @@ $pagelast  = min($pagelast,$pagemax);
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-md-6">
+            <div class="col-xs-12">
                 <div class="btn-group">
                     <div class="dropdown btn-group">
                         <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -90,47 +90,6 @@ $pagelast  = min($pagelast,$pagemax);
                     <a class="btn btn-success" href="<?php echo $url_log_calendar; ?>">日历视图</a>
                 </div>
     <?php } ?>
-            </div>
-            <div class="col-xs-12 col-md-6 text-xs-left text-md-right">
-                <div>
-                    <ul class="pagination">
-                    <?php if ($page == 1){ ?>
-                        <li class="previous disabled">
-                            <span>Previous</span>
-                        </li>
-                    <?php } else { ?>
-                        <li class="previous">
-                            <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $page - 1; ?>">Previous</a>
-                        </li>
-                    <?php } ?>
-                    
-                    <?php for ($i = $pagefirst;$i < $page;$i++){ ?>
-                            <li>
-                            <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                            </li>
-                    <?php } ?>
-                    
-                        <li class="active">
-                            <span><?php echo $i; ?></span>
-                        </li>
-                        
-                    <?php for ($i = $page + 1;$i < $pagelast + 1;$i++){ ?>
-                            <li>
-                            <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                            </li>
-                    <?php } ?>
-                    
-                    <?php if ($page == $pagemax){ ?>
-                        <li class="next disabled">
-                            <span>Next</span>
-                        </li>
-                    <?php } else { ?>
-                        <li class="next">
-                            <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $page + 1; ?>">Next</a>
-                        </li>
-                    <?php } ?>
-                    </ul>
-                </div>
             </div>
             <div class="col-xs-12">
                 <div class="card">
@@ -183,6 +142,47 @@ if (count($rows) != 0) {
     showRows($rows,$date);
 } ?>
                         </table>
+                        <div class="text-right">
+                            <div>
+                                <ul class="pagination">
+                                <?php if ($page == 1){ ?>
+                                    <li class="previous disabled">
+                                        <span>Previous</span>
+                                    </li>
+                                <?php } else { ?>
+                                    <li class="previous">
+                                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $page - 1; ?>">Previous</a>
+                                    </li>
+                                <?php } ?>
+                                
+                                <?php for ($i = $pagefirst;$i < $page;$i++){ ?>
+                                        <li>
+                                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                        </li>
+                                <?php } ?>
+                                
+                                    <li class="active">
+                                        <span><?php echo $i; ?></span>
+                                    </li>
+                                    
+                                <?php for ($i = $page + 1;$i < $pagelast + 1;$i++){ ?>
+                                        <li>
+                                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                                        </li>
+                                <?php } ?>
+                                
+                                <?php if ($page == $pagemax){ ?>
+                                    <li class="next disabled">
+                                        <span>Next</span>
+                                    </li>
+                                <?php } else { ?>
+                                    <li class="next">
+                                        <a href="?type=<?php echo $type; ?>&id=<?php echo ShadowX\Utility::ifNull($node_id,'all'); ?>&page=<?php echo $page + 1; ?>">Next</a>
+                                    </li>
+                                <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
