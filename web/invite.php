@@ -1,36 +1,21 @@
 <?php
+$page_title = "邀请好友";
 require_once '../template/main.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>邀请好友
-            <small>Invite Friends</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12 col-lg-6">
-                <div class="btn-group">
-                    <button type="button" id="user-addinvitecode" <?php echo $User->getInviteNum() == 0 ? 'disabled="disabled"' : ''; ?> class="btn btn-success">生成邀请码</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="callout callout-info">
-                    <p>可生成数量：<?php echo $User->getInviteNum(); ?></p>
-                </div>
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">邀请码</h3>
+            <div class="col-sm-8 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">邀请码</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table class="table">
+                    <div class="card-content">
+                        <div class="alert alert-info">
+                            <span>可生成数量：<?php echo $User->getInviteNum(); ?></span>
+                        </div>
+                        <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>邀请码</th>
@@ -63,17 +48,12 @@ require_once '../template/head.php';
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 

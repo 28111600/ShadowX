@@ -1,65 +1,20 @@
-.main-sidebar,
-.content-wrapper,
-.main-footer,
-.main-header .logo,
-.main-header .navbar,
-.main-header .logo {
-    -webkit-transition: unset;
-    -moz-transition: unset;
-    -o-transition: unset;
-    transition: unset;
+.break-line::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    height: 1px;
+    width: 80%;
+    background-color: rgba(180, 180, 180, 0.3);
 }
 
-.skin-black .main-header>.logo,
-.skin-black .main-header .navbar>.sidebar-toggle {
-    border: none;
-}
-
-.skin-black .main-header .navbar .sidebar-toggle:hover {
-    color: white;
-    background-color: #367fa9;
-}
-
-.skin-black .main-header .navbar>.sidebar-toggle,
-.skin-black .main-header .navbar,
-.skin-black .main-header>.logo,
-.skin-black .main-header>.logo:hover {
-    background-color: #222d32;
-    color: white;
-}
-
-@media (max-width: 767px) {
-    .main-sidebar {
-        padding-top: 50px;
-    }
-}
-
-.sidebar-mini.sidebar-collapse .main-header .navbar,
-.main-header .navbar {
-    margin-left: 0;
+.break-line {
+    margin-top: 10px;
+    padding-bottom: 10px;
 }
 
 .ss-pwd-toggle {
     cursor: pointer;
-}
-
-.content-wrapper {
-    background-color: #efefef;
-}
-
-.user-panel>.info {
-    position: relative;
-    font-weight: normal;
-    left: 0;
-}
-
-.user-image {
-    color: white;
-    font-size: 4.5em;
-}
-
-.user-panel>.info>.user-email {
-    font-size: .75em;
 }
 
 .vertical-middle {
@@ -79,25 +34,12 @@
     background-color: #f5f5f5;
 }
 
-
-/*.table {
-overflow: hidden;
-}*/
-
 .log-date {
     width: 10em;
 }
 
 .progress-usage {
     min-width: 10em;
-}
-
-.row>div {
-    margin-bottom: 10px;
-}
-
-.pagination {
-    margin: 0;
 }
 
 .option-qrcode {
@@ -157,11 +99,6 @@ input:-webkit-autofill {
     text-decoration: line-through;
 }
 
-div.form-control {
-    height: auto;
-    border: none;
-}
-
 .slider.slider-horizontal {
     width: 100%!important;
 }
@@ -179,10 +116,6 @@ canvas {
     user-select: none;
 }
 
-.login-box {
-    max-width: 360px;
-}
-
 .slider-tick-container .slider-tick:not(.in-selection) {
     opacity: 1;
     background: white;
@@ -190,4 +123,170 @@ canvas {
     background-repeat: repeat-x;
     -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive {
+    border: 0!important;
+}
+
+.card .card-header {
+    margin: 0;
+    border-radius: 0;
+}
+
+.progress,
+.progress>.progress-bar {
+    -webkit-box-shadow: none;
+    box-shadow: none
+}
+
+.progress,
+.progress>.progress-bar,
+.progress .progress-bar,
+.progress>.progress-bar .progress-bar {
+    border-radius: 1px
+}
+
+.progress.sm,
+.progress-sm {
+    height: 10px
+}
+
+.progress.sm,
+.progress-sm,
+.progress.sm .progress-bar,
+.progress-sm .progress-bar {
+    border-radius: 1px
+}
+
+.progress.xs,
+.progress-xs {
+    height: 7px
+}
+
+.progress.xs,
+.progress-xs,
+.progress.xs .progress-bar,
+.progress-xs .progress-bar {
+    border-radius: 1px
+}
+
+.progress.xxs,
+.progress-xxs {
+    height: 3px
+}
+
+.progress.xxs,
+.progress-xxs,
+.progress.xxs .progress-bar,
+.progress-xxs .progress-bar {
+    border-radius: 1px
+}
+
+.sidebar {
+    background-color: #fff;
+}
+
+.sidebar::before,
+.off-canvas-sidebar::before {
+    background-color: #fff;
+    display: block;
+    content: "";
+}
+
+.card [data-background-color] {
+    background: transparent;
+    box-shadow: none;
+}
+
+.card [data-background-color],
+.card [data-background-color] a,
+.card [data-background-color] .title {
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.card .card-header,
+.card .card-content {
+    padding: 15px 20px;
+}
+
+
+/*
+.main-panel {
+    min-height: 100%;
+}
+
+.main-panel>.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}*/
+
+.progress {
+    height: 4px;
+    border-radius: 0;
+    box-shadow: none;
+    background: #DDDDDD;
+}
+
+.progress .progress-bar {
+    box-shadow: none;
+}
+
+.progress .progress-bar,
+.progress .progress-bar.progress-bar-default {
+    background-color: #FFFFFF;
+}
+
+.progress .progress-bar.progress-bar-inverse {
+    background-color: #212121;
+}
+
+.progress .progress-bar.progress-bar-primary {
+    background-color: #9c27b0;
+}
+
+.progress .progress-bar.progress-bar-success {
+    background-color: #4caf50;
+}
+
+.progress .progress-bar.progress-bar-info {
+    background-color: #00bcd4;
+}
+
+.progress .progress-bar.progress-bar-warning {
+    background-color: #ff9800;
+}
+
+.progress .progress-bar.progress-bar-danger {
+    background-color: #f44336;
+}
+
+.progress .progress-bar.progress-bar-rose {
+    background-color: #e91e63;
+}
+
+.progress.progress-line-primary {
+    background: rgba(156, 39, 176, 0.2);
+}
+
+.progress.progress-line-info {
+    background: rgba(0, 188, 212, 0.2);
+}
+
+.progress.progress-line-success {
+    background: rgba(76, 175, 80, 0.2);
+}
+
+.progress.progress-line-warning {
+    background: rgba(255, 152, 0, 0.2);
+}
+
+.progress.progress-line-danger {
+    background: rgba(244, 67, 54, 0.2);
+}
+
+.progress .progress-bar,
+.progress .progress-bar.progress-bar-default {
+    background-color: #9c27b0;
 }

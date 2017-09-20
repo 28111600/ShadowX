@@ -1,96 +1,94 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
     <title><?php echo $site_name; ?></title>
     <?php include "head-meta.php"; ?>
 </head>
 
-<body class="hold-transition skin-black">
+<body>
     <div class="wrapper">
-        <header class="main-header">
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button"></a>
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- Sidebar user panel -->
-                <div class="user-panel">
-                    <!--<div class="pull-left">
-                        <i class="fa fa-user user-image" aria-hidden="true"></i></div>-->
-                    <div class="pull-left info">
-                        <p><?php echo $User->GetUserName(); ?></p>
-                        <small class="user-email"><?php echo $User->GetEmail(); ?></small>
-                    </div>
-                </div>
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">用户</li>
+        <div class="sidebar" data-color="blue">
+            <div class="logo">
+                <a href="<?php echo $site_url; ?>" class="simple-text">
+                    <?php echo $site_name; ?>
+                </a>
+            </div>
+            <div class="sidebar-wrapper">
+                <ul class="nav">
                     <li>
                         <a href="index.php">
-                            <i class="fa fa-dashboard"></i> <span>用户中心</span>
+                            <i class="fa fa-dashboard material-icons"></i>
+                            <p>用户中心</p>
                         </a>
                     </li>
                     <li>
                         <a href="node.php">
-                            <i class="fa fa-server"></i> <span>节点列表</span>
+                            <i class="fa fa-server material-icons"></i>
+                            <p>节点列表</p>
                         </a>
                     </li>
                     <li>
                         <a href="user.php">
-                            <i class="fa fa-user"></i> <span>用户信息</span>
+                            <i class="fa fa-user material-icons"></i>
+                            <p>用户信息</p>
                         </a>
                     </li>
                     <li>
                         <a href="log.php">
-                            <i class="fa fa-bar-chart"></i> <span>流量日志</span>
+                            <i class="fa fa-bar-chart material-icons"></i>
+                            <p>流量日志</p>
                         </a>
                     </li>
                     <li>
                         <a href="invite.php">
-                            <i class="fa fa-users"></i> <span>邀请好友</span>
+                            <i class="fa fa-users material-icons"></i>
+                            <p>邀请好友</p>
                         </a>
                     </li>
                     <?php if ($User->isAdmin()) { ?>
-                    <li class="header">管理</li>
+                    <li class="break-line"></li>
                     <li>
                         <a href="admin-node.php">
-                            <i class="fa fa-server"></i> <span>节点列表</span>
+                            <i class="fa fa-server material-icons"></i> <p>节点列表</p>
                         </a>
                     </li>
                     <li>
                         <a href="admin-user.php">
-                            <i class="fa fa-user"></i> <span>用户列表</span>
+                            <i class="fa fa-user material-icons"></i> <p>用户列表</p>
                         </a>
                     </li>
                     <li>
                         <a href="admin-log.php">
-                            <i class="fa fa-bar-chart"></i> <span>流量日志</span>
+                            <i class="fa fa-bar-chart material-icons"></i> <p>流量日志</p>
                         </a>
                     </li>
                     <li>
                         <a href="system.php">
-                            <i class="fa fa-info-circle"></i> <span>系统信息</span>
+                            <i class="fa fa-info-circle material-icons"></i> <p>系统信息</p>
                         </a>
                     </li>
                     <?php } ?>
-                    <li class="header"></li>
+                    <li class="break-line"></li>
                     <li>
                         <a href="logout.php">
-                            <i class="fa fa-sign-out"></i> <span>退出</span>
+                            <i class="fa fa-sign-out material-icons"></i> <p>退出</p>
                         </a>
                     </li>
                 </ul>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
+            </div>
+        </div>
+    <div class="main-panel">
+        <nav class="navbar navbar-transparent navbar-absolute">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse">
+                        <span class="sr-only">Toggle</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand"><?php echo $page_title; ?></span>
+                </div>
+            </div>
+        </nav>

@@ -1,35 +1,25 @@
 <?php
+$page_title = "用户中心";
 require_once '../template/main.php';
 require_once '../template/head.php';
 
 $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>用户中心
-            <small>User Center</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量使用情况</h3>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">流量使用情况</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table class="table">
-                            <thead>
+                    <div class="card-content">
+                        <table class="table table-hover">
+                            <tbody>
                                 <tr>
                                     <td>已用流量</td>
                                     <td><?php echo ShadowX\Utility::getSize($User->getTransfer()); ?></td>
                                 </tr>
-                            </thead>
-                            <tbody>
                                 <tr>
                                     <td>剩余流量</td>
                                     <td><?php echo ShadowX\Utility::getSize($User->getUnusedTransfer()); ?></td>
@@ -44,36 +34,28 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <div class="progress-group">
-                                            <div class="progress sm" data-toggle="tooltip" data-placement="top" title='<?php echo $used; ?>%'>
-                                                <div class="progress-bar progress-bar-primary" style="width: <?php echo $used; ?>%"></div>
-                                            </div>
+                                        <div class="progress" data-toggle="tooltip" data-placement="top" title='<?php echo $used; ?>%'>
+                                            <div class="progress-bar progress-bar-info" style="width: <?php echo $used; ?>%"></div>
                                         </div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">连接信息</h3>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">连接信息</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <table class="table">
-                            <thead>
+                    <div class="card-content">
+                        <table class="table table-hover">
+                            <tbody>
                                 <tr>
                                     <td>端口</td>
                                     <td><code><?php echo $User->getPort(); ?></code></td>
                                 </tr>
-                            </thead>
-                            <tbody>
                                 <tr>
                                     <td>密码</td>
                                     <td><code class="ss-pwd-toggle" data-value="<?php echo addslashes($User->getSsPasswd()); ?>">点击查看</code></td>
@@ -85,17 +67,12 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 

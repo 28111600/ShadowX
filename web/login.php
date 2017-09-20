@@ -24,7 +24,7 @@ require_once '../template/main.php'; ?>
                 </div>
                 <div class="row">
                     <div class="col-xs-8">
-                        <div class="checkbox">
+                        <div>
                             <label><input id="remember_me" value="week" type="checkbox">记住我</label>
                         </div>
                     </div>

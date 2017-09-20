@@ -27,7 +27,7 @@ var customUsageTooltip = function(tooltip) {
     if (!tooltipEl) {
         tooltipEl = document.createElement('div');
         $(tooltipEl).addClass('chartjs-tooltip tooltip top in');
-        tooltipEl.innerHTML = '<div class="tooltip-arrow"></div><div class="tooltip-inner"></div>';
+        tooltipEl.innerHTML = '<div class="tooltip-inner"></div><div class="tooltip-arrow"></div>';
         this._chart.canvas.parentNode.appendChild(tooltipEl);
     }
 
@@ -334,4 +334,7 @@ var showChart = function(ctx, from, to, step, data) {
 !(function() {
     var timezone = getTimeZone();
     $.cookie('timezone', timezone, { expires: 30, path: '/' });
+
+
+    $("[data-toggle='tooltip']").tooltip();
 })();

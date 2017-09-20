@@ -1,78 +1,55 @@
 <?php
+$page_title = "节点列表";
 require_once '../template/main.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>节点列表
-            <small>Node List</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        <?php
+        <?php 
         $nodes = ShadowX\Node::getAllNodes();
         foreach ($nodes as $row) { ?>
-            <div class="col-md-6">
-                <div class="nav-tabs-custom box box-primary">
-                    <ul class="nav nav-tabs pull-right">
-                        <li class="dropdown">
-                            <a class="option text-blue" href="#" data-id="<?php echo $row['id']; ?>">配置</a>
-                            <div class="modal fade" tabindex="-1" role="dialog">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title"><?php echo $row['name']; ?></h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="table">
-                                                <thead>
-                                                    <tr>
-                                                        <td>节点地址</td>
-                                                        <td class="text-left"><?php echo $row['server']; ?></td>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>配置地址</td>
-                                                        <td class="text-left"><input readonly="readonly" class="option-url form-control"></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>配置Json</td>
-                                                        <td class="text-left"><textarea readonly="readonly" rows="8" class="option-json form-control"></textarea></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-center" colspan="2"> <span class="option-qrcode"></span></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <a class="option pull-right" href="#" data-id="<?php echo $row['id']; ?>">配置</a>
+                        <div class="modal fade" tabindex="-1" role="dialog">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title"><?php echo $row['name']; ?></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>节点地址</td>
+                                                    <td class="text-left"><?php echo $row['server']; ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>配置地址</td>
+                                                    <td class="text-left"><input readonly="readonly" class="option-url form-control"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>配置Json</td>
+                                                    <td class="text-left"><textarea readonly="readonly" rows="8" class="option-json form-control"></textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center" colspan="2"> <span class="option-qrcode"></span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="pull-left header"><?php echo $row['name']; ?></li>
-                    </ul>
-                    <div class="tab-content">
-                        <table class="table"> 
-                            <thead>
-                                <tr><td>节点地址</td> <td class="text-right"><?php echo $row['server']; ?></td></tr>
-                            </thead>
+                        </div>
+                        <h4 class="title"><?php echo $row['name']; ?></h4>
+                    </div>
+                    <div class="card-content">
+                        <table class="table table-hover">
                             <tbody>
+                                <tr><td>节点地址</td> <td class="text-right"><?php echo $row['server']; ?></td></tr>
                                 <tr><td>加密方式</td> <td class="text-right"><?php echo $row['method']; ?></td></tr>
                                 <tr><td>说明</td> <td class="text-right"><?php echo $row['info']; ?></td></tr>
                                 <tr><td>Uptime</td> <td class="text-right"><?php echo ShadowX\Utility::getUptime($row['uptime']); ?></td></tr>
@@ -81,17 +58,13 @@ require_once '../template/head.php';
                             </tbody> 
                         </table>
                     </div>
-                    <!-- /.tab-content -->
                 </div>
-                <!-- nav-tabs-custom -->
             </div>
             <?php } ?>
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 

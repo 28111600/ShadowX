@@ -1,44 +1,23 @@
 <?php
+$page_title = "节点列表";
 require_once '../template/main.php';
 require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>节点列表
-            <small>Node List</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="btn-group">
-                    <a class="btn btn-success" href="admin-node-detail.php?id=new">添加节点</a>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-        <?php
+        <?php 
         $nodes = ShadowX\Node::getAllNodes();
         foreach ($nodes as $row) { ?>
-            <div class="col-md-6">
-                <div class="nav-tabs-custom box box-primary">
-                    <ul class="nav nav-tabs pull-right">
-                        <li><a class="option text-blue" href="admin-node-detail.php?id=<?php echo $row['id']; ?>">详情</a></li>
-                        <!--<li><a class="option text-red node-delete" data-id="<?php echo $row['id']; ?>" href="#">删除</a></li>-->
-                        <li class="pull-left header"><?php echo $row['name']; ?></li>
-                    </ul>
-                    <div class="tab-content">
-                        <table class="table"> 
-                            <thead>
-                                <tr><td>节点地址</td> <td class="text-right"><?php echo $row['server']; ?></td></tr>
-                            </thead>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <a class="option pull-right" href="admin-node-detail.php?id=<?php echo $row['id']; ?>">详情</a>
+                        <h4 class="title"><?php echo $row['name']; ?></h4>
+                    </div>
+                    <div class="card-content">
+                        <table class="table table-hover">
                             <tbody>
                                 <tr><td>Uptime</td> <td class="text-right"><?php echo ShadowX\Utility::getUptime($row['uptime']); ?></td></tr>
                                 <tr><td>负载</td> <td class="text-right"><?php echo $row['loadavg']; ?></td></tr>
@@ -50,17 +29,13 @@ require_once '../template/head.php';
                             </tbody> 
                         </table>
                     </div>
-                    <!-- /.tab-content -->
                 </div>
-                <!-- nav-tabs-custom -->
             </div>
             <?php } ?>
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 
