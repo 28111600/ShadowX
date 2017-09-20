@@ -4222,6 +4222,7 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
     line-height: 30px;
     color: inherit;
     padding: 10px 15px;
+    float: none;
 }
 
 .navbar .navbar-brand:hover,
@@ -6727,7 +6728,8 @@ footer .btn {
     }
     .navbar-header .collapse,
     .navbar-toggle {
-        display: block !important;
+        display: inline-block !important;
+        float: none;
     }
     .navbar-header {
         float: none;

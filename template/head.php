@@ -83,10 +83,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse">
-                        <span class="sr-only">Toggle</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
                     <span class="navbar-brand"><?php echo $page_title; ?></span>
                 </div>
