@@ -9,10 +9,12 @@
 <!-- Tell the browser to be responsive to screen width -->
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap core CSS     -->
-<link href="asset/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet"  href="asset/css/bootstrap.min.css">
+<!-- Bootstrap Align -->
+<link rel="stylesheet" href="asset/css/bootstrap-align.css">
 <!--  Material Dashboard CSS    -->
-<link href="asset/css/material-dashboard.css" rel="stylesheet" />
+<link rel="stylesheet" href="asset/css/material-dashboard.css">
 <!--  App CSS    -->
-<link href="asset/css/app.css" rel="stylesheet" />
+<link rel="stylesheet" href="asset/css/app.css">
 <!--     Fonts and icons     -->
-<link href="asset/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="asset/css/font-awesome.min.css">

@@ -6,6 +6,11 @@ require_once '../template/head.php';
 <div class="content">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-xs-12">
+                <div class="btn-group">
+                    <button type="button" id="user-addinvitecode" <?php echo $User->getInviteNum() == 0 ? 'disabled="disabled"' : ''; ?> class="btn btn-success">生成邀请码</button>
+-                </div>
+            </div>
             <div class="col-sm-8 col-xs-12">
                 <div class="card">
                     <div class="card-header" data-background-color="blue">
