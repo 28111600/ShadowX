@@ -1,25 +1,17 @@
 <?php
+$page_title = "用户详情";
 require_once '../template/main.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>用户详情
-            <small>User Profile</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">用户详情</h3>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">用户详情</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="card-content">
                         <div class="form-group">
                             <label>用户名</label>
                             <span class="form-control"><?php echo $User->getUserName(); ?></span>
@@ -59,100 +51,83 @@ require_once '../template/head.php';
                                 }
                             ?></span>
                         </div>
-                    </div><!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">修改登录密码</h3>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form id="form-passwd">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label>密码</label>
-                                <input class="form-control" id="passwd" type="password" required="required" autocomplete="new-password">
-                            </div>
-                            <div class="form-group">
-                                <label>确认密码</label>
-                                <input class="form-control" id="repasswd" type="password" required="required" autocomplete="new-password">
-                            </div>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer">
-                            <button type="submit" id="user-passwd" class="btn btn-success">保存</button>
-                        </div>
-                    </form>
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">修改连接密码</h3>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">修改登录密码</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form id="form-sspasswd">
-                        <div class="box-body">
-                            <div class="form-group">
-                                <label>密码</label>
-                                <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
+                    <div class="card-content">
+                        <form id="form-passwd">
+                            <div>
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <input class="form-control" id="passwd" type="password" required="required" autocomplete="new-password">
+                                </div>
+                                <div class="form-group">
+                                    <label>确认密码</label>
+                                    <input class="form-control" id="repasswd" type="password" required="required" autocomplete="new-password">
+                                </div>
+                            </div>
+                            <div>
+                                <button type="submit" id="user-passwd" class="btn btn-success">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">修改连接密码</h4>
+                    </div>
+                    <div class="card-content">
+                        <form id="form-sspasswd">
+                            <div>
+                                <div class="form-group">
+                                    <label>密码</label>
+                                    <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
 
+                                </div>
+                                <div class="alert alert-danger mb0">
+                                    <span>连接密码需明文存储</span>
+                                </div>
                             </div>
-                            <div class="callout callout-danger mb0">
-                                <span>连接密码需明文存储</span>
+                            <div>
+                                <button type="submit" id="user-sspasswd" class="btn btn-success">保存</button>
                             </div>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer">
-                            <button type="submit" id="user-sspasswd" class="btn btn-success">保存</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.box -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - 30 Days</h3>
+                        </form>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                 <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">流量图表 - 30 Days</h4>
+                    </div>
+                    <div class="card-content">
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - 24 Hours</h3>
+            <div class="col-sm-6">
+                 <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">流量图表 - 24 Hours</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="card-content">
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-day"></canvas></div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 

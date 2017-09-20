@@ -290,3 +290,7 @@ canvas {
 .progress .progress-bar.progress-bar-default {
     background-color: #9c27b0;
 }
+
+* > .form-group:first-child {
+    margin-top: 0;
+}

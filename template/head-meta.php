@@ -12,9 +12,11 @@
 <link rel="stylesheet"  href="asset/css/bootstrap.min.css">
 <!-- Bootstrap Align -->
 <link rel="stylesheet" href="asset/css/bootstrap-align.css">
-<!--  Material Dashboard CSS    -->
+<!-- Material Dashboard CSS    -->
 <link rel="stylesheet" href="asset/css/material-dashboard.css">
-<!--  App CSS    -->
+<!-- Messg -->
+<link rel="stylesheet" href="asset/css/messg.min.css">
+<!-- App CSS    -->
 <link rel="stylesheet" href="asset/css/app.css">
-<!--     Fonts and icons     -->
+<!-- Fonts and icons     -->
 <link rel="stylesheet" href="asset/css/font-awesome.min.css">
