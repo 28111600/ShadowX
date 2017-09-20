@@ -20,8 +20,6 @@
 <script src="asset/js/arrive.min.js"></script>
 <!--  PerfectScrollbar Library -->
 <script src="asset/js/perfect-scrollbar.jquery.min.js"></script>
-<!--  Notifications Plugin    -->
-<script src="asset/js/bootstrap-notify.js"></script>
 <!-- Material Dashboard javascript methods -->
 <script src="asset/js/material-dashboard.js"></script>
 <!-- Messg -->

@@ -17,7 +17,7 @@ require_once '../template/head.php';
                         <h4 class="title"><?php echo $row['name']; ?></h4>
                     </div>
                     <div class="card-content">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody>
                                 <tr><td>Uptime</td> <td class="text-right"><?php echo ShadowX\Utility::getUptime($row['uptime']); ?></td></tr>
                                 <tr><td>负载</td> <td class="text-right"><?php echo $row['loadavg']; ?></td></tr>

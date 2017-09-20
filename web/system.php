@@ -1,62 +1,44 @@
 <?php
+$page_title = "系统信息";
 require_once '../template/main.php';
 require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>系统信息
-            <small>System Information</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - 30 Days</h3>
+            <div class="col-sm-6">
+                 <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">流量图表 - 30 Days</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="card-content">
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - 24 Hours</h3>
+            <div class="col-sm-6">
+                 <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">流量图表 - 24 Hours</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="card-content">
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-day"></canvas></div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
         <div class="row">
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">系统信息</h3>
+            <div class="col-sm-6 col-xs-12">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">流量使用情况</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div class="box-body">
+                    <div class="card-content">
                         <table class="table">
-                            <thead>
-                                <tr><td>版本</td><td class="text-right"><?php echo $version; ?></td></tr>
-                            </thead>
                             <tbody>
+                                <tr><td>版本</td><td class="text-right"><?php echo $version; ?></td></tr>
                                 <tr><td>当前时间</td><td class="text-right"><?php echo date("Y-m-d H:i",time() + $timeoffset); ?></td></tr>
                                 <tr>
                                     <td>30天流量</td>
@@ -65,17 +47,12 @@ require_once '../template/head.php';
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 

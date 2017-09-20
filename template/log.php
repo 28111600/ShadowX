@@ -94,7 +94,7 @@ $pagelast  = min($pagelast,$pagemax);
             <div class="col-xs-12">
                 <div class="card">
                     <div class="card-content">
-                        <table class="table table-hover">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th class="log-date text-center">日期</th>

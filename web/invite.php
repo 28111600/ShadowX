@@ -20,7 +20,7 @@ require_once '../template/head.php';
                         <div class="alert alert-info">
                             <span>可生成数量：<?php echo $User->getInviteNum(); ?></span>
                         </div>
-                        <table class="table table-hover">
+                        <table class="table">
                             <thead>
                                 <tr>
                                     <th>邀请码</th>

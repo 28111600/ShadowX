@@ -14,23 +14,23 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                         <h4 class="title">流量使用情况</h4>
                     </div>
                     <div class="card-content">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody>
                                 <tr>
                                     <td>已用流量</td>
-                                    <td><?php echo ShadowX\Utility::getSize($User->getTransfer()); ?></td>
+                                    <td class="text-right"><?php echo ShadowX\Utility::getSize($User->getTransfer()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>剩余流量</td>
-                                    <td><?php echo ShadowX\Utility::getSize($User->getUnusedTransfer()); ?></td>
+                                    <td class="text-right"><?php echo ShadowX\Utility::getSize($User->getUnusedTransfer()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>总流量</td>
-                                    <td><?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?></td>
+                                    <td class="text-right"><?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?></td>
                                 </tr>
                                 <tr>
                                     <td>24小时流量</td>
-                                    <td><div class="usage-box"><canvas height="20px" width="144px" class="usage"></canvas></div></td>
+                                    <td class="text-right"><div class="usage-box pull-right"><canvas height="20" width="144" class="usage"></canvas></div></td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">
@@ -50,7 +50,7 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                         <h4 class="title">连接信息</h4>
                     </div>
                     <div class="card-content">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody>
                                 <tr>
                                     <td>端口</td>

@@ -40,7 +40,7 @@ require_once '../template/head.php';
                         <h4 class="title">Title</h4>
                     </div>
                     <div class="card-content">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody>
                                 <tr>
                                     <td>1</td>

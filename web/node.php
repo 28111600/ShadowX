@@ -47,7 +47,7 @@ require_once '../template/head.php';
                         <h4 class="title"><?php echo $row['name']; ?></h4>
                     </div>
                     <div class="card-content">
-                        <table class="table table-hover">
+                        <table class="table">
                             <tbody>
                                 <tr><td>节点地址</td> <td class="text-right"><?php echo $row['server']; ?></td></tr>
                                 <tr><td>加密方式</td> <td class="text-right"><?php echo $row['method']; ?></td></tr>
