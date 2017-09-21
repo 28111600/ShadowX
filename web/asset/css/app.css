@@ -306,3 +306,11 @@ canvas {
 canvas {
     display: none;
 }
+
+.table tr td .progress {
+    margin-top: 5px;
+}
+
+.table tr>td .progress {
+    margin: 0;
+}
