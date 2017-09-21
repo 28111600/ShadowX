@@ -170,6 +170,7 @@ $gb = 1024 * 1024 * 1024;
             </div>
         </div>
         <?php } ?>
+        <?php if (!$isEdit) { ?>
         <div class="row">
             <div class="col-sm-6">
                  <div class="card">
@@ -192,6 +193,7 @@ $gb = 1024 * 1024 * 1024;
                 </div>
             </div>
         </div>
+        <?php } ?>
     </div>
 </div>
 
