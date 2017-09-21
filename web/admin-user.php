@@ -1,29 +1,20 @@
 <?php
+$page_title = "用户列表";
 require_once '../template/main.php';
 require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>用户列表
-            <small>User List</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-xs-12">
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="box box-primary">
-                    <div class="box-body table-responsive no-padding">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-content">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -67,14 +58,13 @@ require_once '../template/head.php';
                             <?php } ?>
                             </tbody>
                         </table>
-                    </div><!-- /.box-body -->
-                </div><!-- /.box -->
+                    </div>
+                </div>
             </div>
         </div>
-
-    </section><!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 
