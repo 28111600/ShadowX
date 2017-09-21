@@ -105,10 +105,10 @@ $pagelast  = min($pagelast,$pagemax);
                                     <th class="text-right">上行</th>
                                     <th class="text-right">下行</th>
                                 </tr>
-                            </thead><?php
+                            </thead>
+                                <tbody><?php
 function showRows($rows, $date) {
-    $index = 0; ?>
-                            <tbody><?php
+    $index = 0;
     foreach ($rows as $row) { ?>
                                 <tr><?php
         if ($index === 0) { ?>
@@ -120,8 +120,7 @@ function showRows($rows, $date) {
                                     <td class="text-right"><?php if ($row['d'] != 0) { echo ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
                                 </tr><?php
         $index++;
-    } ?>
-                            </tbody><?php
+    }
 }
 
 $rows = [];
@@ -143,6 +142,7 @@ foreach ($logs as $rs) {
 if (count($rows) != 0) {
     showRows($rows,$date);
 } ?>
+                            </tbody>
                         </table>
                         <div class="text-right">
                             <div>
