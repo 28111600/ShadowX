@@ -30,7 +30,7 @@ require_once '../template/head.php';
                         <h3 class="box-title">Title</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div>
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
                     </div>
                     <!-- /.box-body -->
@@ -47,7 +47,7 @@ require_once '../template/head.php';
                         <h3 class="box-title">Title</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div>
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-month-allnode"></canvas></div>
                     </div>
                     <!-- /.box-body -->

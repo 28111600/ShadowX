@@ -91,6 +91,8 @@ $pagelast  = min($pagelast,$pagemax);
                 </div>
     <?php } ?>
             </div>
+        </div>
+        <div class="row">
             <div class="col-xs-12">
                 <div class="card">
                     <div class="card-content">

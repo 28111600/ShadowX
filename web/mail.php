@@ -21,7 +21,7 @@ require_once '../template/head.php';
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form id="form-mail">
-                        <div class="box-body">
+                        <div>
                             <div class="form-group has-feedback">
                                 <label>标题</label>
                                 <input class="form-control" id="title" required="required">
@@ -35,7 +35,7 @@ require_once '../template/head.php';
                                 <textarea class="form-control" id="content"></textarea>
                             </div>
                         </div><!-- /.box-body -->
-                        <div class="box-footer">
+                        <div>
                             <button type="submit" id="mail-send" class="btn btn-primary">发送</button>
                         </div>
                     </form>

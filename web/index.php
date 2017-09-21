@@ -8,7 +8,7 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header" data-background-color>
                         <h4 class="title">流量使用情况</h4>
@@ -44,7 +44,7 @@ $used = round($User->getTransfer()/$User->getTransferEnable(), 2) * 100;
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header" data-background-color>
                         <h4 class="title">连接信息</h4>

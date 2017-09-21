@@ -12,6 +12,8 @@ require_once '../template/head.php';
                     <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
                 </div>
             </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-content">

@@ -45,7 +45,7 @@ if(!empty($_GET)){
                     <!-- /.box-header -->
                     <!-- form start -->
                     <form id="form-node">
-                        <div class="box-body">
+                        <div>
                         <?php if ($isEdit || $isNew) { ?>
                             <div class="form-group hidden">
                                 <label>id</label>
@@ -98,7 +98,7 @@ if(!empty($_GET)){
                             </div>
                         <?php } ?>
                         </div><!-- /.box-body -->
-                        <div class="box-footer">
+                        <div>
                         <?php if ($isNew) { ?>
                             <button type="submit" id="node-add" class="btn btn-success">保存</button>
                         <?php } else if ($isEdit) { ?>
@@ -121,7 +121,7 @@ if(!empty($_GET)){
                         <h3 class="box-title">流量图表 - 30 Days</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div>
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
                     </div>
                     <!-- /.box-body -->
@@ -135,7 +135,7 @@ if(!empty($_GET)){
                         <h3 class="box-title">流量图表 - 24 Hours</h3>
                     </div>
                     <!-- /.box-header -->
-                    <div class="box-body">
+                    <div>
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-day"></canvas></div>
                     </div>
                     <!-- /.box-body -->

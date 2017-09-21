@@ -100,7 +100,9 @@ input:-webkit-autofill {
 }
 
 .slider.slider-horizontal {
-    width: 100%!important;
+    width: 95%!important;
+    margin: 4px auto;
+    display: block;
 }
 
 .progress,
@@ -313,4 +315,8 @@ canvas {
 
 .table tr>td .progress {
     margin: 0;
+}
+
+.slider {
+    background: transparent;
 }

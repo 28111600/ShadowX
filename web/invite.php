@@ -11,9 +11,9 @@ require_once '../template/head.php';
                     <button type="button" id="user-addinvitecode" <?php echo $User->getInviteNum() == 0 ? 'disabled="disabled"' : ''; ?> class="btn btn-success">生成邀请码</button>
                  </div>
             </div>
-            <div class="col-sm-8 col-xs-12">
+            <div class="col-sm-8">
                 <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">邀请码</h4>
                     </div>
                     <div class="card-content">

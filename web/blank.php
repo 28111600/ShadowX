@@ -24,9 +24,11 @@ require_once '../template/head.php';
                     <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">Title</h4>
                     </div>
                     <div class="card-content">
@@ -34,9 +36,9 @@ require_once '../template/head.php';
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header" data-background-color="green">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">Title</h4>
                     </div>
                     <div class="card-content">

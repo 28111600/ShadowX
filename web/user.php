@@ -6,9 +6,9 @@ require_once '../template/head.php';
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">用户详情</h4>
                     </div>
                     <div class="card-content">
@@ -54,9 +54,9 @@ require_once '../template/head.php';
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">修改登录密码</h4>
                     </div>
                     <div class="card-content">
@@ -78,9 +78,9 @@ require_once '../template/head.php';
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">修改连接密码</h4>
                     </div>
                     <div class="card-content">
@@ -104,7 +104,7 @@ require_once '../template/head.php';
         <div class="row">
             <div class="col-sm-6">
                  <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">流量图表 - 30 Days</h4>
                     </div>
                     <div class="card-content">
@@ -114,7 +114,7 @@ require_once '../template/head.php';
             </div>
             <div class="col-sm-6">
                  <div class="card">
-                    <div class="card-header" data-background-color="blue">
+                    <div class="card-header" data-background-color>
                         <h4 class="title">流量图表 - 24 Hours</h4>
                     </div>
                     <div class="card-content">

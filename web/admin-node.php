@@ -10,7 +10,7 @@ require_once '../template/head.php';
         <?php 
         $nodes = ShadowX\Node::getAllNodes();
         foreach ($nodes as $row) { ?>
-            <div class="col-sm-6 col-xs-12">
+            <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header" data-background-color>
                         <a class="option pull-right" href="admin-node-detail.php?id=<?php echo $row['id']; ?>">详情</a>
