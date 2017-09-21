@@ -29,38 +29,38 @@ $gb = 1024 * 1024 * 1024;
                             <div>
                             <?php if ($isEdit) { ?>
                                 <div class="form-group hidden">
-                                    <label>id</label>
+                                    <label class="control-label">id</label>
                                     <input class="form-control" id="uid" value="<?php echo $rs['uid']; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label>用户名</label>
+                                    <label class="control-label">用户名</label>
                                     <input class="form-control" id="name" required="required" value="<?php echo $rs['user_name']; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label>邮箱</label>
+                                    <label class="control-label">邮箱</label>
                                     <input class="form-control" id="email" required="required" value="<?php echo $rs['email']; ?>">
                                 </div>
                                 <div class="form-group">
-                                    <label>限速</label>
+                                    <label class="control-label">限速</label>
                                     <div class="form-control">
                                         <input id="max-speed" type="text" value="<?php echo $rs['max_speed']; ?>">
                                     </div>
                                 </div>
                             <?php } else { ?>
                                 <div class="form-group">
-                                    <label>用户名</label>
+                                    <label class="control-label">用户名</label>
                                     <span class="form-control"><?php echo $rs['user_name']; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>邮箱</label>
+                                    <label class="control-label">邮箱</label>
                                     <span class="form-control"><?php echo $rs['email']; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>可用邀请码</label>
+                                    <label class="control-label">可用邀请码</label>
                                     <span class="form-control"><?php echo $rs['invite_num']; ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>邀请人</label>
+                                    <label class="control-label">邀请人</label>
                                     <span class="form-control"><?php
                                         if (!empty($rs['ref_by'])) {
                                             $used_user = new ShadowX\User($rs['ref_by']);
@@ -75,11 +75,11 @@ $gb = 1024 * 1024 * 1024;
                                     ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>注册时间</label>
+                                    <label class="control-label">注册时间</label>
                                     <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['reg_date'] + $timeoffset); ?></span>
                                 </div>
                                 <div class="form-group">
-                                    <label>注册IP</label>
+                                    <label class="control-label">注册IP</label>
                                     <span class="form-control"><?php echo $rs['reg_ip']; ?></span>
                                 </div>
                             <?php } ?>
@@ -100,16 +100,16 @@ $gb = 1024 * 1024 * 1024;
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header" data-background-color>
-                        <h4 class="title">Title</h4>
+                        <h4 class="title">流量使用</h4>
                     </div>
                     <div class="card-content">
                         <div>
                             <div class="form-group">
-                                <label>连接密码</label>
+                                <label class="control-label">连接密码</label>
                                 <span class="form-control"><?php echo $rs['passwd']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label>流量</label>
+                                <label class="control-label">流量</label>
                                 <span class="form-control"><?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?></span>
                             </div>
                             <div class="form-group">
@@ -121,11 +121,11 @@ $gb = 1024 * 1024 * 1024;
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label>限速</label>
+                                <label class="control-label">限速</label>
                                 <span class="form-control" id="max-speed"><?php echo $rs['max_speed']; ?></span>
                             </div>
                             <div class="form-group">
-                                <label>最后使用时间</label>
+                                <label class="control-label">最后使用时间</label>
                                 <span class="form-control"><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></span>
                             </div>
                         </div>
@@ -144,8 +144,8 @@ $gb = 1024 * 1024 * 1024;
                     <div class="card-content">
                         <form id="form-transfer">
                             <div class="form-group">
-                                <label>流量(GByte)</label>
-                                <input class="form-control" id="transfer" required="required" placeholder="小于0则扣除流量">
+                                <label class="control-label">流量(GByte)</label>
+                                <input class="form-control " id="transfer" required="required" placeholder="小于0则扣除流量">
                             </div>
                             <button type="submit" id="user-addtransfer" class="btn btn-success">确定</button>
                         </form>
@@ -160,7 +160,7 @@ $gb = 1024 * 1024 * 1024;
                     <div class="card-content">
                         <form id="form-invitenum">
                             <div class="form-group">
-                                <label>数量</label>
+                                <label class="control-label">数量</label>
                                 <input class="form-control" id="invitenum" required="required" placeholder="小于0则减少邀请码数量">
                             </div>
                             <button type="submit" id="user-addinvitenum" class="btn btn-success">确定</button>

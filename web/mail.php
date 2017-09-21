@@ -23,15 +23,15 @@ require_once '../template/head.php';
                     <form id="form-mail">
                         <div>
                             <div class="form-group has-feedback">
-                                <label>标题</label>
+                                <label class="control-label">标题</label>
                                 <input class="form-control" id="title" required="required">
                             </div>
                             <div class="form-group has-feedback">
-                                <label>收件人</label>
+                                <label class="control-label">收件人</label>
                                 <input class="form-control" type="email" id="receiver" required="required">
                             </div>
                             <div class="form-group has-feedback">
-                                <label>内容</label>
+                                <label class="control-label">内容</label>
                                 <textarea class="form-control" id="content"></textarea>
                             </div>
                         </div><!-- /.box-body -->

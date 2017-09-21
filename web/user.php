@@ -13,19 +13,19 @@ require_once '../template/head.php';
                     </div>
                     <div class="card-content">
                         <div class="form-group">
-                            <label>用户名</label>
+                            <label class="control-label">用户名</label>
                             <span class="form-control"><?php echo $User->getUserName(); ?></span>
                         </div>
                         <div class="form-group">
-                            <label>邮箱</label>
+                            <label class="control-label">邮箱</label>
                             <span class="form-control"><?php echo $User->getEmail(); ?></span>
                         </div>
                         <div class="form-group">
-                            <label>连接密码</label>
+                            <label class="control-label">连接密码</label>
                             <span class="form-control"><?php echo $User->getSsPasswd(); ?></span>
                         </div>
                         <div class="form-group">
-                            <label>流量</label>
+                            <label class="control-label">流量</label>
                             <span class="form-control"><?php echo ShadowX\Utility::getSize($User->getTransferEnable()); ?></span>
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@ require_once '../template/head.php';
                             </div>
                         </div>
                         <div class="form-group">
-                            <label>邀请人</label>
+                            <label class="control-label">邀请人</label>
                             <span class="form-control"><?php
                                 if (!empty($User->getRefBy())) {
                                     $used_user = new ShadowX\User($User->getRefBy());
@@ -63,11 +63,11 @@ require_once '../template/head.php';
                         <form id="form-passwd">
                             <div>
                                 <div class="form-group">
-                                    <label>密码</label>
+                                    <label class="control-label">密码</label>
                                     <input class="form-control" id="passwd" type="password" required="required" autocomplete="new-password">
                                 </div>
                                 <div class="form-group">
-                                    <label>确认密码</label>
+                                    <label class="control-label">确认密码</label>
                                     <input class="form-control" id="repasswd" type="password" required="required" autocomplete="new-password">
                                 </div>
                             </div>
