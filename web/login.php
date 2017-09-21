@@ -10,55 +10,38 @@ require_once '../template/main.php'; ?>
 </head>
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-box-body">
-            <h2 class="login-box-msg">登录</h2>
-            <form id="form-login">
-                <div class="form-group has-feedback">
-                    <input id="email" type="email" required="required" class="form-control" placeholder="邮箱">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input id="passwd" type="password" required="required" class="form-control" placeholder="密码">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="row">
-                    <div class="col-xs-8">
-                        <div>
-                            <label><input id="remember_me" value="week" type="checkbox">记住我</label>
-                        </div>
+    <div class="content">
+        <div>
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">登录</h4>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-xs-4">
-                        <button type="submit" id="login" class="btn btn-primary btn-block btn-flat">登录</button>
+                    <div class="card-content">
+                        <form id="form-login">
+                            <div class="form-group has-feedback">
+                                <input id="email" type="email" required="required" class="form-control" placeholder="邮箱">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input id="passwd" type="password" required="required" class="form-control" placeholder="密码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <button type="submit" id="login" class="btn btn-info btn-simple btn-block btn-lg">登录</button>
+                        </form>
+                        <a href="register.php" class="text-center">注册</a>
+                        <a href="resetpwd.php" class="pull-right">忘记密码</a>
                     </div>
-                    <!-- /.col -->
                 </div>
-            </form>
-            <a href="register.php" class="text-center">注册</a>
-            <a href="resetpwd.php" class="pull-right">忘记密码</a>
-            
+            </div>
         </div>
-        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box -->
 </body>
 
 </html>
-<!-- jQuery 3.2.1 -->
-<script src="asset/js/jquery.min.js"></script>
-<!-- jQuery Cookit 1.4.1 -->
-<script src="asset/js/jquery.cookie.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="asset/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="asset/js/fastclick.js"></script>
-<!-- AdminLTE -->
-<script src="asset/js/adminlte.min.js"></script>
-<!-- App -->
-<script src="asset/js/app.js"></script>
-<!-- Messg -->
-<script src="asset/js/messg.min.js"></script>
+
+<?php
+require_once '../template/footer-script.php'; ?>
 
 <script>
    !(function() {
@@ -71,7 +54,7 @@ require_once '../template/main.php'; ?>
                     action: "login",
                     email: $("#email").val(),
                     passwd: encodeURIComponent($("#passwd").val()),
-                    remember_me: $("#remember_me").val()
+                    remember_me: true
                 },
                 success: function(data) {
                     if (data.ok) {

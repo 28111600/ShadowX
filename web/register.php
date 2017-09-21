@@ -10,58 +10,52 @@ require_once '../template/main.php'; ?>
 </head>
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-box-body">
-            <h2 class="login-box-msg">注册</h2>
-            <form id="form-register">
-                <div class="form-group has-feedback">
-                    <input type="text" id="name" required="required" class="form-control" placeholder="用户名">
-                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    <div class="content">
+        <div>
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">登录</h4>
+                    </div>
+                    <div class="card-content">
+                        <form id="form-register">
+                            <div class="form-group has-feedback">
+                                <input type="text" id="name" required="required" class="form-control" placeholder="用户名">
+                                <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="text" id="email" required="required" class="form-control" placeholder="邮箱">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" id="passwd" required="required" class="form-control" autocomplete="new-password" placeholder="密码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" id="repasswd" required="required" class="form-control" autocomplete="new-password" placeholder="确认密码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="text" id="invitecode" required="required" class="form-control" placeholder="邀请码">
+                                <span class="glyphicon glyphicon-send form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <button type="submit" id="register" class="btn btn-success btn-simple btn-block btn-lg">同意服务条款并注册</button>
+                            </div>
+                        </form>
+                        <a href="login.php" class="text-center">登录</a>
+                        <a href="tos.php" target="_tos" class="pull-right">服务条款</a>
+                    </div>
                 </div>
-                <div class="form-group has-feedback">
-                    <input type="text" id="email" required="required" class="form-control" placeholder="邮箱">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" id="passwd" required="required" class="form-control" autocomplete="new-password" placeholder="密码">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" id="repasswd" required="required" class="form-control" autocomplete="new-password" placeholder="确认密码">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="text" id="invitecode" required="required" class="form-control" placeholder="邀请码">
-                    <span class="glyphicon glyphicon-send form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <button type="submit" id="register" class="btn btn-primary btn-block btn-flat">同意服务条款并注册</button>
-                </div>
-            </form>
-            <a href="login.php" class="text-center">登录</a>
-            <a href="tos.php" target="_tos" class="pull-right">服务条款</a>
-            
+            </div>
         </div>
-        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box -->
 </body>
 
 </html>
-<!-- jQuery 3.2.1 -->
-<script src="asset/js/jquery.min.js"></script>
-<!-- jQuery Cookit 1.4.1 -->
-<script src="asset/js/jquery.cookie.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="asset/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="asset/js/fastclick.js"></script>
-<!-- AdminLTE -->
-<script src="asset/js/adminlte.min.js"></script>
-<!-- App -->
-<script src="asset/js/app.js"></script>
-<!-- Messg -->
-<script src="asset/js/messg.min.js"></script>
+
+<?php
+require_once '../template/footer-script.php'; ?>
 
 <script>
     !(function() {

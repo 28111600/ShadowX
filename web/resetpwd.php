@@ -13,61 +13,56 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
 </head>
 
 <body class="hold-transition login-page">
-    <div class="login-box">
-        <div class="login-box-body">
-            <h2 class="login-box-msg">重置密码</h2>
-            <form id="form-resetpwd">
-            <?php if ($code =='') { ?>
-                <div class="form-group has-feedback">
-                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    <div class="content">
+        <div>
+            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                <div class="card">
+                    <div class="card-header" data-background-color="blue">
+                        <h4 class="title">登录</h4>
+                    </div>
+                    <div class="card-content">
+                        <form id="form-resetpwd">
+                        <?php if ($code =='') { ?>
+                            <div class="form-group has-feedback">
+                                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <button type="submit" id="request" class="btn btn-info btn-simple btn-block btn-lg">发送重置邮件</button>
+                            </div>
+                        <?php } else { ?>
+                            <div class="form-group has-feedback">
+                                <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>">
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱">
+                                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" id="passwd" class="form-control" autocomplete="new-password" placeholder="新密码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <input type="password" id="repasswd" class="form-control" autocomplete="new-password" placeholder="确认密码">
+                                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                            </div>
+                            <div class="form-group has-feedback">
+                                <button type="submit" id="resetpwd" class="btn btn-success btn-simple btn-block btn-lg">确认重置</button>
+                            </div>
+                        <?php } ?>
+                        </form>
+                        <a href="login.php" class="text-center">返回登录</a>
+                    </div>
                 </div>
-                <div class="form-group has-feedback">
-                    <button type="submit" id="request" class="btn btn-primary btn-block btn-flat">发送重置邮件</button>
-                </div>
-            <?php } else { ?>
-                <div class="form-group has-feedback">
-                    <input type="hidden" id="code" class="form-control" value="<?php echo $code; ?>">
-                </div>
-                <div class="form-group has-feedback">
-                    <input id="email" name="Email" type="text" class="form-control" placeholder="邮箱">
-                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" id="passwd" class="form-control" autocomplete="new-password" placeholder="新密码">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <input type="password" id="repasswd" class="form-control" autocomplete="new-password" placeholder="确认密码">
-                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-                </div>
-                <div class="form-group has-feedback">
-                    <button type="submit" id="resetpwd" class="btn btn-primary btn-block btn-flat">确认重置</button>
-                </div>
-            <?php } ?>
-            </form>
-            <a href="login.php" class="text-center">返回登录</a>
+            </div>
         </div>
-        <!-- /.login-box-body -->
     </div>
-    <!-- /.login-box -->
 </body>
 
 </html>
-<!-- jQuery 3.2.1 -->
-<script src="asset/js/jquery.min.js"></script>
-<!-- jQuery Cookit 1.4.1 -->
-<script src="asset/js/jquery.cookie.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="asset/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="asset/js/fastclick.js"></script>
-<!-- AdminLTE -->
-<script src="asset/js/adminlte.min.js"></script>
-<!-- App -->
-<script src="asset/js/app.js"></script>
-<!-- Messg -->
-<script src="asset/js/messg.min.js"></script>
+
+<?php
+require_once '../template/footer-script.php'; ?>
 
 <script>
     !(function() {
