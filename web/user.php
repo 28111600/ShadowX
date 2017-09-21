@@ -87,9 +87,7 @@ require_once '../template/head.php';
                         <form id="form-sspasswd">
                             <div>
                                 <div class="form-group">
-                                    <label>密码</label>
                                     <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
-
                                 </div>
                                 <div class="alert alert-danger mb0">
                                     <span>连接密码需明文存储</span>
