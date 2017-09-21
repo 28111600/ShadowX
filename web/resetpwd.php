@@ -17,8 +17,8 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
         <div>
             <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
                 <div class="card">
-                    <div class="card-header" data-background-color="blue">
-                        <h4 class="title">登录</h4>
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">重置密码</h4>
                     </div>
                     <div class="card-content">
                         <form id="form-resetpwd">
