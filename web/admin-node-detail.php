@@ -105,7 +105,7 @@ if(!empty($_GET)){
                     </div>
                 </div>
             </div>
-            <?php if (!$isEdit) { ?>
+            <?php if (!$isEdit && !$isNew) { ?>
             <div class="col-sm-6">
                  <div class="card">
                     <div class="card-header" data-background-color>
