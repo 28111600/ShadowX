@@ -7,7 +7,7 @@ require_once '../template/head.php';
 <div class="content">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class="card">
                     <div class="card-header" data-background-color>
                         <h4 class="title">发送邮件</h4>
@@ -22,6 +22,10 @@ require_once '../template/head.php';
                                 <div class="form-group has-feedback">
                                     <label class="control-label">收件人</label>
                                     <input class="form-control" type="email" id="receiver" required="required">
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label class="control-label">发件人</label>
+                                    <input class="form-control" type="text" id="sender" value="<?php echo $mail_sender; ?>" required="required">
                                 </div>
                                 <div class="form-group has-feedback">
                                     <textarea class="form-control" id="content"></textarea>
@@ -96,6 +100,7 @@ require_once '../template/footer.php'; ?>
                     action: "send",
                     title: $("#title").val(),
                     receiver: $("#receiver").val(),
+                    sender: $("#sender").val(),
                     content: tinymce.get("content").getContent()
                 },
                 success: function(data) {

@@ -7,6 +7,7 @@ if(!empty($_POST)){
     if ($action == 'send') {
         $title = $_POST['title'];
         $receiver = $_POST['receiver'];
+        $sender = $_POST['sender'];
         $content = $_POST['content'];
 
         if (!empty($mailgun_key) && !empty($mailgun_domain)) {
@@ -14,7 +15,7 @@ if(!empty($_POST)){
             $mailgun = new Mailgun\Mailgun($mailgun_key);
 
             $mailgun->sendMessage($mailgun_domain, [
-                'from'    => $mail_sender,
+                'from'    => $sender,
                 'to'      => $receiver,
                 'subject' => $title,
                 'html'    => $content]);
