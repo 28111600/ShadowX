@@ -1,6 +1,7 @@
 <?php
 $page_title = "节点详情";
 require_once '../template/main.php';
+require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
 if(!empty($_GET)){

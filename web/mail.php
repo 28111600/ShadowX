@@ -1,54 +1,43 @@
 <?php
+$page_title = "邮件";
 require_once '../template/main.php';
+require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>邮件
-            <small>Email</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-9 col-lg-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">发送邮件</h3>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">发送邮件</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form id="form-mail">
-                        <div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label">标题</label>
-                                <input class="form-control" id="title" required="required">
+                    <div class="card-content">
+                        <form id="form-mail">
+                            <div>
+                                <div class="form-group has-feedback">
+                                    <label class="control-label">标题</label>
+                                    <input class="form-control" id="title" required="required">
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <label class="control-label">收件人</label>
+                                    <input class="form-control" type="email" id="receiver" required="required">
+                                </div>
+                                <div class="form-group has-feedback">
+                                    <textarea class="form-control" id="content"></textarea>
+                                </div>
                             </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label">收件人</label>
-                                <input class="form-control" type="email" id="receiver" required="required">
+                            <div>
+                                <button type="submit" id="mail-send" class="btn btn-success">发送</button>
                             </div>
-                            <div class="form-group has-feedback">
-                                <label class="control-label">内容</label>
-                                <textarea class="form-control" id="content"></textarea>
-                            </div>
-                        </div><!-- /.box-body -->
-                        <div>
-                            <button type="submit" id="mail-send" class="btn btn-primary">发送</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 
