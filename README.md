@@ -21,6 +21,6 @@ ShadowX
 
 ### Thanks to
 * [Bootstrap](https://getbootstrap.com/)
-* [AdminLTE](https://adminlte.io/)
+* [Material Dashboard](https://www.creative-tim.com/product/material-dashboard/)
 * [Medoo](https://medoo.in/)
 * [orvice/ss-panel](https://github.com/orvice/ss-panel/)
