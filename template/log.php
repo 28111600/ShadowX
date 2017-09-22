@@ -95,7 +95,7 @@ $pagelast  = min($pagelast,$pagemax);
         <div class="row">
             <div class="col-xs-12">
                 <div class="card">
-                    <div class="card-content">
+                    <div class="card-content table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>

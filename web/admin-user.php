@@ -16,7 +16,7 @@ require_once '../template/head.php';
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-content">
+                    <div class="card-content table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>

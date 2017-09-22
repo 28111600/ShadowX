@@ -297,6 +297,15 @@ canvas {
     margin-top: 0;
 }
 
+.form-group {
+    margin-top: 10px;
+}
+
+.form-control,
+.form-group .form-control {
+    background-size: 0 2px, 100% .8px;
+}
+
 .container-fluid>.navbar-collapse,
 .container-fluid>.navbar-header,
 .container>.navbar-collapse,
