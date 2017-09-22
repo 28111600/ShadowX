@@ -6,7 +6,4 @@ require_once '../template/head.php';
 $uid_log = $User->getUid();
 
 require_once '../template/log.php';
-?>
-
-<?php
 require_once '../template/footer.php'; ?>
