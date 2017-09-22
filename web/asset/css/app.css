@@ -306,6 +306,22 @@ canvas {
     background-size: 0 2px, 100% .8px;
 }
 
+.form-group .form-control {
+    width: 100%!important;
+}
+
+.btn-group.open>.dropdown-toggle.btn,
+.btn-group.open>.dropdown-toggle.btn.btn-default,
+.btn-group-vertical.open>.dropdown-toggle.btn,
+.btn-group-vertical.open>.dropdown-toggle.btn.btn-default {
+    color: #999999;
+}
+
+.bootstrap-select>.dropdown-toggle {
+    padding-left: 6px;
+    text-transform: none;
+}
+
 .container-fluid>.navbar-collapse,
 .container-fluid>.navbar-header,
 .container>.navbar-collapse,

@@ -1,4 +1,5 @@
 <?php
+$page_title = "节点详情";
 require_once '../template/main.php';
 require_once '../template/head.php';
 
@@ -20,147 +21,126 @@ if(!empty($_GET)){
     }
 }
 ?>
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>节点信息
-            <small>Node Information</small>
-        </h1>
-    </section>
-    <!-- Main content -->
-    <section class="content">
+<div class="content">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header" data-background-color>
                     <?php if ($isNew) { ?>
-                        <h3 class="box-title">添加节点</h3>
+                        <h4 class="title">添加节点</h4>
                     <?php } else if ($isEdit) { ?>
-                        <h3 class="box-title">编辑节点</h3>
+                        <h4 class="title">编辑节点</h4>
                     <?php } else { ?>
-                        <h3 class="box-title">节点详情</h3>
+                        <h4 class="title">节点详情</h4>
                     <?php } ?>
                     </div>
-                    <!-- /.box-header -->
-                    <!-- form start -->
-                    <form id="form-node">
-                        <div>
-                        <?php if ($isEdit || $isNew) { ?>
-                            <div class="form-group hidden">
-                                <label class="control-label">id</label>
-                                <input class="form-control" id="id" value="<?php echo $rs['id']; ?>">
+                    <div class="card-content">
+                        <form id="form-node">
+                            <div>
+                            <?php if ($isEdit || $isNew) { ?>
+                                <div class="form-group hidden">
+                                    <label class="control-label">id</label>
+                                    <input class="form-control" id="id" value="<?php echo $rs['id']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Node Id</label>
+                                    <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">节点名称</label>
+                                    <input class="form-control" id="name" required="required" value="<?php echo $rs['name']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">地址</label>
+                                    <input class="form-control" id="server" required="required" value="<?php echo $rs['server']; ?>">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">加密方式</label>
+                                    <select class="form-control selectpicker" id="method" data-style="btn btn-info" data-live-search="true">
+                                    <?php foreach ($ss_methods as $method) { ?>
+                                        <option <?php if ($method == $rs['method']) { echo 'selected="selected"'; } ?>><?php echo $method?></option>
+                                    <?php } ?>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">节点描述</label>
+                                    <input class="form-control" id="info" value="<?php echo $rs['info']; ?>">
+                                </div>
+                            <?php } else { ?>
+                                <div class="form-group">
+                                    <label class="control-label">Node Id</label>
+                                    <span class="form-control"><?php echo $rs['node_id']; ?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">节点名称</label>
+                                    <span class="form-control"><?php echo $rs['name']; ?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">地址</label>
+                                    <span class="form-control"><?php echo $rs['server']; ?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">加密方式</label>
+                                    <span class="form-control"><?php echo $rs['method']; ?></span>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">节点描述</label>
+                                    <span class="form-control"><?php echo $rs['info']; ?></span>
+                                </div>
+                            <?php } ?>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label">Node Id</label>
-                                <input class="form-control" id="node_id" required="required" value="<?php echo $rs['node_id']; ?>">
+                            <div>
+                            <?php if ($isNew) { ?>
+                                <button type="submit" id="node-add" class="btn btn-success">保存</button>
+                            <?php } else if ($isEdit) { ?>
+                                <button type="submit" id="node-update" class="btn btn-success">保存</button>
+                                <a href="?id=<?php echo $rs['id']; ?>" class="btn btn-default">取消</a>
+                                <button type="button" id="node-delete" class="btn btn-danger">删除</button>
+                            <?php } else { ?>
+                                <a href="?id=<?php echo $rs['id']; ?>&edit" class="btn btn-primary">编辑</a>
+                            <?php } ?>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label">节点名称</label>
-                                <input class="form-control" id="name" required="required" value="<?php echo $rs['name']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">地址</label>
-                                <input class="form-control" id="server" required="required" value="<?php echo $rs['server']; ?>">
-                            </div>
-                            <div class="form-group">
-                                <label for="cate_method">加密方式</label>
-                                <select class="form-control select2" id="method" style="width: 100%;">
-                                <?php foreach ($ss_methods as $method) { ?>
-                                    <option <?php if ($method == $rs['method']) { echo 'selected="selected"'; } ?>><?php echo $method?></option>
-                                <?php } ?>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">节点描述</label>
-                                <input class="form-control" id="info" value="<?php echo $rs['info']; ?>">
-                            </div>
-                        <?php } else { ?>
-                            <div class="form-group">
-                                <label class="control-label">Node Id</label>
-                                <span class="form-control"><?php echo $rs['node_id']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">节点名称</label>
-                                <span class="form-control"><?php echo $rs['name']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">地址</label>
-                                <span class="form-control"><?php echo $rs['server']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label for="cate_method">加密方式</label>
-                                <span class="form-control"><?php echo $rs['method']; ?></span>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label">节点描述</label>
-                                <span class="form-control"><?php echo $rs['info']; ?></span>
-                            </div>
-                        <?php } ?>
-                        </div><!-- /.box-body -->
-                        <div>
-                        <?php if ($isNew) { ?>
-                            <button type="submit" id="node-add" class="btn btn-success">保存</button>
-                        <?php } else if ($isEdit) { ?>
-                            <button type="submit" id="node-update" class="btn btn-success">保存</button>
-                            <a href="?id=<?php echo $rs['id']; ?>" class="btn btn-default">取消</a>
-                            <button type="button" id="node-delete" class="btn btn-danger">删除</button>
-                        <?php } else { ?>
-                            <a href="?id=<?php echo $rs['id']; ?>&edit" class="btn btn-primary">编辑</a>
-                        <?php } ?>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.box -->
-            </div>
-            <!-- /.col -->
-            <?php if (!$isEdit && !$isNew) { ?>
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - 30 Days</h3>
+                        </form>
                     </div>
-                    <!-- /.box-header -->
-                    <div>
+                </div>
+            </div>
+            <?php if (!$isEdit) { ?>
+            <div class="col-sm-6">
+                 <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">流量图表 - 30 Days</h4>
+                    </div>
+                    <div class="card-content">
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-month"></canvas></div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">流量图表 - 24 Hours</h3>
+            <div class="col-sm-6">
+                 <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">流量图表 - 24 Hours</h4>
                     </div>
-                    <!-- /.box-header -->
-                    <div>
+                    <div class="card-content">
                         <div class="usage-box"><canvas width="16px" height="9px" class="usage-day"></canvas></div>
                     </div>
-                    <!-- /.box-body -->
                 </div>
-                <!-- /.box -->
             </div>
-            <!-- /.col -->
             <?php } ?>
         </div>
-        <!-- /.row -->
-    </section>
-    <!-- /.content -->
+    </div>
 </div>
-<!-- /.content-wrapper -->
+
 <?php
 require_once '../template/footer.php'; ?>
 
-<!-- Select2 4.0.3 -->
-<script src="asset/js/select2.min.js"></script>
 <!-- Chart 2.6.0 -->
 <script src="asset/js/Chart.bundle.min.js"></script>
+<!-- Bootstrap-select 1.12.4 -->
+<link rel="stylesheet" href="asset/css/bootstrap-select.min.css">
+<script src="asset/js/bootstrap-select.min.js"></script>
 
 <script>
-    //Initialize Select2 Elements
-    $('.select2').select2();
 
 <?php if ($isNew) { ?>
 
