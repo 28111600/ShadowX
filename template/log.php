@@ -84,12 +84,6 @@ $pagelast  = min($pagelast,$pagemax);
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
                 </div>
-    <?php
-        if ($url_log_calendar) { ?>
-                <div class="btn-group">
-                    <a class="btn btn-success" href="<?php echo $url_log_calendar; ?>">日历视图</a>
-                </div>
-    <?php } ?>
             </div>
         </div>
         <div class="row">

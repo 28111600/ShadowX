@@ -5,7 +5,6 @@ require_once '../lib/admin-check.php';
 require_once '../template/head.php';
 
 $uid_log = -1;
-$url_log_calendar = 'admin-log-calendar.php';
 
 require_once '../template/log.php';
 ?>
