@@ -7,6 +7,16 @@ require_once '../template/head.php';
 <div class="content">
     <div class="container-fluid">
         <div class="row">
+            <div class="col-xs-12">
+                <div class="btn-group">
+                    <a class="btn btn-success" href="admin-node-detail.php?id=new">添加节点</a>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-primary" onclick="location.reload();">刷新</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
         <?php 
         $nodes = ShadowX\Node::getAllNodes();
         foreach ($nodes as $row) { ?>
