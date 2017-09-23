@@ -15,7 +15,7 @@ $code = isset($_GET['code']) ? $_GET['code'] : '';
 <body class="hold-transition login-page">
     <div class="content">
         <div>
-            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+            <div class="login-box">
                 <div class="card">
                     <div class="card-header" data-background-color>
                         <h4 class="title">重置密码</h4>
