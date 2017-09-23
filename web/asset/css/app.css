@@ -334,7 +334,7 @@ canvas {
     margin-left: 0;
 }
 
-canvas {
+.usage-box canvas {
     display: none;
 }
 
