@@ -353,4 +353,5 @@ canvas {
 .login-box {
     max-width: 400px;
     margin: 10px auto;
+    float: none;
 }

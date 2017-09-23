@@ -12,7 +12,7 @@ require_once '../template/main.php'; ?>
 <body class="hold-transition login-page">
     <div class="content">
         <div>
-            <div class="login-box">
+            <div class="login-box col-sm-6">
                 <div class="card">
                     <div class="card-header" data-background-color>
                         <h4 class="title">注册</h4>
