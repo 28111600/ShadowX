@@ -355,3 +355,7 @@ canvas {
     margin: 10px auto;
     float: none;
 }
+
+textarea {
+    resize: none;
+}
