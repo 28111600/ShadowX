@@ -139,7 +139,7 @@ var showUsage = function(ctx, from, to, step, data) {
                 tension: 0,
             },
             point: {
-                hoverRadius: 1.5,
+                hoverRadius: 1,
             }
         },
         scales: {
@@ -165,8 +165,8 @@ var showUsage = function(ctx, from, to, step, data) {
         data: usage.d,
         borderColor: color.info[0],
         backgroundColor: color.info[1],
-        borderWidth: 1,
-        pointRadius: .1
+        borderWidth: 0.5,
+        pointRadius: 0
     }];
     var chart = new Chart(ctx, {
         type: 'line',
@@ -238,7 +238,7 @@ var showChart = function(ctx, from, to, step, data) {
                 tension: 0,
             },
             point: {
-                hoverRadius: 1.5,
+                hoverRadius: 1,
             }
         },
         legend: {
