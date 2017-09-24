@@ -1,4 +1,3 @@
-
 <!--   Core JS Files   -->
 <script src="asset/js/jquery.min.js" type="text/javascript"></script>
 <script src="asset/js/bootstrap.min.js" type="text/javascript"></script>
@@ -7,8 +6,6 @@
 <script src="asset/js/jquery.cookie.min.js"></script>
 <!--  Dynamic Elements plugin -->
 <script src="asset/js/arrive.min.js"></script>
-<!--  PerfectScrollbar Library -->
-<script src="asset/js/perfect-scrollbar.jquery.min.js"></script>
 <!-- Material Dashboard javascript methods -->
 <script src="asset/js/material-dashboard.js"></script>
 <!-- Messg -->
