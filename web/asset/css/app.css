@@ -226,6 +226,7 @@ canvas {
 
 .main-panel>.content {
     overflow-x: hidden;
+    overflow-y: visible;
 }
 
 .progress {
