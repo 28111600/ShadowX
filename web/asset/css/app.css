@@ -307,7 +307,7 @@ canvas {
 
 .form-control,
 .form-group .form-control {
-    background-size: 0 2px, 100% .8px;
+    background-size: 0 2px, 100% 1px;
 }
 
 .form-group .form-control {
