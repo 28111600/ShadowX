@@ -89,30 +89,31 @@ $pagelast  = min($pagelast,$pagemax);
         <div class="row">
             <div class="col-xs-12">
                 <div class="card">
-                    <div class="card-content table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th class="log-date text-center">日期</th>
-                                    <th>用户</th>
-                                    <th>端口</th>
-                                    <th class="text-right">上行</th>
-                                    <th class="text-right">下行</th>
-                                </tr>
-                            </thead>
-                                <tbody><?php
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th class="log-date text-center">日期</th>
+                                        <th>用户</th>
+                                        <th>端口</th>
+                                        <th class="text-right">上行</th>
+                                        <th class="text-right">下行</th>
+                                    </tr>
+                                </thead>
+                                    <tbody><?php
 function showRows($rows, $date) {
     $index = 0;
     foreach ($rows as $row) { ?>
-                                <tr><?php
+                                    <tr><?php
         if ($index === 0) { ?>
-                                    <td rowspan="<?php echo count($rows); ?>" class="vertical-middle multiple-row log-date text-center"><?php echo $date; ?></td><?php
+                                        <td rowspan="<?php echo count($rows); ?>" class="vertical-middle multiple-row log-date text-center"><?php echo $date; ?></td><?php
         } ?>
-                                    <td><?php echo $row['user_name']; ?></td>
-                                    <td><?php echo $row['port']; ?></td>
-                                    <td class="text-right"><?php if ($row['u'] != 0) { echo ShadowX\Utility::getSize($row['u']); } else { echo '-'; } ?></td>
-                                    <td class="text-right"><?php if ($row['d'] != 0) { echo ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
-                                </tr><?php
+                                        <td><?php echo $row['user_name']; ?></td>
+                                        <td><?php echo $row['port']; ?></td>
+                                        <td class="text-right"><?php if ($row['u'] != 0) { echo ShadowX\Utility::getSize($row['u']); } else { echo '-'; } ?></td>
+                                        <td class="text-right"><?php if ($row['d'] != 0) { echo ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
+                                    </tr><?php
         $index++;
     }
 }
@@ -136,8 +137,9 @@ foreach ($logs as $rs) {
 if (count($rows) != 0) {
     showRows($rows,$date);
 } ?>
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        </div>
                         <div class="text-right">
                             <div>
                                 <ul class="pagination">

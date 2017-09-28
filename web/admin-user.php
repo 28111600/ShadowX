@@ -16,50 +16,52 @@ require_once '../template/head.php';
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="card-content table-responsive">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>用户名</th>
-                                    <th>邮箱</th>
-                                    <th>端口</th>
-                                    <th>流量</th>
-                                    <th>24小时流量</th>
-                                    <th>最后使用</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $users = ShadowX\User::getAllUsers();
-                            foreach ($users as $rs){ ?>
-                                <tr>
-                                    <td><?php echo $rs['uid']; ?></td>
-                                    <td><?php echo $rs['user_name']; ?></td>
-                                    <td><?php echo $rs['email']; ?></td>
-                                    <td><?php echo $rs['port']; ?></td>
-                                    <td>
-                                        <div class="progress-usage">
-                                            <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($rs['transfer_enable'] - ($rs['u'] + $rs['d'])); ?> / <?php echo ShadowX\Utility::getSize($rs['u'] + $rs['d']); ?> / <?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?>'>
-                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($rs['u'] + $rs['d']) * 100 / $rs['transfer_enable'], 0), 100); ?>%"> <span class="sr-only">Transfer</span>
+                    <div class="card-content">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>用户名</th>
+                                        <th>邮箱</th>
+                                        <th>端口</th>
+                                        <th>流量</th>
+                                        <th>24小时流量</th>
+                                        <th>最后使用</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                $users = ShadowX\User::getAllUsers();
+                                foreach ($users as $rs){ ?>
+                                    <tr>
+                                        <td><?php echo $rs['uid']; ?></td>
+                                        <td><?php echo $rs['user_name']; ?></td>
+                                        <td><?php echo $rs['email']; ?></td>
+                                        <td><?php echo $rs['port']; ?></td>
+                                        <td>
+                                            <div class="progress-usage">
+                                                <div class="progress" data-toggle="tooltip" title='<?php echo ShadowX\Utility::getSize($rs['transfer_enable'] - ($rs['u'] + $rs['d'])); ?> / <?php echo ShadowX\Utility::getSize($rs['u'] + $rs['d']); ?> / <?php echo ShadowX\Utility::getSize($rs['transfer_enable']); ?>'>
+                                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo min(max(($rs['u'] + $rs['d']) * 100 / $rs['transfer_enable'], 0), 100); ?>%"> <span class="sr-only">Transfer</span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="usage-box">
-                                            <canvas data-id='<?php echo $rs['uid']; ?>' height="20px" width="144px" class="usage"></canvas>
-                                        </div>
-                                    </td>
-                                    <td><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></td>
-                                    <td>
-                                        <a class="no-break" href="admin-user-detail.php?uid=<?php echo $rs['uid']; ?>">详情</a>
-                                    </td>
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                                        </td>
+                                        <td>
+                                            <div class="usage-box">
+                                                <canvas data-id='<?php echo $rs['uid']; ?>' height="20px" width="144px" class="usage"></canvas>
+                                            </div>
+                                        </td>
+                                        <td><?php echo date('Y-m-d H:i:s', $rs['t'] + $timeoffset); ?></td>
+                                        <td>
+                                            <a class="no-break" href="admin-user-detail.php?uid=<?php echo $rs['uid']; ?>">详情</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
