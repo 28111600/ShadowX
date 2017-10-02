@@ -335,6 +335,5 @@ var showChart = function(ctx, from, to, step, data) {
     var timezone = getTimeZone();
     $.cookie('timezone', timezone, { expires: 30, path: '/' });
 
-
     $("[data-toggle='tooltip']").tooltip();
 })();

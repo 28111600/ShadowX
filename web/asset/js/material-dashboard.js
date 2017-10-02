@@ -90,7 +90,7 @@ $(document).on('click', '.navbar-toggle', function() {
 
 // activate collapse right menu when the windows is resized
 $(window).resize(function() {
-    md.initSidebarsCheck();
+    // md.initSidebarsCheck();
     // reset the seq for charts drawing animations
     seq = seq2 = 0;
 });
@@ -128,7 +128,7 @@ md = {
 
     initSidebarsCheck: function() {
         if ($(window).width() <= 991) {
-            if ($siderbar && $sidebar.length != 0) {
+            if ($sidebar.length != 0) {
                 md.initRightMenu();
             }
         }
