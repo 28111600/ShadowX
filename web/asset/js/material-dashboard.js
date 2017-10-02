@@ -128,7 +128,7 @@ md = {
 
     initSidebarsCheck: function() {
         if ($(window).width() <= 991) {
-            if ($sidebar.length != 0) {
+            if ($siderbar && $sidebar.length != 0) {
                 md.initRightMenu();
             }
         }
