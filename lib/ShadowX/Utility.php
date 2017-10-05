@@ -83,7 +83,7 @@ class Utility {
         if ($ipaddress==0) { $ipaddress = static::geoIP(); }
         $ip = new \Naux\IpLocation\IpLocation();
         $location = $ip->getlocation($ipaddress);
-        return $location['area'];
+        return $location['country'].' '.$location['area'];
     }
 
     static function getUptime($t) {
