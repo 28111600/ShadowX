@@ -18,7 +18,7 @@ CREATE TABLE `user` (
   `max_speed` int(11) NOT NULL DEFAULT 0,
   `enable` int(2) NOT NULL DEFAULT 1,
   `reg_date` int(11) NOT NULL DEFAULT 0,
-  `reg_ip` varchar(128) NOT NULL DEFAULT `unknown`,
+  `reg_ip` varchar(128) NOT NULL DEFAULT `0.0.0.0`,
   `invite_num` int(8) NOT NULL,
   `ref_by` int(11) NOT NULL DEFAULT 0,
   `is_admin` int(2) NOT NULL DEFAULT 0,

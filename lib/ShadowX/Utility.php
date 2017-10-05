@@ -74,13 +74,13 @@ class Utility {
         } else if ($_SERVER["REMOTE_ADDR"]) {
             $ip = $_SERVER["REMOTE_ADDR"];
         } else {
-            $ip = "Unknown";
+            $ip = "0.0.0.0";
         }
         return $ip;
     }
 
     static function getLocation($ipaddress=0){
-        if ($ipaddress==0) { $ipaddress = static::geoIP(); }
+        if ($ipaddress===0) { $ipaddress = static::geoIP(); }
         $ip = new \Naux\IpLocation\IpLocation();
         $location = $ip->getlocation($ipaddress);
         return $location['country'].' '.$location['area'];
