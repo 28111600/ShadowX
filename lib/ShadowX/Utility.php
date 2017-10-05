@@ -80,7 +80,9 @@ class Utility {
     }
 
     static function getLocation($ipaddress=0){
-        if ($ipaddress===0) { $ipaddress = static::geoIP(); }
+        if ($ipaddress === 0) {
+            $ipaddress = static::geoIP();
+        }
         $ip = new \Naux\IpLocation\IpLocation();
         $location = $ip->getlocation($ipaddress);
         return $location['country'].' '.$location['area'];
