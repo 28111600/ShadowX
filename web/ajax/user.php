@@ -24,7 +24,8 @@ if(!empty($_POST)){
             $content = ShadowX\Utility::renderTpl("../template/mail.tpl",[
                 "content" => '<p>你好 '.$User->getUserName().'!</p>'.
                             '<p>你在 '.date("Y-m-d H:i:s").' 修改了密码。</p>'.
-                            '<p>IP: '.ShadowX\Utility::geoIP().'</p>']);
+                            '<p>IP: '.ShadowX\Utility::geoIP().' ['.ShadowX\Utility::getLocation().']'.'</p>']);
+                            
 
             $mailgun->sendMessage($mailgun_domain, [
                 'from'    => $mail_sender,

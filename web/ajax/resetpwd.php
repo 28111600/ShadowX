@@ -31,7 +31,8 @@ if(!empty($_POST)){
                 "content" => '<p>你好 '.$user->getUserName().'!</p>'.
                             '<p>点击下面的链接来重置密码：</p>'.
                             '<p><a href="'.$site_url."/resetpwd.php?code=".$code.'">'.$site_url."/resetpwd.php?code=".$code.'</a></p>'.
-                            '<p>如果你没有请求重置密码，请忽略并删除这封邮件。</p>']);
+                            '<p>如果你没有请求重置密码，请忽略并删除这封邮件。</p>'.
+                            '<p>IP: '.ShadowX\Utility::geoIP().' ['.ShadowX\Utility::getLocation().']'.'</p>']);
 
             $mailgun->sendMessage($mailgun_domain, [
                 'from'    => $mail_sender,
@@ -76,7 +77,7 @@ if(!empty($_POST)){
             $content = ShadowX\Utility::renderTpl("../../template/mail.tpl",[
                 "content" => '<p>你好 '.$user->getUserName().'!</p>'.
                             '<p>你在 '.date("Y-m-d H:i:s").' 重置了密码。</p>'.
-                            '<p>IP: '.ShadowX\Utility::geoIP().'</p>']);
+                            '<p>IP: '.ShadowX\Utility::geoIP().' ['.ShadowX\Utility::getLocation().']'.'</p>']);
 
             $mailgun->sendMessage($mailgun_domain, [
                 'from'    => $mail_sender,

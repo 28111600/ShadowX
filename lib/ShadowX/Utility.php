@@ -79,6 +79,13 @@ class Utility {
         return $ip;
     }
 
+    static function getLocation($ipaddress=0){
+        if ($ipaddress==0) { $ipaddress = static::geoIP(); }
+        $ip = new \Naux\IpLocation\IpLocation();
+        $location = $ip->getlocation($ipaddress);
+        return $location['area'];
+    }
+
     static function getUptime($t) {
         return intval($t / (3600 * 24)).'天'.date('G',$t)."小时".intval(date('i',$t))."分钟";
     }

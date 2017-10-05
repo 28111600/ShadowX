@@ -84,7 +84,7 @@ $gb = 1024 * 1024 * 1024;
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label">注册IP</label>
-                                    <span class="form-control"><?php echo $rs['reg_ip']; ?></span>
+                                    <span class="form-control"><?php echo $rs['reg_ip']; ?> [<?php echo ShadowX\Utility::getLocation($rs['reg_ip']); ?>]</span>
                                 </div>
                             <?php } ?>
                             </div>
