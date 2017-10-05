@@ -71,7 +71,6 @@ if(!empty($_POST)){
             $user->setPasswd($passwd);
             ShadowX\ResetPwd::deleteResetCode($code);
 
-            require '../../vendor/autoload.php';
             $mailgun = new Mailgun\Mailgun($mailgun_key);
 
             $content = ShadowX\Utility::renderTpl("../../template/mail.tpl",[

@@ -50,7 +50,6 @@ if(!empty($_POST)){
             $result['code'] = 1;
 
             if (!empty($mailgun_key) && !empty($mailgun_domain)) {
-                require '../../vendor/autoload.php';
                 $mailgun = new Mailgun\Mailgun($mailgun_key);
 
                 $content = ShadowX\Utility::renderTpl("../../template/mail.tpl", [

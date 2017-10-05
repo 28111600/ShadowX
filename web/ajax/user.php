@@ -19,7 +19,6 @@ if(!empty($_POST)){
             $passwd = ShadowX\Utility::getPwdHash($passwd);
             $User->setPasswd($passwd);
 
-            require '../vendor/autoload.php';
             $mailgun = new Mailgun\Mailgun($mailgun_key);
 
             $content = ShadowX\Utility::renderTpl("../template/mail.tpl",[
