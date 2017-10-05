@@ -180,12 +180,12 @@ require_once '../template/footer.php'; ?>
                         new Message("密码已重置，需重新登录", "success", 1000);
                         setTimeout(function() { location.href = "user.php"; }, 1000);
                     } else {
-                        $("#resetpwd").attr("disabled", false);
+                        $("#user-passwd").attr("disabled", false);
                         new Message(data.msg, "error", 1000);
                     }
                 },
                 error: function(jqXHR) {
-                    $("#resetpwd").attr("disabled", false);
+                    $("#user-passwd").attr("disabled", false);
                     new Message("发生错误：" + jqXHR.status, "error", 1000);
                 }
             });
@@ -194,7 +194,7 @@ require_once '../template/footer.php'; ?>
             if ($("#passwd").val() !== $("#repasswd").val()) {
                 new Message("两次填写的密码不一致", "error", 1000);
             } else {
-                $("#resetpwd").attr("disabled", true);
+                $("#user-passwd").attr("disabled", true);
                 passwd();
             }
             return false;
