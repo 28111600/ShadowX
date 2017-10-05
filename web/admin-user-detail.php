@@ -56,6 +56,10 @@ $gb = 1024 * 1024 * 1024;
                                     <span class="form-control"><?php echo $rs['email']; ?></span>
                                 </div>
                                 <div class="form-group">
+                                    <label class="control-label">端口</label>
+                                    <span class="form-control"><?php echo $rs['port']; ?></span>
+                                </div>
+                                <div class="form-group">
                                     <label class="control-label">可用邀请码</label>
                                     <span class="form-control"><?php echo $rs['invite_num']; ?></span>
                                 </div>
