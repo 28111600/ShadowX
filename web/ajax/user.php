@@ -18,6 +18,21 @@ if(!empty($_POST)){
         } else {
             $passwd = ShadowX\Utility::getPwdHash($passwd);
             $User->setPasswd($passwd);
+
+            require '../vendor/autoload.php';
+            $mailgun = new Mailgun\Mailgun($mailgun_key);
+
+            $content = ShadowX\Utility::renderTpl("../template/mail.tpl",[
+                "content" => '<p>你好 '.$User->getUserName().'!</p>'.
+                            '<p>你在 '.date("Y-m-d H:i:s").' 修改了密码。</p>'.
+                            '<p>IP: '.ShadowX\Utility::geoIP().'</p>']);
+
+            $mailgun->sendMessage($mailgun_domain, [
+                'from'    => $mail_sender,
+                'to'      => $User->getEmail(),
+                'subject' => $site_name." 密码已修改",
+                'html'    => $content]);
+
             $result['ok'] = 1;
             $result['code'] = 1;
         }
