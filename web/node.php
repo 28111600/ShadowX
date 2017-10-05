@@ -8,7 +8,8 @@ require_once '../template/head.php';
         <div class="row">
         <?php 
         $nodes = ShadowX\Node::getAllNodes();
-        foreach ($nodes as $row) { ?>
+        if (count($nodes) > 0) {
+            foreach ($nodes as $row) { ?>
             <div class="col-sm-6">
                 <div class="card">
                     <div class="card-header" data-background-color>
@@ -59,8 +60,18 @@ require_once '../template/head.php';
                         </table>
                     </div>
                 </div>
-            </div>
-            <?php } ?>
+            </div><?php }
+            } else { ?>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">无可用节点</h4>
+                    </div>
+                    <div class="card-content">
+                        <p>暂无可用节点</p>
+                    </div>
+                </div>
+            </div><?php } ?>
         </div>
     </div>
 </div>

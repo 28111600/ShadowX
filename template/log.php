@@ -86,7 +86,8 @@ $pagelast  = min($pagelast,$pagemax);
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row"><?php
+if ($count > 0) { ?>
             <div class="col-xs-12">
                 <div class="card">
                     <div class="card-content">
@@ -102,41 +103,41 @@ $pagelast  = min($pagelast,$pagemax);
                                     </tr>
                                 </thead>
                                     <tbody><?php
-function showRows($rows, $date) {
-    $index = 0;
-    foreach ($rows as $row) { ?>
+    function showRows($rows, $date) {
+        $index = 0;
+        foreach ($rows as $row) { ?>
                                     <tr><?php
-        if ($index === 0) { ?>
+            if ($index === 0) { ?>
                                         <td rowspan="<?php echo count($rows); ?>" class="vertical-middle multiple-row log-date text-center"><?php echo $date; ?></td><?php
-        } ?>
+            } ?>
                                         <td><?php echo $row['user_name']; ?></td>
                                         <td><?php echo $row['port']; ?></td>
                                         <td class="text-right"><?php if ($row['u'] != 0) { echo ShadowX\Utility::getSize($row['u']); } else { echo '-'; } ?></td>
                                         <td class="text-right"><?php if ($row['d'] != 0) { echo ShadowX\Utility::getSize($row['d']); } else { echo '-'; } ?></td>
                                     </tr><?php
-        $index++;
-    }
-}
-
-$rows = [];
-$value = '';
-$date = '';
-foreach ($logs as $rs) {
-    $date = date($timeformat,$rs['t']);
-    if ($value != $date) {
-        if (count($rows) != 0) {
-            showRows($rows,$value);
+            $index++;
         }
-        $rows = [];
-        $value = $date;
-        $rows[] = $rs;
-    } else {
-        $rows[] = $rs;
     }
-}
-if (count($rows) != 0) {
-    showRows($rows,$date);
-} ?>
+
+    $rows = [];
+    $value = '';
+    $date = '';
+    foreach ($logs as $rs) {
+        $date = date($timeformat,$rs['t']);
+        if ($value != $date) {
+            if (count($rows) != 0) {
+                showRows($rows,$value);
+            }
+            $rows = [];
+            $value = $date;
+            $rows[] = $rs;
+        } else {
+            $rows[] = $rs;
+        }
+    }
+    if (count($rows) != 0) {
+        showRows($rows,$date);
+    } ?>
                                 </tbody>
                             </table>
                         </div>
@@ -183,7 +184,19 @@ if (count($rows) != 0) {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><?php
+} else { ?>
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-header" data-background-color>
+                        <h4 class="title">无数据</h4>
+                    </div>
+                    <div class="card-content">
+                        <p>暂无数据</p>
+                    </div>
+                </div>
+            </div><?php
+} ?>
         </div>
     </div>
 </div>
