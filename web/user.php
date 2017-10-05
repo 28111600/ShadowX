@@ -129,8 +129,6 @@ require_once '../template/head.php';
 <?php
 require_once '../template/footer.php'; ?>
 
-<!-- Select2 4.0.3 -->
-<script src="asset/js/select2.min.js"></script>
 <!-- Chart 2.6.0 -->
 <script src="asset/js/Chart.bundle.min.js"></script>
 
