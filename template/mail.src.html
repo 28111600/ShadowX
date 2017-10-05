@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- 需转换为内联样式 -->
+    <style type="text/css">
+        div,
+        a {
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            font-size: 14px;
+            height: 100% !important;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%;
+            width: 100%;
+        }
+        
+        .body {
+            width: 100%;
+        }
+        
+        .container {
+            display: block;
+            margin: 0 auto;
+            max-width: 750px;
+            padding: 10px;
+            text-align: center;
+            width: auto;
+        }
+        
+        .main {
+            background: #fff;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+            background: #fff;
+            border-radius: 2px;
+            border-spacing: 0;
+            width: 100%;
+        }
+        
+        .wrapper {
+            padding: 30px;
+            min-height: 15em;
+        }
+        
+        .content-block {
+            padding: 0 0 30px;
+        }
+        
+        .header {
+            margin-bottom: 30px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .footer {
+            clear: both;
+            width: 100%;
+        }
+        
+        .footer * {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .footer td {
+            padding: 20px 0;
+        }
+        
+        p,
+        ul,
+        ol,
+        td {
+            font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+        
+        p,
+        ul,
+        ol {
+            margin-bottom: 15px;
+            padding: 0;
+        }
+        
+        p li,
+        ul li,
+        ol li {
+            list-style-position: inside;
+            margin-left: 15px;
+            margin-bottom: 15px;
+        }
+        
+        a {
+            color: #348eda;
+            text-decoration: underline;
+        }
+        
+        .btn {
+            margin-bottom: 15px;
+            width: auto;
+            -premailer-width: auto;
+        }
+        
+        .btn td {
+            background-color: #fff;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .btn a {
+            background-color: #fff;
+            border: solid 1px #348eda;
+            border-radius: 5px;
+            color: #348eda;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 14px;
+            font-weight: bold;
+            margin: 0;
+            padding: 12px 25px;
+            text-decoration: none;
+            text-transform: capitalize;
+        }
+        
+        .btn-primary td {
+            background-color: #348eda;
+        }
+        
+        .btn-primary a {
+            background-color: #348eda;
+            border-color: #348eda;
+            color: #fff;
+        }
+        
+        .last {
+            margin-bottom: 0;
+        }
+        
+        .first {
+            margin-top: 0;
+        }
+        
+        .align-center {
+            text-align: center;
+        }
+        
+        .align-right {
+            text-align: right;
+        }
+        
+        .align-left {
+            text-align: left;
+        }
+        
+        .clear {
+            clear: both;
+        }
+        
+        .mt0 {
+            margin-top: 0;
+        }
+        
+        .mb0 {
+            margin-bottom: 0;
+        }
+        
+        .preheader {
+            color: transparent;
+            display: none;
+            height: 0;
+            max-height: 0;
+            max-width: 0;
+            opacity: 0;
+            overflow: hidden;
+            mso-hide: all;
+            visibility: hidden;
+            width: 0;
+        }
+        
+        .alert {
+            border-radius: 3px 3px 0 0;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .alert a {
+            color: #fff !important;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none !important;
+        }
+        
+        .alert.alert-warning {
+            background-color: #FF9F00;
+        }
+        
+        .alert.alert-bad {
+            background-color: #D0021B;
+        }
+        
+        .alert.alert-good {
+            background-color: #68B90F;
+        }
+        
+        .alert.alert-heroku {
+            background-color: #4A4689;
+        }
+        
+        .alert .apple-link a {
+            color: #fff !important;
+            text-decoration: none !important;
+        }
+        
+        .noreply {
+            font-size: .8em;
+            color: gray;
+            margin: .5em 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="container">
+            <div class="main">
+                <div class="wrapper align-left">
+                    {$content}
+                </div>
+            </div>
+            <div class="align-right noreply">此邮件为系统邮件，请勿回复</div>
+        </div>
+    </div>
+</body>
+
+</html>
