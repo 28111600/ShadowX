@@ -21,10 +21,13 @@ var getSize = function(size, fixed, k) {
 var customUsageTooltip = function(tooltip) {
     // Tooltip Element
     var tooltipEl = this._chart.canvas.parentNode.querySelector('.chartjs-tooltip');
+
+    if (tooltip.opacity !== 0) { $(".chartjs-tooltip").each(function() { if (this !== tooltipEl) { this.style.opacity = 0; } }); }
+
     if (!tooltipEl) {
         tooltipEl = document.createElement('div');
         $(tooltipEl).addClass('chartjs-tooltip tooltip top in');
-        tooltipEl.innerHTML = '<div class="tooltip-arrow"></div><div class="tooltip-inner"></div>';
+        tooltipEl.innerHTML = '<div class="tooltip-inner"></div><div class="tooltip-arrow"></div>';
         this._chart.canvas.parentNode.appendChild(tooltipEl);
     }
 
@@ -136,7 +139,7 @@ var showUsage = function(ctx, from, to, step, data) {
                 tension: 0,
             },
             point: {
-                hoverRadius: 1.5,
+                hoverRadius: 1,
             }
         },
         scales: {
@@ -162,8 +165,8 @@ var showUsage = function(ctx, from, to, step, data) {
         data: usage.d,
         borderColor: color.info[0],
         backgroundColor: color.info[1],
-        borderWidth: 1,
-        pointRadius: .1
+        borderWidth: 0.5,
+        pointRadius: 0
     }];
     var chart = new Chart(ctx, {
         type: 'line',
@@ -235,7 +238,7 @@ var showChart = function(ctx, from, to, step, data) {
                 tension: 0,
             },
             point: {
-                hoverRadius: 1.5,
+                hoverRadius: 1,
             }
         },
         legend: {
@@ -267,7 +270,8 @@ var showChart = function(ctx, from, to, step, data) {
             yAxes: [{
                 display: true,
                 gridLines: {
-                    drawBorder: false
+                    drawBorder: false,
+                    lineWidth: .5
                 },
                 ticks: {
                     max: chartYAxis.max,
@@ -279,14 +283,14 @@ var showChart = function(ctx, from, to, step, data) {
                 }
             }],
             xAxes: [{
-                display: false,
+                display: true,
                 gridLines: {
                     drawBorder: false,
                     display: false,
                 },
                 ticks: {
                     callback: function(value, index, values) {
-                        return value;
+                        return null;
                     }
                 }
             }]
@@ -330,4 +334,6 @@ var showChart = function(ctx, from, to, step, data) {
 !(function() {
     var timezone = getTimeZone();
     $.cookie('timezone', timezone, { expires: 30, path: '/' });
+
+    $("[data-toggle='tooltip']").tooltip();
 })();

@@ -121,56 +121,39 @@
                                     <h4 class="title">用户详情</h4>
                                 </div>
                                 <div class="card-content">
-                                    <div class="form-group">
-                                        <label class="control-label">用户名</label>
-                                        <span class="form-control">ouye</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">邮箱</label>
-                                        <span class="form-control">user@mail.com</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">连接密码</label>
-                                        <span class="form-control">1234567</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">流量</label>
-                                        <span class="form-control">1000 GB</span>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="progress-usage">
-                                            <div class="progress" data-toggle="tooltip" title='970.92 GB / 29.08 GB / 1000 GB'>
-                                                <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 2.9080183980055%"> <span class="sr-only">Transfer</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label">邀请人</label>
-                                        <span class="form-control">无</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="card">
-                                <div class="card-header" data-background-color>
-                                    <h4 class="title">修改登录密码</h4>
-                                </div>
-                                <div class="card-content">
-                                    <form id="form-passwd">
+                                    <form id="form-user">
                                         <div>
                                             <div class="form-group">
-                                                <label class="control-label">密码</label>
-                                                <input class="form-control" id="passwd" type="password" required="required" autocomplete="new-password">
+                                                <label class="control-label">用户名</label>
+                                                <span class="form-control">ouye</span>
                                             </div>
                                             <div class="form-group">
-                                                <label class="control-label">确认密码</label>
-                                                <input class="form-control" id="repasswd" type="password" required="required" autocomplete="new-password">
+                                                <label class="control-label">邮箱</label>
+                                                <span class="form-control">user@mail.com</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">端口</label>
+                                                <span class="form-control">1234</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">可用邀请码</label>
+                                                <span class="form-control">0</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">邀请人</label>
+                                                <span class="form-control">无</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">注册时间</label>
+                                                <span class="form-control">2000-01-01 00:00:00</span>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label">注册IP</label>
+                                                <span class="form-control">0.0.0.0 [IANA 保留地址]</span>
                                             </div>
                                         </div>
                                         <div>
-                                            <button type="submit" id="user-passwd" class="btn btn-success">保存</button>
+                                            <a href="?uid=1&edit" class="btn btn-primary">编辑</a>
                                         </div>
                                     </form>
                                 </div>
@@ -179,21 +162,68 @@
                         <div class="col-sm-6">
                             <div class="card">
                                 <div class="card-header" data-background-color>
-                                    <h4 class="title">修改连接密码</h4>
+                                    <h4 class="title">流量使用</h4>
                                 </div>
                                 <div class="card-content">
-                                    <form id="form-sspasswd">
-                                        <div>
-                                            <div class="form-group">
-                                                <input class="form-control" id="sspasswd" autocomplete="new-password" placeholder="留空则自动生成">
-                                            </div>
-                                            <div class="alert alert-danger mb0">
-                                                <span>连接密码需明文存储</span>
+                                    <div>
+                                        <div class="form-group">
+                                            <label class="control-label">连接密码</label>
+                                            <span class="form-control">1234567</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label">流量</label>
+                                            <span class="form-control">1000 GB</span>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="progress-usage">
+                                                <div class="progress" data-toggle="tooltip" title='970.92 GB / 29.08 GB / 1000 GB'>
+                                                    <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 2.9080183980055%"> <span class="sr-only">Transfer</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div>
-                                            <button type="submit" id="user-sspasswd" class="btn btn-success">保存</button>
+                                        <div class="form-group">
+                                            <label class="control-label">限速</label>
+                                            <span class="form-control" id="max-speed">0</span>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="control-label">最后使用时间</label>
+                                            <span class="form-control">2017-10-05 21:28:55</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header" data-background-color>
+                                    <h4 class="title">添加流量</h4>
+                                </div>
+                                <div class="card-content">
+                                    <form id="form-transfer">
+                                        <div class="form-group">
+                                            <label class="control-label">流量(GByte)</label>
+                                            <input class="form-control " id="transfer" required="required" placeholder="小于0则扣除流量">
+                                        </div>
+                                        <button type="submit" id="user-addtransfer" class="btn btn-success">确定</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="card">
+                                <div class="card-header" data-background-color>
+                                    <h4 class="title">添加邀请码</h4>
+                                </div>
+                                <div class="card-content">
+                                    <form id="form-invitenum">
+                                        <div class="form-group">
+                                            <label class="control-label">数量</label>
+                                            <input class="form-control" id="invitenum" required="required" placeholder="小于0则减少邀请码数量">
+                                        </div>
+                                        <button type="submit" id="user-addinvitenum" class="btn btn-success">确定</button>
                                     </form>
                                 </div>
                             </div>
@@ -257,80 +287,42 @@
 </html>
 <!-- Chart 2.6.0 -->
 <script src="asset/js/Chart.bundle.min.js"></script>
+<!-- Bootstrap Slider 9.8.1 -->
+<link rel="stylesheet" href="asset/css/bootstrap-slider.min.css">
+<script src="asset/js/bootstrap-slider.min.js"></script>
 
 <script>
-    !(function() {
-        function sspasswd() {
-            $.ajax({
-                type: "GET",
-                url: "ajax/ok.json",
-                dataType: "json",
-                data: {
-                    action: "sspasswd",
-                    passwd: encodeURIComponent($("#sspasswd").val()),
-                },
-                success: function(data) {
-                    if (data.ok) {
-                        new Message("操作成功", "success", 1000);
-                        setTimeout(function() {
-                            location.href = "user.html";
-                        }, 1000);
-                    } else {
-                        $("#user-sspasswd").attr("disabled", false);
-                        new Message(data.msg, "error", 1000);
-                    }
-                },
-                error: function(jqXHR) {
-                    $("#user-sspasswd").attr("disabled", false);
-                    new Message("发生错误：" + jqXHR.status, "error", 1000);
-                }
-            });
-        }
-        $("#form-sspasswd").submit(function() {
-            $("#user-sspasswd").attr("disabled", true);
-            sspasswd();
-            return false;
-        });
-    })();
+    var speeds = [{
+        value: 512,
+        label: "512 Kbps"
+    }, {
+        value: 1024,
+        label: "1 Mbps"
+    }, {
+        value: 2048,
+        label: "2 Mbps"
+    }, {
+        value: 4096,
+        label: "4 Mbps"
+    }, {
+        value: 8192,
+        label: "8 Mbps"
+    }, {
+        value: 0,
+        label: "不限速"
+    }];
 
-    !(function() {
-        function passwd() {
-            $.ajax({
-                type: "GET",
-                url: "ajax/ok.json",
-                dataType: "json",
-                data: {
-                    action: "passwd",
-                    passwd: $("#passwd").val(),
-                },
-                success: function(data) {
-                    if (data.ok) {
-                        new Message("密码已重置，需重新登录", "success", 1000);
-                        setTimeout(function() {
-                            location.href = "user.html";
-                        }, 1000);
-                    } else {
-                        $("#user-passwd").attr("disabled", false);
-                        new Message(data.msg, "error", 1000);
-                    }
-                },
-                error: function(jqXHR) {
-                    $("#user-passwd").attr("disabled", false);
-                    new Message("发生错误：" + jqXHR.status, "error", 1000);
-                }
-            });
-        }
-        $("#form-passwd").submit(function() {
-            if ($("#passwd").val() !== $("#repasswd").val()) {
-                new Message("两次填写的密码不一致", "error", 1000);
-            } else {
-                $("#user-passwd").attr("disabled", true);
-                passwd();
+    function getSpeed(value) {
+        var result = {};
+        $.each(speeds, function(index, item) {
+            if (value === item.value) {
+                result.index = index;
+                result.value = item.value;
+                result.label = item.label;
             }
-            return false;
         });
-    })();
-
+        return result;
+    }
     var uid = 1;
 
     !(function() {
@@ -349,6 +341,7 @@
                     action: "getLogRange",
                     from: from,
                     to: to + interval - 1,
+                    uid: uid,
                     type: "days"
                 }
             }).done(function(data) {
@@ -374,6 +367,7 @@
                     action: "getLogRange",
                     from: from,
                     to: to + interval - 1,
+                    uid: uid,
                     type: "20min"
                 }
             }).done(function(data) {
@@ -381,5 +375,88 @@
                 showChart(elem, from, to, interval, data.data);
             });
         });
+    })();
+
+    !(function() {
+        function addTransfer(transfer) {
+            $.ajax({
+                type: "GET",
+                url: "ajax/ok.json",
+                dataType: "json",
+                data: {
+                    action: "addtransfer",
+                    uid: uid,
+                    transfer: transfer * 1024 * 1024 * 1024
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() {
+                            location.href = "admin-user-detail.html?uid=" + uid;
+                        }, 1000);
+                    } else {
+                        new Message(data.msg, "error", 1000);
+                        $("#user-addtransfer").attr("disabled", false);
+                    }
+                },
+                error: function(jqXHR) {
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    $("#user-addtransfer").attr("disabled", false);
+                }
+            });
+        }
+
+        $("#form-transfer").submit(function() {
+            var transfer = parseInt($("#transfer").val());
+            if (transfer > 0 || transfer < 0) {
+                $("#user-addtransfer").attr("disabled", true);
+                addTransfer(transfer);
+            }
+            return false;
+        });
+    })();
+
+    !(function() {
+        function addInviteNum(num) {
+            $.ajax({
+                type: "GET",
+                url: "ajax/ok.json",
+                dataType: "json",
+                data: {
+                    action: "addinvitenum",
+                    uid: uid,
+                    num: num
+                },
+                success: function(data) {
+                    if (data.ok) {
+                        new Message("操作成功", "success", 1000);
+                        setTimeout(function() {
+                            location.href = "admin-user-detail.html?uid=" + uid;
+                        }, 1000);
+                    } else {
+                        new Message(data.msg, "error", 1000);
+                        $("#user-addinvitenum").attr("disabled", false);
+                    }
+                },
+                error: function(jqXHR) {
+                    new Message("发生错误：" + jqXHR.status, "error", 1000);
+                    $("#user-addinvitenum").attr("disabled", false);
+                }
+            });
+        }
+
+        $("#form-invitenum").submit(function() {
+            var num = parseInt($("#invitenum").val());
+            if (num > 0 || num < 0) {
+                $("#user-addinvitenum").attr("disabled", true);
+                addInviteNum(num);
+            }
+            return false;
+        });
+
+        !(function() {
+            var speed = getSpeed(parseInt($("#max-speed").text()));
+            $("#max-speed").text(speed.label);
+        })();
     })();
 </script>
