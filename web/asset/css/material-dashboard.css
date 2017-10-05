@@ -6763,3 +6763,7 @@ footer .btn {
         overflow: visible;
     }
 }
+
+.modal .modal-dialog {
+    margin-top: 10px;
+}
